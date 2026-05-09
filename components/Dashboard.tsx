@@ -13,7 +13,11 @@ import { WinLossChart } from "./WinLossChart";
 import { GoalProgress } from "./GoalProgress";
 import { AdvancedMetrics } from "./AdvancedMetrics";
 import { WeekdayChart } from "./WeekdayChart";
+import { YearlyTable } from "./YearlyTable";
+import { MonthlyHeatmap } from "./MonthlyHeatmap";
+import { PeriodPresets } from "./PeriodPresets";
 import { computeMetrics, computeWeekdayStats } from "@/lib/metrics";
+import { aggregateMonthly, aggregateYearly } from "@/lib/aggregate";
 
 type ContractKey = "micro" | "mini" | "large";
 const CONTRACTS: Record<ContractKey, { label: string; size: number }> = {
@@ -68,6 +72,8 @@ export function Dashboard({ n225, dji }: { n225: Bar[]; dji: Bar[] }) {
   );
 
   const weekdayStats = useMemo(() => computeWeekdayStats(sim.trades), [sim.trades]);
+  const monthlyStats = useMemo(() => aggregateMonthly(sim.trades), [sim.trades]);
+  const yearlyStats = useMemo(() => aggregateYearly(sim.trades, monthlyStats), [sim.trades, monthlyStats]);
 
   const isAbnormal = Math.abs(sim.roiPct) > 200;
 
@@ -126,12 +132,15 @@ export function Dashboard({ n225, dji }: { n225: Bar[]; dji: Bar[] }) {
           {/* 設定 */}
           <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
             <Field label="開始日">
-              <input
-                type="date"
-                value={startDate}
-                onChange={(e) => setStartDate(e.target.value)}
-                className="bg-[var(--bg-elevated)] border border-[var(--border)] rounded-md px-3 py-2 text-sm w-full focus:outline-none focus:border-[var(--blue)]"
-              />
+              <div className="space-y-1">
+                <input
+                  type="date"
+                  value={startDate}
+                  onChange={(e) => setStartDate(e.target.value)}
+                  className="bg-[var(--bg-elevated)] border border-[var(--border)] rounded-md px-3 py-2 text-sm w-full focus:outline-none focus:border-[var(--blue)]"
+                />
+                <PeriodPresets current={startDate} onSelect={setStartDate} />
+              </div>
             </Field>
             <Field label="銘柄">
               <select
@@ -211,6 +220,16 @@ export function Dashboard({ n225, dji }: { n225: Bar[]; dji: Bar[] }) {
       {/* 高度な分析指標 */}
       <div className="mb-6">
         <AdvancedMetrics metrics={metrics} />
+      </div>
+
+      {/* 年別パフォーマンス */}
+      <div className="mb-6">
+        <YearlyTable stats={yearlyStats} />
+      </div>
+
+      {/* 月別ヒートマップ */}
+      <div className="mb-6">
+        <MonthlyHeatmap monthly={monthlyStats} />
       </div>
 
       {/* 直近10取引 */}
