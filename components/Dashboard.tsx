@@ -10,6 +10,10 @@ import { MonthlyBar } from "./MonthlyBar";
 import { TradesTable } from "./TradesTable";
 import { IntradayChart } from "./IntradayChart";
 import { WinLossChart } from "./WinLossChart";
+import { GoalProgress } from "./GoalProgress";
+import { AdvancedMetrics } from "./AdvancedMetrics";
+import { WeekdayChart } from "./WeekdayChart";
+import { computeMetrics, computeWeekdayStats } from "@/lib/metrics";
 
 type ContractKey = "micro" | "mini" | "large";
 const CONTRACTS: Record<ContractKey, { label: string; size: number }> = {
@@ -39,6 +43,7 @@ export function Dashboard({ n225, dji }: { n225: Bar[]; dji: Bar[] }) {
   const [contract, setContract] = useState<ContractKey>("mini");
   const [pieces, setPieces] = useState(1);
   const [capital, setCapital] = useState(DEFAULT_CAPITAL["mini"]);
+  const [goalCapital, setGoalCapital] = useState(DEFAULT_CAPITAL["mini"] * 10);
   const [now, setNow] = useState(new Date());
 
   useEffect(() => {
@@ -49,12 +54,20 @@ export function Dashboard({ n225, dji }: { n225: Bar[]; dji: Bar[] }) {
   // 銘柄変更で初期資金デフォルトも変える
   useEffect(() => {
     setCapital(DEFAULT_CAPITAL[contract]);
+    setGoalCapital(DEFAULT_CAPITAL[contract] * 10);
   }, [contract]);
 
   const sim = useMemo(
     () => simulate(n225, dji, startDate, CONTRACTS[contract].size, pieces, capital),
     [n225, dji, startDate, contract, pieces, capital]
   );
+
+  const metrics = useMemo(
+    () => computeMetrics(sim.trades, capital, CONTRACTS[contract].size),
+    [sim.trades, capital, contract]
+  );
+
+  const weekdayStats = useMemo(() => computeWeekdayStats(sim.trades), [sim.trades]);
 
   const isAbnormal = Math.abs(sim.roiPct) > 200;
 
@@ -111,7 +124,7 @@ export function Dashboard({ n225, dji }: { n225: Bar[]; dji: Bar[] }) {
           </div>
 
           {/* 設定 */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
             <Field label="開始日">
               <input
                 type="date"
@@ -138,11 +151,18 @@ export function Dashboard({ n225, dji }: { n225: Bar[]; dji: Bar[] }) {
                 className="bg-[var(--bg-elevated)] border border-[var(--border)] rounded-md px-3 py-2 text-sm w-full focus:outline-none focus:border-[var(--blue)]"
               />
             </Field>
-            <Field label="初期資金（円）">
+            <Field label="銀行残高（初期）">
               <input
                 type="number" min={10000} step={10000} value={capital}
                 onChange={(e) => setCapital(Number(e.target.value))}
                 className="bg-[var(--bg-elevated)] border border-[var(--border)] rounded-md px-3 py-2 text-sm w-full focus:outline-none focus:border-[var(--blue)]"
+              />
+            </Field>
+            <Field label="🎯 目標額">
+              <input
+                type="number" min={10000} step={10000} value={goalCapital}
+                onChange={(e) => setGoalCapital(Number(e.target.value))}
+                className="bg-[var(--bg-elevated)] border border-[var(--border)] rounded-md px-3 py-2 text-sm w-full focus:outline-none focus:border-[var(--gold)]"
               />
             </Field>
           </div>
@@ -152,6 +172,16 @@ export function Dashboard({ n225, dji }: { n225: Bar[]; dji: Bar[] }) {
       {/* KPI */}
       <div className="mb-6">
         <KpiCards sim={sim} />
+      </div>
+
+      {/* 🎯 目標達成シミュレーション */}
+      <div className="mb-6">
+        <GoalProgress
+          trades={sim.trades}
+          initialCapital={capital}
+          goalCapital={goalCapital}
+          startDate={startDate}
+        />
       </div>
 
       {/* 警告 */}
@@ -172,9 +202,15 @@ export function Dashboard({ n225, dji }: { n225: Bar[]; dji: Bar[] }) {
         </div>
       </div>
 
-      {/* 勝敗グラフ */}
-      <div className="mb-6">
+      {/* 勝敗グラフ + 曜日別 */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6">
         <WinLossChart trades={sim.trades} limit={30} />
+        <WeekdayChart stats={weekdayStats} />
+      </div>
+
+      {/* 高度な分析指標 */}
+      <div className="mb-6">
+        <AdvancedMetrics metrics={metrics} />
       </div>
 
       {/* 直近10取引 */}
