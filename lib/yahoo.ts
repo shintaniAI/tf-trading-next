@@ -3,7 +3,7 @@ export type Bar = { date: string; open: number; high: number; low: number; close
 
 const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120 Safari/537.36";
 
-export async function fetchYahoo(symbol: string, days = 2600): Promise<Bar[]> {
+export async function fetchYahoo(symbol: string, days = 6000): Promise<Bar[]> {
   const end = Math.floor(Date.now() / 1000) + 86400;
   const start = Math.floor(Date.now() / 1000) - days * 86400;
   const url = `https://query1.finance.yahoo.com/v8/finance/chart/${symbol}?period1=${start}&period2=${end}&interval=1d`;

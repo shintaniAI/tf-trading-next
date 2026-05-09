@@ -8,7 +8,9 @@ const presets: Preset[] = [
   { label: "1年", getStart: () => isoDaysAgo(365) },
   { label: "3年", getStart: () => isoDaysAgo(365 * 3) },
   { label: "5年", getStart: () => isoDaysAgo(365 * 5) },
-  { label: "全期間", getStart: () => "2020-01-01" },
+  { label: "10年", getStart: () => isoDaysAgo(365 * 10) },
+  { label: "15年", getStart: () => isoDaysAgo(365 * 15) },
+  { label: "全期間", getStart: () => "2010-01-01" },
 ];
 
 function isoDaysAgo(d: number) {
