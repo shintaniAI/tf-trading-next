@@ -18,6 +18,7 @@ import { MonthlyHeatmap } from "./MonthlyHeatmap";
 import { PeriodPresets } from "./PeriodPresets";
 import { computeMetrics, computeWeekdayStats } from "@/lib/metrics";
 import { aggregateMonthly, aggregateYearly } from "@/lib/aggregate";
+import { AutoTrader } from "./AutoTrader";
 
 type ContractKey = "micro" | "mini" | "large";
 const CONTRACTS: Record<ContractKey, { label: string; size: number }> = {
@@ -101,6 +102,11 @@ export function Dashboard({ n225, dji }: { n225: Bar[]; dji: Bar[] }) {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6">
         <HeroToday signal={sigToday} basePieces={pieces} contractSize={CONTRACTS[contract].size} />
         <IntradayChart />
+      </div>
+
+      {/* 自動売買コントロール */}
+      <div className="mb-6">
+        <AutoTrader signal={sigToday} basePieces={pieces} />
       </div>
 
       {/* モード + 設定パネル */}
