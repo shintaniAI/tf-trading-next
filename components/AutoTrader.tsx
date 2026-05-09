@@ -3,16 +3,16 @@ import { useState, useEffect, useRef } from "react";
 import type { Signal } from "@/lib/strategy";
 
 type ConnectionStatus = "idle" | "connecting" | "ok" | "error";
-type TradeMode = "PAPER" | "LIVE_VERIFICATION" | "LIVE_PRODUCTION";
+type TradeMode = "PAPER" | "DEMO" | "LIVE";
 
-const SETTINGS_KEY = "tf_kabu_settings_v1";
+const SETTINGS_KEY = "tf_ig_settings_v1";
 
 type Settings = {
-  symbol: string;
+  identifier: string;
+  apiKey: string;       // localStorageには保存
+  epic: string;         // 日経225 epic
   emergencyStop: boolean;
   mode: TradeMode;
-  maxDailyLossYen: number;
-  maxConsecutiveLosses: number;
   // スケジューラ
   schedulerEnabled: boolean;
   openHour: number;
@@ -22,11 +22,11 @@ type Settings = {
 };
 
 const DEFAULT: Settings = {
-  symbol: "",
+  identifier: "",
+  apiKey: "",
+  epic: "IX.D.NIKKEI.IFM.IP", // 一般的な日経225 CFD epic（接続後に自動取得・上書き）
   emergencyStop: false,
   mode: "PAPER",
-  maxDailyLossYen: 30000,
-  maxConsecutiveLosses: 3,
   schedulerEnabled: false,
   openHour: 8,
   openMinute: 50,
@@ -34,14 +34,14 @@ const DEFAULT: Settings = {
   closeMinute: 25,
 };
 
-type ConnResp = { ok: boolean; tokenPrefix?: string; mode?: string; error?: string };
-type OrderResp = { ok: boolean; mode?: string; simulated?: boolean; message?: string; result?: unknown; error?: string };
+type LoginResp = { ok: boolean; env?: string; accountId?: string; currency?: string; cstPrefix?: string; nikkeiEpic?: string | null; error?: string };
+type OrderResp = { ok: boolean; mode?: string; simulated?: boolean; message?: string; dealReference?: string; error?: string };
 type LogEntry = { ts: string; type: "open" | "close" | "skip" | "error" | "manual"; message: string };
 
 export function AutoTrader({ signal, basePieces }: { signal: Signal | null; basePieces: number }) {
   const [s, setS] = useState<Settings>(DEFAULT);
   const [hydrated, setHydrated] = useState(false);
-  const [password, setPassword] = useState(""); // session のみ（localStorage非保存）
+  const [password, setPassword] = useState(""); // session のみ
   const [conn, setConn] = useState<ConnectionStatus>("idle");
   const [connMsg, setConnMsg] = useState<string>("");
   const [busy, setBusy] = useState(false);
@@ -70,6 +70,7 @@ export function AutoTrader({ signal, basePieces }: { signal: Signal | null; base
 
   const isLive = s.mode !== "PAPER";
   const isAuthorized = !isLive || conn === "ok";
+  const igEnv = s.mode === "LIVE" ? "LIVE" : "DEMO";
 
   const addLog = (type: LogEntry["type"], message: string) => {
     setLogs((prev) => [
@@ -80,75 +81,71 @@ export function AutoTrader({ signal, basePieces }: { signal: Signal | null; base
 
   const testConnection = async () => {
     if (!isLive) {
-      setConn("ok");
-      setConnMsg("PAPER モード（接続不要）");
-      return;
+      setConn("ok"); setConnMsg("PAPER モード（接続不要）"); return;
     }
-    setConn("connecting");
-    setConnMsg("接続テスト中...");
+    setConn("connecting"); setConnMsg("ログイン中...");
     try {
-      const r = await fetch("/api/kabu/health", {
+      const r = await fetch("/api/ig/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ password, verification: s.mode === "LIVE_VERIFICATION" }),
+        body: JSON.stringify({
+          apiKey: s.apiKey, identifier: s.identifier, password, env: igEnv,
+        }),
       });
-      const j: ConnResp = await r.json();
-      if (j.ok) { setConn("ok"); setConnMsg(`✓ 接続OK (${j.mode}) Token: ${j.tokenPrefix}`); }
-      else { setConn("error"); setConnMsg(j.error || "接続失敗"); }
+      const j: LoginResp = await r.json();
+      if (j.ok) {
+        setConn("ok");
+        setConnMsg(`✓ ログインOK ${j.env} ${j.accountId} ${j.currency}`);
+        // 日経225 epic 自動取得
+        if (j.nikkeiEpic && j.nikkeiEpic !== s.epic) {
+          setS({ ...s, epic: j.nikkeiEpic });
+          addLog("manual", `日経225 epic 自動設定: ${j.nikkeiEpic}`);
+        }
+      } else {
+        setConn("error"); setConnMsg(j.error || "ログイン失敗");
+      }
     } catch (e) {
-      setConn("error");
-      setConnMsg(e instanceof Error ? e.message : "接続失敗");
+      setConn("error"); setConnMsg(e instanceof Error ? e.message : "ログイン失敗");
     }
   };
 
   const sendOrder = async (kind: "open" | "close", silent = false) => {
     if (!signal || signal.direction === "skip") {
-      addLog("skip", `${kind === "open" ? "寄成" : "引成"}: シグナルなしのためスキップ`);
+      addLog("skip", `${kind === "open" ? "新規" : "決済"}: シグナルなしのためスキップ`);
       return;
     }
-    if (s.emergencyStop) {
-      addLog("skip", "緊急停止中のため発注しません");
-      return;
-    }
-    if (isLive && !isAuthorized) {
-      addLog("error", "本番接続未確認のため発注中止");
-      return;
-    }
-    if (isLive && !s.symbol) {
-      addLog("error", "銘柄コード未設定");
-      return;
-    }
+    if (s.emergencyStop) { addLog("skip", "緊急停止中のため発注しません"); return; }
+    if (isLive && !isAuthorized) { addLog("error", "ログイン未完了のため発注中止"); return; }
+    if (isLive && !s.epic) { addLog("error", "epic未設定"); return; }
+
     const pieces = signal.piecesLogic * basePieces;
-    const sideRaw: "1" | "2" = signal.direction === "買い" ? "2" : "1";
-    const side: "1" | "2" = kind === "close" ? (sideRaw === "1" ? "2" : "1") : sideRaw;
-    const tradeType = kind === "open" ? 1 : 2;
-    const frontOrderType = kind === "open" ? 120 : 130;
-    const action = kind === "open" ? "寄成 新規" : "引成 決済";
+    // IG: BUY/SELL 直接指定。決済は反対サイドを kind=close で送る
+    let direction: "BUY" | "SELL" = signal.direction === "買い" ? "BUY" : "SELL";
+    if (kind === "close") direction = direction === "BUY" ? "SELL" : "BUY";
+    const action = kind === "open" ? "新規発注" : "決済";
 
     if (!silent) {
       const modeLabel = s.mode === "PAPER" ? "PAPER（仮想）" :
-                        s.mode === "LIVE_VERIFICATION" ? "検証（ダミー）" :
-                        "🔴 本番（実マネー）";
-      const ok = confirm(`${action}\n${signal.direction} ${pieces}枚\nモード: ${modeLabel}\n\n発注しますか？`);
+                        s.mode === "DEMO" ? "DEMO（IG証券デモ）" :
+                        "🔴 LIVE（IG証券本番）";
+      const ok = confirm(`${action}\n${direction} ${pieces}\nモード: ${modeLabel}\n\n発注しますか？`);
       if (!ok) { addLog("skip", `${action}: ユーザーキャンセル`); return; }
     }
 
     setBusy(true);
     try {
-      const r = await fetch("/api/kabu/order", {
+      const r = await fetch("/api/ig/order", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          password, mode: s.mode,
-          verification: s.mode === "LIVE_VERIFICATION",
-          symbol: s.symbol, side, qty: pieces,
-          tradeType, frontOrderType, price: 0,
+          apiKey: s.apiKey, identifier: s.identifier, password, env: igEnv,
+          mode: s.mode, epic: s.epic, direction, size: pieces, kind,
         }),
       });
       const j: OrderResp = await r.json();
       if (j.ok) {
         const t: LogEntry["type"] = silent ? kind : "manual";
-        addLog(t, `${action} ${signal.direction}${pieces}枚 → ${j.simulated ? "PAPER成功" : "実発注成功"}`);
+        addLog(t, `${action} ${direction}${pieces} → ${j.simulated ? "PAPER成功" : `実発注成功 ${j.dealReference}`}`);
       } else {
         addLog("error", `${action} 失敗: ${j.error || JSON.stringify(j)}`);
       }
@@ -159,17 +156,17 @@ export function AutoTrader({ signal, basePieces }: { signal: Signal | null; base
     }
   };
 
-  // 時刻監視（自動発注 - 承認なし）
+  // 時刻監視（承認なし発注）
   useEffect(() => {
     if (!s.schedulerEnabled || !now) return;
     const dow = now.getDay();
-    if (dow === 0 || dow === 6) return; // 土日スキップ
+    if (dow === 0 || dow === 6) return;
     const dateKey = now.toISOString().slice(0, 10);
     const h = now.getHours();
     const m = now.getMinutes();
     if (h === s.openHour && m === s.openMinute && lastFiredRef.current.open !== dateKey) {
       lastFiredRef.current.open = dateKey;
-      void sendOrder("open", true); // silent=true で承認なし
+      void sendOrder("open", true);
     }
     if (h === s.closeHour && m === s.closeMinute && lastFiredRef.current.close !== dateKey) {
       lastFiredRef.current.close = dateKey;
@@ -178,42 +175,41 @@ export function AutoTrader({ signal, basePieces }: { signal: Signal | null; base
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [now, s.schedulerEnabled, s.openHour, s.openMinute, s.closeHour, s.closeMinute]);
 
-  // チェックリスト判定
   const checklistItems = [
     {
-      label: "1. 三菱UFJ eスマート証券 口座開設",
+      label: "1. IG証券 口座開設（DEMOから）",
       status: "unknown" as const,
-      note: "https://kabu.com/ で開設（1〜2週）",
+      note: "https://www.ig.com/jp で開設、DEMOは即時、LIVEは1週間",
     },
     {
-      label: "2. 信用 + 先物・OP 口座 適性審査",
-      status: "unknown" as const,
-      note: "投資経験「あり」+ 投資目的「収益性重視」で申請",
+      label: "2. APIキー発行",
+      status: (s.apiKey ? "ok" : "ng") as "ok" | "ng",
+      note: s.apiKey ? "✓ 入力済み" : "MyIG > 設定 > API キー で発行",
     },
     {
-      label: "3. kabu Station PRO 起動・ログイン",
-      status: "unknown" as const,
-      note: "Windows 必須。常時起動 or VPS",
+      label: "3. ユーザー名（identifier）",
+      status: (s.identifier ? "ok" : "ng") as "ok" | "ng",
+      note: s.identifier ? `✓ ${s.identifier}` : "IGログイン用ユーザー名",
     },
     {
-      label: "4. API パスワード入力",
+      label: "4. パスワード入力（session）",
       status: (password ? "ok" : "ng") as "ok" | "ng",
-      note: password ? "✓ 入力済み" : "下記のフォームに kabu Station 設定 > APIタブ で設定したパスワード",
+      note: password ? "✓ 入力済み" : "ブラウザに保存されません",
     },
     {
-      label: "5. 銘柄コード設定",
-      status: (s.symbol ? "ok" : "ng") as "ok" | "ng",
-      note: s.symbol ? `✓ ${s.symbol}` : "日経225マイクロの限月銘柄コード（kabuステーション > 銘柄検索）",
-    },
-    {
-      label: "6. API 接続テスト成功",
+      label: "5. ログインテスト成功",
       status: (conn === "ok" && isLive ? "ok" : conn === "error" ? "ng" : "unknown") as "ok" | "ng" | "unknown",
-      note: connMsg || "下の「接続テスト」ボタンで確認",
+      note: connMsg || "下の「ログインテスト」ボタンで確認",
     },
     {
-      label: "7. 証拠金入金",
+      label: "6. 日経225 epic 設定",
+      status: (s.epic ? "ok" : "ng") as "ok" | "ng",
+      note: `現在: ${s.epic || "未設定"}（ログイン成功時に自動検出）`,
+    },
+    {
+      label: "7. 入金（DEMOは仮想10万円、LIVEは要入金）",
       status: "unknown" as const,
-      note: "マイクロなら最低1.2万円〜（最初は最小ロットで）",
+      note: "DEMOは仮想資金、LIVEは7万円〜（レバ10倍で日経225 1単位約7万円）",
     },
   ];
 
@@ -228,9 +224,14 @@ export function AutoTrader({ signal, basePieces }: { signal: Signal | null; base
       {/* メインカード */}
       <div className="rounded-xl border border-[var(--border)] bg-[var(--bg-card)] p-5">
         <div className="flex items-baseline justify-between mb-4">
-          <h3 className="text-sm font-semibold uppercase tracking-widest text-[var(--text-muted)]">
-            🤖 自動売買コントロール
-          </h3>
+          <div>
+            <h3 className="text-sm font-semibold uppercase tracking-widest text-[var(--text-muted)]">
+              🤖 自動売買 (IG証券)
+            </h3>
+            <p className="text-[10px] text-[var(--text-muted)] mt-0.5">
+              日経225 CFD / 公式 REST API
+            </p>
+          </div>
           <div className="flex items-center gap-2 text-xs">
             <span className={`w-2 h-2 rounded-full ${dotColor}`} />
             <span className="text-[var(--text-muted)] tnum">{connMsg || "未接続"}</span>
@@ -240,17 +241,17 @@ export function AutoTrader({ signal, basePieces }: { signal: Signal | null; base
         {/* モード選択 */}
         <div className="grid grid-cols-3 gap-2 mb-4">
           {([
-            { v: "PAPER", label: "🧪 PAPER", desc: "仮想（無料・安全）" },
-            { v: "LIVE_VERIFICATION", label: "🔬 検証", desc: "kabuS検証モード" },
-            { v: "LIVE_PRODUCTION", label: "🔴 本番", desc: "リアルマネー" },
+            { v: "PAPER", label: "🧪 PAPER", desc: "仮想（最安全）" },
+            { v: "DEMO", label: "🔬 DEMO", desc: "IG証券デモ口座" },
+            { v: "LIVE", label: "🔴 LIVE", desc: "IG証券本番" },
           ] as const).map((m) => (
             <button
               key={m.v}
               onClick={() => { setS({ ...s, mode: m.v }); setConn("idle"); setConnMsg(""); }}
               className={`px-3 py-2 rounded-lg text-xs font-bold transition ${
                 s.mode === m.v
-                  ? m.v === "LIVE_PRODUCTION" ? "bg-[var(--red)] text-white"
-                  : m.v === "LIVE_VERIFICATION" ? "bg-[var(--gold)] text-black"
+                  ? m.v === "LIVE" ? "bg-[var(--red)] text-white"
+                  : m.v === "DEMO" ? "bg-[var(--gold)] text-black"
                   : "bg-[var(--blue)] text-white"
                   : "bg-[var(--bg-elevated)] text-[var(--text-muted)] hover:bg-[var(--border)]"
               }`}
@@ -261,38 +262,61 @@ export function AutoTrader({ signal, basePieces }: { signal: Signal | null; base
           ))}
         </div>
 
-        {/* LIVE設定 */}
+        {/* LIVE/DEMO設定 */}
         {isLive && (
           <div className="space-y-3 mb-4 p-3 rounded-lg bg-[var(--bg-elevated)]">
             <div>
               <label className="text-[10px] uppercase tracking-widest text-[var(--text-muted)]">
-                kabu API パスワード
+                IG API キー
               </label>
               <input
-                type="password" value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="kabuステーション > 設定 > APIタブ で設定"
+                type="password" value={s.apiKey}
+                onChange={(e) => setS({ ...s, apiKey: e.target.value })}
+                placeholder="MyIG > 設定 > APIキー で発行"
                 className="mt-1 w-full bg-[var(--bg)] border border-[var(--border)] rounded px-3 py-2 text-sm focus:outline-none focus:border-[var(--blue)]"
               />
-              <p className="mt-1 text-[10px] text-[var(--text-muted)]">※ ブラウザに保存されません</p>
+            </div>
+            <div className="grid grid-cols-2 gap-2">
+              <div>
+                <label className="text-[10px] uppercase tracking-widest text-[var(--text-muted)]">
+                  ユーザー名
+                </label>
+                <input
+                  type="text" value={s.identifier}
+                  onChange={(e) => setS({ ...s, identifier: e.target.value })}
+                  placeholder="IGログインユーザー名"
+                  className="mt-1 w-full bg-[var(--bg)] border border-[var(--border)] rounded px-3 py-2 text-sm focus:outline-none focus:border-[var(--blue)]"
+                />
+              </div>
+              <div>
+                <label className="text-[10px] uppercase tracking-widest text-[var(--text-muted)]">
+                  パスワード
+                </label>
+                <input
+                  type="password" value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="セッションのみ保存"
+                  className="mt-1 w-full bg-[var(--bg)] border border-[var(--border)] rounded px-3 py-2 text-sm focus:outline-none focus:border-[var(--blue)]"
+                />
+              </div>
             </div>
             <div>
               <label className="text-[10px] uppercase tracking-widest text-[var(--text-muted)]">
-                銘柄コード
+                日経225 epic
               </label>
               <input
-                type="text" value={s.symbol}
-                onChange={(e) => setS({ ...s, symbol: e.target.value })}
-                placeholder="例: 167060019 (要kabuS銘柄検索)"
-                className="mt-1 w-full bg-[var(--bg)] border border-[var(--border)] rounded px-3 py-2 text-sm focus:outline-none focus:border-[var(--blue)]"
+                type="text" value={s.epic}
+                onChange={(e) => setS({ ...s, epic: e.target.value })}
+                placeholder="ログイン後に自動検出"
+                className="mt-1 w-full bg-[var(--bg)] border border-[var(--border)] rounded px-3 py-2 text-sm focus:outline-none focus:border-[var(--blue)] font-mono"
               />
             </div>
             <button
               onClick={testConnection}
-              disabled={!password}
+              disabled={!s.apiKey || !s.identifier || !password}
               className="w-full bg-[var(--blue)] hover:bg-[var(--blue)]/80 disabled:opacity-30 disabled:cursor-not-allowed text-white py-2 rounded-lg text-sm font-semibold transition"
             >
-              🔌 接続テスト
+              🔌 ログインテスト
             </button>
           </div>
         )}
@@ -304,14 +328,14 @@ export function AutoTrader({ signal, basePieces }: { signal: Signal | null; base
             disabled={busy || !signal || signal.direction === "skip" || s.emergencyStop || (isLive && !isAuthorized)}
             className="bg-[var(--green)] hover:bg-[var(--green)]/80 disabled:opacity-30 disabled:cursor-not-allowed text-white py-3 rounded-lg text-sm font-bold transition"
           >
-            {busy ? "..." : "📈 寄成 新規（手動）"}
+            {busy ? "..." : "📈 新規 発注"}
           </button>
           <button
             onClick={() => sendOrder("close")}
             disabled={busy || !signal || signal.direction === "skip" || s.emergencyStop || (isLive && !isAuthorized)}
             className="bg-[var(--blue)] hover:bg-[var(--blue)]/80 disabled:opacity-30 disabled:cursor-not-allowed text-white py-3 rounded-lg text-sm font-bold transition"
           >
-            {busy ? "..." : "📉 引成 決済（手動）"}
+            {busy ? "..." : "📉 決済"}
           </button>
         </div>
 
@@ -326,7 +350,7 @@ export function AutoTrader({ signal, basePieces }: { signal: Signal | null; base
         </button>
       </div>
 
-      {/* スケジューラ - 承認なし自動発注 */}
+      {/* スケジューラ */}
       <div className="rounded-xl border border-[var(--border)] bg-[var(--bg-card)] p-5">
         <div className="flex items-baseline justify-between mb-4">
           <h3 className="text-sm font-semibold uppercase tracking-widest text-[var(--text-muted)]">
@@ -346,15 +370,13 @@ export function AutoTrader({ signal, basePieces }: { signal: Signal | null; base
         </div>
 
         <div className="mb-4 p-3 rounded-lg bg-[var(--gold)]/10 border border-[var(--gold)]/30 text-[11px] text-[var(--gold)] leading-relaxed">
-          ⚠️ <b>承認なし自動発注</b>: ON にすると設定時刻に確認なしで発注。
-          このブラウザタブを開いてる間だけ動く（Vercelデプロイでもタブ閉じれば停止）。
-          <br />
-          24/7 完全自動化したい場合は、このページをブラウザで常に開く or Windows のVPSで運用する必要あり。
+          ⚠️ ON にすると設定時刻に承認なしで発注。
+          このブラウザタブを開いてる間だけ動く（Vercelデプロイ時はサーバーで稼働可能）。
         </div>
 
         <div className="grid grid-cols-2 gap-3 mb-3">
           <div className="p-3 rounded-lg bg-[var(--bg-elevated)]">
-            <div className="text-[10px] uppercase tracking-widest text-[var(--text-muted)] mb-2">📈 寄成</div>
+            <div className="text-[10px] uppercase tracking-widest text-[var(--text-muted)] mb-2">📈 新規</div>
             <div className="flex gap-1">
               <input type="number" min={0} max={23} value={s.openHour}
                 onChange={(e) => setS({ ...s, openHour: Number(e.target.value) })}
@@ -367,7 +389,7 @@ export function AutoTrader({ signal, basePieces }: { signal: Signal | null; base
             <div className="text-[10px] text-[var(--text-muted)] mt-1">推奨 08:50</div>
           </div>
           <div className="p-3 rounded-lg bg-[var(--bg-elevated)]">
-            <div className="text-[10px] uppercase tracking-widest text-[var(--text-muted)] mb-2">📉 引成</div>
+            <div className="text-[10px] uppercase tracking-widest text-[var(--text-muted)] mb-2">📉 決済</div>
             <div className="flex gap-1">
               <input type="number" min={0} max={23} value={s.closeHour}
                 onChange={(e) => setS({ ...s, closeHour: Number(e.target.value) })}
@@ -390,7 +412,6 @@ export function AutoTrader({ signal, basePieces }: { signal: Signal | null; base
           </div>
         )}
 
-        {/* 実行ログ */}
         <details>
           <summary className="text-xs text-[var(--text-muted)] cursor-pointer">📋 実行ログ ({logs.length})</summary>
           <div className="mt-2 max-h-40 overflow-y-auto space-y-1 text-xs">
@@ -413,14 +434,14 @@ export function AutoTrader({ signal, basePieces }: { signal: Signal | null; base
       <div className="rounded-xl border border-[var(--border)] bg-[var(--bg-card)] p-5">
         <div className="flex items-baseline justify-between mb-3">
           <h3 className="text-sm font-semibold uppercase tracking-widest text-[var(--text-muted)]">
-            ✅ 本番接続チェックリスト
+            ✅ IG証券 接続チェックリスト
           </h3>
           <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${
             allChecksOk
               ? "bg-[var(--green)]/15 text-[var(--green)] border border-[var(--green)]/30"
               : "bg-[var(--gold)]/15 text-[var(--gold)] border border-[var(--gold)]/30"
           }`}>
-            {allChecksOk ? "✓ 本番運用可能" : "🔧 準備中"}
+            {allChecksOk ? "✓ 運用可能" : "🔧 準備中"}
           </span>
         </div>
         <ul className="space-y-2">
@@ -445,8 +466,17 @@ export function AutoTrader({ signal, basePieces }: { signal: Signal | null; base
           ))}
         </ul>
         <p className="mt-4 text-[10px] text-[var(--text-muted)] leading-relaxed">
-          全項目に ✓ がつくまでは PAPER モードでテスト。実取引開始は **マイクロ1枚（資金1.2万円）** から段階的に。
+          まずは <b>DEMOモード</b>で動作確認 → LIVE切替が安全な進め方。
+          IG DEMO口座は仮想10万円相当が即発行されます。
         </p>
+        <div className="mt-3 flex gap-2 text-xs">
+          <a href="https://www.ig.com/jp/demo-account" target="_blank" rel="noreferrer"
+             className="text-[var(--blue)] hover:underline">→ IG DEMO口座開設</a>
+          <a href="https://www.ig.com/jp/cfd-trading" target="_blank" rel="noreferrer"
+             className="text-[var(--blue)] hover:underline">→ IG LIVE口座開設</a>
+          <a href="https://labs.ig.com/" target="_blank" rel="noreferrer"
+             className="text-[var(--blue)] hover:underline">→ IG API ドキュメント</a>
+        </div>
       </div>
     </div>
   );
