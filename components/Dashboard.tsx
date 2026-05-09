@@ -8,6 +8,8 @@ import { KpiCards } from "./KpiCards";
 import { EquityChart } from "./EquityChart";
 import { MonthlyBar } from "./MonthlyBar";
 import { TradesTable } from "./TradesTable";
+import { IntradayChart } from "./IntradayChart";
+import { WinLossChart } from "./WinLossChart";
 
 type ContractKey = "micro" | "mini" | "large";
 const CONTRACTS: Record<ContractKey, { label: string; size: number }> = {
@@ -75,9 +77,10 @@ export function Dashboard({ n225, dji }: { n225: Bar[]; dji: Bar[] }) {
         </div>
       </header>
 
-      {/* HERO */}
-      <div className="mb-6">
+      {/* HERO + リアルタイム */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6">
         <HeroToday signal={sigToday} basePieces={pieces} contractSize={CONTRACTS[contract].size} />
+        <IntradayChart />
       </div>
 
       {/* モード + 設定パネル */}
@@ -167,6 +170,11 @@ export function Dashboard({ n225, dji }: { n225: Bar[]; dji: Bar[] }) {
         <div>
           <MonthlyBar trades={sim.trades} />
         </div>
+      </div>
+
+      {/* 勝敗グラフ */}
+      <div className="mb-6">
+        <WinLossChart trades={sim.trades} limit={30} />
       </div>
 
       {/* 直近10取引 */}
