@@ -48,9 +48,10 @@ export function Dashboard({ n225, dji }: { n225: Bar[]; dji: Bar[] }) {
   const [pieces, setPieces] = useState(1);
   const [capital, setCapital] = useState(DEFAULT_CAPITAL["mini"]);
   const [goalCapital, setGoalCapital] = useState(DEFAULT_CAPITAL["mini"] * 10);
-  const [now, setNow] = useState(new Date());
+  const [now, setNow] = useState<Date | null>(null);
 
   useEffect(() => {
+    setNow(new Date());
     const t = setInterval(() => setNow(new Date()), 1000);
     return () => clearInterval(t);
   }, []);
@@ -90,8 +91,8 @@ export function Dashboard({ n225, dji }: { n225: Bar[]; dji: Bar[] }) {
             <span className="w-1.5 h-1.5 rounded-full bg-[var(--green)] animate-pulse" />
             <span className="text-xs font-semibold text-[var(--green)]">ライブ</span>
           </div>
-          <p className="mt-1 text-xs text-[var(--text-muted)] tnum">
-            {now.toLocaleString("ja-JP", { hour12: false })}
+          <p className="mt-1 text-xs text-[var(--text-muted)] tnum" suppressHydrationWarning>
+            {now ? now.toLocaleString("ja-JP", { hour12: false }) : "—"}
           </p>
         </div>
       </header>
