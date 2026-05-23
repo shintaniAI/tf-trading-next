@@ -95,6 +95,7 @@ export function PaperDemo({
   const sizing = useMemo(() => {
     const simOne = simulate(n225, dji, "2020-01-01", contractSize, 1, 1_000_000);
     const maxDDPerBase = Math.abs(simOne.maxDDyen);
+    const maxSingleDayLoss = Math.abs(Math.min(0, ...simOne.trades.map((t) => t.pnlYen)));
     const ddBudgetYen = Math.max(0, account) * (ddBudgetPct / 100);
     const limitBasePieces = maxDDPerBase > 0 ? Math.floor(Math.max(0, account) / maxDDPerBase) : 0;
     const recommendedBasePieces = maxDDPerBase > 0
@@ -103,6 +104,7 @@ export function PaperDemo({
     const safeBasePieces = Math.max(0, Math.min(recommendedBasePieces, 20));
     return {
       maxDDPerBase,
+      maxSingleDayLoss,
       ddBudgetYen,
       endurancePieces: Math.max(0, limitBasePieces),
       recommendedBasePieces: safeBasePieces,
@@ -194,7 +196,7 @@ export function PaperDemo({
               <span className="ml-2 text-xs font-normal text-[var(--text-muted)]">（{contractLabel}）</span>
             </div>
             <p className="mt-1 text-xs leading-relaxed text-[var(--text-muted)]">
-              ロジックはこれで合ってる: 「1枚の過去最大DD × 枚数」が軍資金を越えなければ、その過去最大DDには耐えられる。
+              これは1日で負けた金額ではなく、利益ピークから谷までの累積最大落ち込み。ロジックはこれで合ってる: 「1枚の累積最大DD × 枚数」が軍資金を越えなければ、その過去DDには耐えられる。
               ただし全資金でギリギリ耐えるのは危ないので、ここでは「使ってよいDD予算」と「安全係数」を入れて少し保守的に出す。
             </p>
           </div>
@@ -225,15 +227,16 @@ export function PaperDemo({
             </label>
           </div>
         </div>
-        <div className="mt-3 grid grid-cols-2 gap-2 md:grid-cols-4">
-          <Metric label="1枚の過去最大DD" value={`-${yen(sizing.maxDDPerBase)}`} color="red" />
+        <div className="mt-3 grid grid-cols-2 gap-2 md:grid-cols-5">
+          <Metric label="累積最大DD/1枚" value={`-${yen(sizing.maxDDPerBase)}`} color="red" />
+          <Metric label="1日最大負け/1枚" value={`-${yen(sizing.maxSingleDayLoss)}`} color="red" />
           <Metric label="DD予算" value={yen(sizing.ddBudgetYen)} color="blue" />
           <Metric label="耐久枚数" value={`${sizing.endurancePieces}枚`} color="gold" />
           <Metric label="推奨DD想定" value={`-${yen(sizing.recommendedDDYen)}`} color="red" />
         </div>
         <p className="mt-2 text-[11px] leading-relaxed text-[var(--text-muted)]">
-          計算式: 推奨基本枚数 = floor(デモ残高 × DD予算% ÷ 1枚の過去最大DD ÷ 安全係数)。
-          耐久枚数 = floor(軍資金 ÷ 1枚の過去最大DD)。本番ではさらに証拠金・手数料・スリッページで小さくする。
+          計算式: 推奨基本枚数 = floor(デモ残高 × DD予算% ÷ 1枚の累積最大DD ÷ 安全係数)。
+          耐久枚数 = floor(軍資金 ÷ 1枚の累積最大DD)。本番ではさらに証拠金・手数料・スリッページで小さくする。
         </p>
       </div>
 
