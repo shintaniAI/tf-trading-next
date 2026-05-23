@@ -1,7 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import type { Signal } from "@/lib/strategy";
+import type { Bar } from "@/lib/yahoo";
+import { simulate } from "@/lib/simulate";
 
 type PaperPosition = {
   id: string;
@@ -39,12 +41,16 @@ function calcPnl(position: PaperPosition, exitPrice: number) {
 }
 
 export function PaperDemo({
+  n225,
+  dji,
   signal,
   basePieces,
   contractLabel,
   contractSize,
   initialCapital,
 }: {
+  n225: Bar[];
+  dji: Bar[];
   signal: Signal | null;
   basePieces: number;
   contractLabel: string;
@@ -53,6 +59,8 @@ export function PaperDemo({
 }) {
   const [state, setState] = useState<PaperState>({ initialCapital, positions: [] });
   const [manualExitPrice, setManualExitPrice] = useState("");
+  const [ddBudgetPct, setDdBudgetPct] = useState(50);
+  const [safetyBuffer, setSafetyBuffer] = useState(1.5);
   const [hydrated, setHydrated] = useState(false);
 
   useEffect(() => {
@@ -83,7 +91,27 @@ export function PaperDemo({
   const closedPositions = state.positions.filter((p) => p.status === "closed");
   const realizedPnl = closedPositions.reduce((sum, p) => sum + (p.pnlYen ?? 0), 0);
   const account = state.initialCapital + realizedPnl;
-  const suggestedPieces = signal && signal.direction !== "skip" ? signal.piecesLogic * basePieces : 0;
+
+  const sizing = useMemo(() => {
+    const simOne = simulate(n225, dji, "2020-01-01", contractSize, 1, 1_000_000);
+    const maxDDPerBase = Math.abs(simOne.maxDDyen);
+    const ddBudgetYen = Math.max(0, account) * (ddBudgetPct / 100);
+    const limitBasePieces = maxDDPerBase > 0 ? Math.floor(Math.max(0, account) / maxDDPerBase) : 0;
+    const recommendedBasePieces = maxDDPerBase > 0
+      ? Math.floor(ddBudgetYen / (maxDDPerBase * safetyBuffer))
+      : 0;
+    const safeBasePieces = Math.max(0, Math.min(recommendedBasePieces, 20));
+    return {
+      maxDDPerBase,
+      ddBudgetYen,
+      limitBasePieces: Math.max(0, Math.min(limitBasePieces, 20)),
+      recommendedBasePieces: safeBasePieces,
+      manualBasePieces: basePieces,
+    };
+  }, [n225, dji, contractSize, account, ddBudgetPct, safetyBuffer, basePieces]);
+
+  const autoBasePieces = sizing.recommendedBasePieces > 0 ? sizing.recommendedBasePieces : basePieces;
+  const suggestedPieces = signal && signal.direction !== "skip" ? signal.piecesLogic * autoBasePieces : 0;
 
   const unrealizedPnl = (() => {
     if (!signal?.close) return 0;
@@ -156,8 +184,60 @@ export function PaperDemo({
         <Metric label="デモ残高" value={yen(account)} color="gold" />
       </div>
 
+      <div className="mb-4 rounded-lg border border-[var(--gold)]/35 bg-[var(--gold)]/5 p-4">
+        <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
+          <div>
+            <div className="text-[10px] uppercase tracking-widest text-[var(--gold)]">資本金から自動で枚数計算</div>
+            <div className="mt-1 text-sm font-bold text-[var(--text)]">
+              推奨: 基本 {sizing.recommendedBasePieces}枚 / 今日 {suggestedPieces}枚
+              <span className="ml-2 text-xs font-normal text-[var(--text-muted)]">（{contractLabel}）</span>
+            </div>
+            <p className="mt-1 text-xs leading-relaxed text-[var(--text-muted)]">
+              ロジックは概ねこれで合ってる: 過去最大DD ÷ 1枚あたりで、資金が耐えられる枚数を逆算する。
+              ただし全資金でギリギリ耐えるのは危ないので、ここでは「使ってよいDD予算」と「安全係数」を入れて少し保守的に出す。
+            </p>
+          </div>
+          <div className="grid grid-cols-2 gap-2 text-xs md:w-[360px]">
+            <label className="flex flex-col gap-1 text-[var(--text-muted)]">
+              DD予算（資金の何%まで）
+              <input
+                type="number"
+                min={10}
+                max={100}
+                step={5}
+                value={ddBudgetPct}
+                onChange={(e) => setDdBudgetPct(Number(e.target.value))}
+                className="rounded-md border border-[var(--border)] bg-[var(--bg-elevated)] px-2 py-1 text-sm text-[var(--text)] tnum"
+              />
+            </label>
+            <label className="flex flex-col gap-1 text-[var(--text-muted)]">
+              安全係数
+              <input
+                type="number"
+                min={1}
+                max={3}
+                step={0.1}
+                value={safetyBuffer}
+                onChange={(e) => setSafetyBuffer(Number(e.target.value))}
+                className="rounded-md border border-[var(--border)] bg-[var(--bg-elevated)] px-2 py-1 text-sm text-[var(--text)] tnum"
+              />
+            </label>
+          </div>
+        </div>
+        <div className="mt-3 grid grid-cols-2 gap-2 md:grid-cols-4">
+          <Metric label="1枚の過去最大DD" value={`-${yen(sizing.maxDDPerBase)}`} color="red" />
+          <Metric label="DD予算" value={yen(sizing.ddBudgetYen)} color="blue" />
+          <Metric label="限界枚数" value={`${sizing.limitBasePieces}枚`} color="gold" />
+          <Metric label="手入力の基本枚数" value={`${sizing.manualBasePieces}枚`} color="blue" />
+        </div>
+        <p className="mt-2 text-[11px] leading-relaxed text-[var(--text-muted)]">
+          計算式: 推奨基本枚数 = floor(デモ残高 × DD予算% ÷ 1枚の過去最大DD ÷ 安全係数)。
+          限界枚数 = floor(デモ残高 ÷ 1枚の過去最大DD)。本番ではさらに証拠金・手数料・スリッページで小さくする。
+        </p>
+      </div>
+
       <div className="mb-4 rounded-lg border border-[var(--blue)]/30 bg-[var(--blue)]/5 p-3 text-xs leading-relaxed text-[var(--text-muted)]">
-        使い方: ① 今日の仮エントリー候補を見る → ②「PAPER建玉を保存」を押す → ③ 引け後に「仮決済」で損益を見る。
+        使い方: ① 資本金から推奨枚数を見る → ② 今日の仮エントリー候補を見る → ③「PAPER建玉を保存」を押す → ④ 引け後に「仮決済」で損益を見る。
         ここで1〜2週間動きを見て、買い/売り・枚数・損益の感覚を掴んでから本番に進む。
       </div>
 
@@ -171,7 +251,7 @@ export function PaperDemo({
                   {signal.direction} {suggestedPieces}枚
                 </span>
                 <span className="ml-3 text-sm font-normal text-[var(--text-muted)]">
-                  {contractLabel} / 寄り {signal.open.toLocaleString("ja-JP")}
+                  {contractLabel} / 推奨基本{autoBasePieces}枚 × 今日の係数{signal.piecesLogic} / 寄り {signal.open.toLocaleString("ja-JP")}
                 </span>
               </div>
             ) : (

@@ -135,20 +135,6 @@ export function Dashboard({ n225, dji }: { n225: Bar[]; dji: Bar[] }) {
         ))}
       </div>
 
-      <div className="mb-6 space-y-4">
-        {activeSection === "history" && <CapitalPlanner n225={n225} dji={dji} selectedCapital={capital} />}
-        {activeSection === "demo" && (
-          <PaperDemo
-            signal={sigToday}
-            basePieces={pieces}
-            contractLabel={CONTRACTS[contract].label}
-            contractSize={CONTRACTS[contract].size}
-            initialCapital={capital}
-          />
-        )}
-        {activeSection === "live" && <ProductionBlueprint />}
-      </div>
-
       {/* モード + 設定パネル */}
       <div className="mb-6 rounded-xl border border-[var(--border)] bg-[var(--bg-card)] p-5">
         <div className="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-5 items-end">
@@ -208,6 +194,22 @@ export function Dashboard({ n225, dji }: { n225: Bar[]; dji: Bar[] }) {
             </Field>
           </div>
         </div>
+      </div>
+
+      <div className="mb-6 space-y-4">
+        {activeSection === "history" && <CapitalPlanner n225={n225} dji={dji} selectedCapital={capital} />}
+        {activeSection === "demo" && (
+          <PaperDemo
+            n225={n225}
+            dji={dji}
+            signal={sigToday}
+            basePieces={pieces}
+            contractLabel={CONTRACTS[contract].label}
+            contractSize={CONTRACTS[contract].size}
+            initialCapital={capital}
+          />
+        )}
+        {activeSection === "live" && <ProductionBlueprint />}
       </div>
 
       {/* KPI */}
