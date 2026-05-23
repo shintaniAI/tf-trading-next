@@ -23,8 +23,7 @@ export type AdvancedMetrics = {
 
 export function computeMetrics(
   trades: Trade[],
-  initialCapital: number,
-  contractSize: number
+  initialCapital: number
 ): AdvancedMetrics {
   if (trades.length === 0) {
     return {

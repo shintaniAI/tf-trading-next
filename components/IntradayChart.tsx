@@ -29,9 +29,12 @@ export function IntradayChart() {
   };
 
   useEffect(() => {
-    load();
-    const t = setInterval(load, 30000); // 30秒ごと更新
-    return () => clearInterval(t);
+    const first = window.setTimeout(load, 0);
+    const t = window.setInterval(load, 30000); // 30秒ごと更新
+    return () => {
+      window.clearTimeout(first);
+      window.clearInterval(t);
+    };
   }, []);
 
   if (!data || data.points.length === 0) {

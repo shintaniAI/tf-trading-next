@@ -18,7 +18,9 @@ import { MonthlyHeatmap } from "./MonthlyHeatmap";
 import { PeriodPresets } from "./PeriodPresets";
 import { computeMetrics, computeWeekdayStats } from "@/lib/metrics";
 import { aggregateMonthly, aggregateYearly } from "@/lib/aggregate";
-import { AutoTrader } from "./AutoTrader";
+import { CapitalPlanner } from "./CapitalPlanner";
+import { PaperDemo } from "./PaperDemo";
+import { ProductionBlueprint } from "./ProductionBlueprint";
 
 type ContractKey = "micro" | "mini" | "large";
 const CONTRACTS: Record<ContractKey, { label: string; size: number }> = {
@@ -36,8 +38,8 @@ export function Dashboard({ n225, dji }: { n225: Bar[]; dji: Bar[] }) {
   const nyPrev = findPrevNYBar(dji, today.date);
   const sigToday = generateSignal(today, prev, nyPrev);
 
-  // モード状態
-  const [mode, setMode] = useState<"actual" | "what-if">("what-if");
+  // 画面の主目的
+  const [activeSection, setActiveSection] = useState<"history" | "demo" | "live">("history");
   // 設定状態
   const defaultStart = (() => {
     const d = new Date();
@@ -52,16 +54,20 @@ export function Dashboard({ n225, dji }: { n225: Bar[]; dji: Bar[] }) {
   const [now, setNow] = useState<Date | null>(null);
 
   useEffect(() => {
-    setNow(new Date());
-    const t = setInterval(() => setNow(new Date()), 1000);
-    return () => clearInterval(t);
+    const update = () => setNow(new Date());
+    const first = window.setTimeout(update, 0);
+    const t = window.setInterval(update, 1000);
+    return () => {
+      window.clearTimeout(first);
+      window.clearInterval(t);
+    };
   }, []);
 
-  // 銘柄変更で初期資金デフォルトも変える
-  useEffect(() => {
-    setCapital(DEFAULT_CAPITAL[contract]);
-    setGoalCapital(DEFAULT_CAPITAL[contract] * 10);
-  }, [contract]);
+  const handleContractChange = (next: ContractKey) => {
+    setContract(next);
+    setCapital(DEFAULT_CAPITAL[next]);
+    setGoalCapital(DEFAULT_CAPITAL[next] * 10);
+  };
 
   const sim = useMemo(
     () => simulate(n225, dji, startDate, CONTRACTS[contract].size, pieces, capital),
@@ -69,8 +75,8 @@ export function Dashboard({ n225, dji }: { n225: Bar[]; dji: Bar[] }) {
   );
 
   const metrics = useMemo(
-    () => computeMetrics(sim.trades, capital, CONTRACTS[contract].size),
-    [sim.trades, capital, contract]
+    () => computeMetrics(sim.trades, capital),
+    [sim.trades, capital]
   );
 
   const weekdayStats = useMemo(() => computeWeekdayStats(sim.trades), [sim.trades]);
@@ -84,8 +90,8 @@ export function Dashboard({ n225, dji }: { n225: Bar[]; dji: Bar[] }) {
       {/* ヘッダー */}
       <header className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-2xl font-bold tracking-tight">📈 TF Trading</h1>
-          <p className="text-xs text-[var(--text-muted)] mt-1">日経225 自動売買シミュレータ</p>
+          <h1 className="text-2xl font-bold tracking-tight">📈 TF Trading Dashboard</h1>
+          <p className="text-xs text-[var(--text-muted)] mt-1">過去検証・デモ運用・Xserver本番運用を1画面で管理</p>
         </div>
         <div className="text-right">
           <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[var(--green)]/10 border border-[var(--green)]/30">
@@ -104,36 +110,51 @@ export function Dashboard({ n225, dji }: { n225: Bar[]; dji: Bar[] }) {
         <IntradayChart />
       </div>
 
-      {/* 自動売買コントロール */}
-      <div className="mb-6">
-        <AutoTrader signal={sigToday} basePieces={pieces} />
+      {/* 3目的ナビ */}
+      <div className="mb-6 grid grid-cols-1 md:grid-cols-3 gap-3">
+        {([
+          { key: "history", title: "① 過去検証", desc: "資本金別に何枚張れるか" },
+          { key: "demo", title: "② デモ運用", desc: "仮建玉を保存して経過確認" },
+          { key: "live", title: "③ 本番運用", desc: "Xserver + APIで24h稼働" },
+        ] as const).map((item) => (
+          <button
+            key={item.key}
+            onClick={() => setActiveSection(item.key)}
+            className={`rounded-xl border p-4 text-left transition ${
+              activeSection === item.key
+                ? "border-[var(--blue)] bg-[var(--blue)]/10 shadow-lg shadow-[var(--blue)]/10"
+                : "border-[var(--border)] bg-[var(--bg-card)] hover:bg-[var(--bg-elevated)]"
+            }`}
+          >
+            <div className="text-sm font-bold text-[var(--text)]">{item.title}</div>
+            <div className="mt-1 text-xs text-[var(--text-muted)]">{item.desc}</div>
+          </button>
+        ))}
+      </div>
+
+      <div className="mb-6 space-y-4">
+        {activeSection === "history" && <CapitalPlanner n225={n225} dji={dji} selectedCapital={capital} />}
+        {activeSection === "demo" && (
+          <PaperDemo
+            signal={sigToday}
+            basePieces={pieces}
+            contractLabel={CONTRACTS[contract].label}
+            contractSize={CONTRACTS[contract].size}
+            initialCapital={capital}
+          />
+        )}
+        {activeSection === "live" && <ProductionBlueprint />}
       </div>
 
       {/* モード + 設定パネル */}
       <div className="mb-6 rounded-xl border border-[var(--border)] bg-[var(--bg-card)] p-5">
         <div className="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-5 items-end">
-          {/* モード切替 */}
-          <div className="flex gap-2">
-            <button
-              onClick={() => setMode("what-if")}
-              className={`px-4 py-2 rounded-lg text-sm font-semibold transition ${
-                mode === "what-if"
-                  ? "bg-[var(--blue)] text-white"
-                  : "bg-[var(--bg-elevated)] text-[var(--text-muted)] hover:bg-[var(--border)]"
-              }`}
-            >
-              🔮 if シミュ
-            </button>
-            <button
-              onClick={() => setMode("actual")}
-              className={`px-4 py-2 rounded-lg text-sm font-semibold transition ${
-                mode === "actual"
-                  ? "bg-[var(--green)] text-white"
-                  : "bg-[var(--bg-elevated)] text-[var(--text-muted)] hover:bg-[var(--border)]"
-              }`}
-            >
-              💼 実運用
-            </button>
+          {/* 共通設定 */}
+          <div className="rounded-lg border border-[var(--border)] bg-[var(--bg-elevated)] p-3">
+            <div className="text-[10px] font-semibold uppercase tracking-widest text-[var(--text-muted)]">共通設定</div>
+            <div className="mt-1 text-xs leading-relaxed text-[var(--text-muted)]">
+              ここで変えた資本金・銘柄・基本枚数が、過去検証とPAPERデモの両方に反映される。
+            </div>
           </div>
 
           {/* 設定 */}
@@ -153,7 +174,7 @@ export function Dashboard({ n225, dji }: { n225: Bar[]; dji: Bar[] }) {
             <Field label="銘柄">
               <select
                 value={contract}
-                onChange={(e) => setContract(e.target.value as ContractKey)}
+                onChange={(e) => handleContractChange(e.target.value as ContractKey)}
                 className="bg-[var(--bg-elevated)] border border-[var(--border)] rounded-md px-3 py-2 text-sm w-full focus:outline-none focus:border-[var(--blue)]"
               >
                 <option value="micro">マイクロ (1pt=10円)</option>
@@ -168,7 +189,7 @@ export function Dashboard({ n225, dji }: { n225: Bar[]; dji: Bar[] }) {
                 className="bg-[var(--bg-elevated)] border border-[var(--border)] rounded-md px-3 py-2 text-sm w-full focus:outline-none focus:border-[var(--blue)]"
               />
             </Field>
-            <Field label="銀行残高（初期）">
+            <Field label="投資金（初期）">
               <input
                 type="number" min={10000} step={10000} value={capital}
                 onChange={(e) => setCapital(Number(e.target.value))}
@@ -277,7 +298,7 @@ export function Dashboard({ n225, dji }: { n225: Bar[]; dji: Bar[] }) {
           データソース: Yahoo Finance ^N225 / ^DJI
         </div>
         <div>
-          実取引: <a href="https://kabu.com/" className="text-[var(--blue)] hover:underline" target="_blank" rel="noreferrer">三菱UFJ eスマート証券 + kabu Station API</a>
+          本番設計: Xserver VPS + Broker API（業者確定後に接続）
         </div>
       </footer>
     </div>
