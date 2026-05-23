@@ -104,8 +104,9 @@ export function PaperDemo({
     return {
       maxDDPerBase,
       ddBudgetYen,
-      limitBasePieces: Math.max(0, Math.min(limitBasePieces, 20)),
+      endurancePieces: Math.max(0, limitBasePieces),
       recommendedBasePieces: safeBasePieces,
+      recommendedDDYen: maxDDPerBase * safeBasePieces,
       manualBasePieces: basePieces,
     };
   }, [n225, dji, contractSize, account, ddBudgetPct, safetyBuffer, basePieces]);
@@ -193,7 +194,7 @@ export function PaperDemo({
               <span className="ml-2 text-xs font-normal text-[var(--text-muted)]">（{contractLabel}）</span>
             </div>
             <p className="mt-1 text-xs leading-relaxed text-[var(--text-muted)]">
-              ロジックは概ねこれで合ってる: 過去最大DD ÷ 1枚あたりで、資金が耐えられる枚数を逆算する。
+              ロジックはこれで合ってる: 「1枚の過去最大DD × 枚数」が軍資金を越えなければ、その過去最大DDには耐えられる。
               ただし全資金でギリギリ耐えるのは危ないので、ここでは「使ってよいDD予算」と「安全係数」を入れて少し保守的に出す。
             </p>
           </div>
@@ -227,12 +228,12 @@ export function PaperDemo({
         <div className="mt-3 grid grid-cols-2 gap-2 md:grid-cols-4">
           <Metric label="1枚の過去最大DD" value={`-${yen(sizing.maxDDPerBase)}`} color="red" />
           <Metric label="DD予算" value={yen(sizing.ddBudgetYen)} color="blue" />
-          <Metric label="限界枚数" value={`${sizing.limitBasePieces}枚`} color="gold" />
-          <Metric label="手入力の基本枚数" value={`${sizing.manualBasePieces}枚`} color="blue" />
+          <Metric label="耐久枚数" value={`${sizing.endurancePieces}枚`} color="gold" />
+          <Metric label="推奨DD想定" value={`-${yen(sizing.recommendedDDYen)}`} color="red" />
         </div>
         <p className="mt-2 text-[11px] leading-relaxed text-[var(--text-muted)]">
           計算式: 推奨基本枚数 = floor(デモ残高 × DD予算% ÷ 1枚の過去最大DD ÷ 安全係数)。
-          限界枚数 = floor(デモ残高 ÷ 1枚の過去最大DD)。本番ではさらに証拠金・手数料・スリッページで小さくする。
+          耐久枚数 = floor(軍資金 ÷ 1枚の過去最大DD)。本番ではさらに証拠金・手数料・スリッページで小さくする。
         </p>
       </div>
 
