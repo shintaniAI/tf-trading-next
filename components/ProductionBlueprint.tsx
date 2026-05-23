@@ -31,8 +31,13 @@ export function ProductionBlueprint() {
           ③ 本番運用：Xserver + Broker APIで24時間稼働
         </h2>
         <p className="mt-1 text-xs text-[var(--text-muted)] leading-relaxed">
-          本番は画面を開いている間だけ動く方式にしない。Xserver VPSに常駐プロセスを置き、同じS1ロジックで自動発注する構成にする。
+          ここは「実際にお金を動かす時の全体像」を見る場所。本番は画面を開いている間だけ動く方式にせず、Xserver VPSに常駐プロセスを置き、同じS1ロジックで自動発注する。
         </p>
+      </div>
+
+      <div className="mb-4 rounded-lg border border-[var(--blue)]/30 bg-[var(--blue)]/5 p-3 text-xs leading-relaxed text-[var(--text-muted)]">
+        初心者向けの理解: Vercel画面は「メーター・監視画面」。実際に注文ボタンを押す役はXserver側の自動プログラム。
+        証券会社API・手数料・証拠金・安全停止が全部揃うまで、実資金の発注はOFFのまま。
       </div>
 
       <div className="mb-4 rounded-lg border border-[var(--red)]/40 bg-[var(--red)]/10 p-3 text-xs leading-relaxed text-[var(--red)]">

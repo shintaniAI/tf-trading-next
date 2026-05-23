@@ -93,11 +93,11 @@ export function CapitalPlanner({
             ① 過去検証：資本金別の推奨枚数
           </h2>
           <p className="mt-1 text-xs text-[var(--text-muted)] leading-relaxed">
-            2020年以降のS1履歴から、過去最大DDが資本金の許容範囲内に収まる枚数を逆算。通常は基本枚数、NY同方向日は最大2倍で張る。
+            ここは「いくら資金があれば、何を何枚までなら無理がないか」を見る場所。利益額より先に、過去に一番きつかった負け幅（DD）に耐えられるかを確認する。
           </p>
         </div>
         <label className="flex items-center gap-2 text-xs text-[var(--text-muted)]">
-          DD許容
+          許容する一時負け幅
           <input
             type="number"
             min={5}
@@ -112,13 +112,17 @@ export function CapitalPlanner({
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-4">
+        <div className="md:col-span-3 rounded-lg border border-[var(--blue)]/30 bg-[var(--blue)]/5 p-3 text-xs leading-relaxed text-[var(--text-muted)]">
+          読み方: まず資本金の行を見る → 推奨銘柄を見る → 基本枚数を守る。最大枚数はNYダウも同じ向きで「勢いが強い日」だけ使う上限。
+          初心者は、表がミニやラージを出していても、最初はマイクロ1枚で動きに慣れるのが安全。
+        </div>
         {benchmarks.map((b) => (
           <div key={b.key} className="rounded-lg border border-[var(--border)] bg-[var(--bg-elevated)] p-3">
             <div className="text-xs font-bold text-[var(--text)]">{b.label} / 基本1枚</div>
             <div className="mt-2 grid grid-cols-2 gap-2 text-[11px] text-[var(--text-muted)]">
-              <div>累積</div><div className="text-right text-[var(--green)] tnum">+{yen(b.totalYenPerBase)}</div>
+              <div>過去合計利益</div><div className="text-right text-[var(--green)] tnum">+{yen(b.totalYenPerBase)}</div>
               <div>年平均</div><div className="text-right tnum">+{yen(b.annualYenPerBase)}</div>
-              <div>最大DD</div><div className="text-right text-[var(--red)] tnum">-{yen(b.maxDDYenPerBase)}</div>
+              <div>最大の一時負け</div><div className="text-right text-[var(--red)] tnum">-{yen(b.maxDDYenPerBase)}</div>
               <div>勝率</div><div className="text-right tnum">{(b.winrate * 100).toFixed(1)}%</div>
             </div>
           </div>
@@ -133,7 +137,7 @@ export function CapitalPlanner({
               <th className="py-2 text-left">推奨銘柄</th>
               <th className="py-2 text-right">基本枚数</th>
               <th className="py-2 text-right">最大枚数</th>
-              <th className="py-2 text-right">想定DD</th>
+              <th className="py-2 text-right">想定一時負け</th>
               <th className="py-2 text-right">年期待</th>
             </tr>
           </thead>

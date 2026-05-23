@@ -21,6 +21,7 @@ import { aggregateMonthly, aggregateYearly } from "@/lib/aggregate";
 import { CapitalPlanner } from "./CapitalPlanner";
 import { PaperDemo } from "./PaperDemo";
 import { ProductionBlueprint } from "./ProductionBlueprint";
+import { BeginnerGuide } from "./BeginnerGuide";
 
 type ContractKey = "micro" | "mini" | "large";
 const CONTRACTS: Record<ContractKey, { label: string; size: number }> = {
@@ -91,7 +92,7 @@ export function Dashboard({ n225, dji }: { n225: Bar[]; dji: Bar[] }) {
       <header className="flex items-center justify-between mb-6">
         <div>
           <h1 className="text-2xl font-bold tracking-tight">📈 TF Trading Dashboard</h1>
-          <p className="text-xs text-[var(--text-muted)] mt-1">過去検証・デモ運用・Xserver本番運用を1画面で管理</p>
+          <p className="text-xs text-[var(--text-muted)] mt-1">初心者でも「何を見ればいいか」から分かる自動売買準備画面</p>
         </div>
         <div className="text-right">
           <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[var(--green)]/10 border border-[var(--green)]/30">
@@ -110,12 +111,14 @@ export function Dashboard({ n225, dji }: { n225: Bar[]; dji: Bar[] }) {
         <IntradayChart />
       </div>
 
+      <BeginnerGuide />
+
       {/* 3目的ナビ */}
       <div className="mb-6 grid grid-cols-1 md:grid-cols-3 gap-3">
         {([
-          { key: "history", title: "① 過去検証", desc: "資本金別に何枚張れるか" },
-          { key: "demo", title: "② デモ運用", desc: "仮建玉を保存して経過確認" },
-          { key: "live", title: "③ 本番運用", desc: "Xserver + APIで24h稼働" },
+          { key: "history", title: "① 過去検証", desc: "昔なら増えたか・何枚が安全か" },
+          { key: "demo", title: "② デモ運用", desc: "お金を使わず仮で練習" },
+          { key: "live", title: "③ 本番運用", desc: "自動発注の仕組みと安全条件" },
         ] as const).map((item) => (
           <button
             key={item.key}
@@ -153,7 +156,7 @@ export function Dashboard({ n225, dji }: { n225: Bar[]; dji: Bar[] }) {
           <div className="rounded-lg border border-[var(--border)] bg-[var(--bg-elevated)] p-3">
             <div className="text-[10px] font-semibold uppercase tracking-widest text-[var(--text-muted)]">共通設定</div>
             <div className="mt-1 text-xs leading-relaxed text-[var(--text-muted)]">
-              ここで変えた資本金・銘柄・基本枚数が、過去検証とPAPERデモの両方に反映される。
+              初心者はまず「銘柄=マイクロ」「基本枚数=1」から見る。ここで変えた資本金・銘柄・枚数が、過去検証とPAPERデモの両方に反映される。
             </div>
           </div>
 
@@ -269,17 +272,17 @@ export function Dashboard({ n225, dji }: { n225: Bar[]; dji: Bar[] }) {
       {/* ロジック説明 */}
       <details className="mb-4 rounded-xl border border-[var(--border)] bg-[var(--bg-card)] p-5">
         <summary className="cursor-pointer text-sm font-semibold uppercase tracking-widest text-[var(--text-muted)]">
-          📖 戦略ロジック S1（順張り全営業日）
+          📖 S1ロジックを初心者向けに分解
         </summary>
         <div className="mt-4 space-y-2 text-sm">
           {[
-            "① 夕場 = 当日始値 − 前日終値（オーバーナイトギャップ）",
-            "② NY = 前日NYダウ 終値 − 始値",
-            "③ 方向 = sign(夕場) → +なら買い、−なら売り",
-            "④ 枚数 = 夕場とNY同符号→2倍、逆符号→1倍",
-            "⑤ 寄り建て・引け決済（デイトレ）",
-            "⑥ 損益pt = 夕場符号 × 枚数 × 値幅",
-            "⑦ 円換算 = pt × (マイクロ:10 / ミニ:100 / ラージ:1000)",
+            "① 前日の終値と今日の始値を比べて、朝から上方向か下方向かを見る",
+            "② 朝から上方向なら買い、下方向なら売り。難しく考えず、最初の流れについていく",
+            "③ 前日のNYダウも同じ向きなら勢いが強いと判断して枚数を2倍にする",
+            "④ 逆向きなら自信度を下げて通常枚数のままにする",
+            "⑤ 朝の寄り付きで入って、その日の引けで必ず終わる。翌日に持ち越さない",
+            "⑥ 損益は「値幅 × 枚数 × 銘柄サイズ」。マイクロは小さく、ラージは大きく動く",
+            "⑦ 本番前は手数料・スリッページ・証拠金を入れて、さらに厳しめに見る",
           ].map((s, i) => (
             <div key={i} className="rounded-md bg-[var(--bg-elevated)] border-l-2 border-[var(--blue)] px-3 py-2 font-mono text-xs">
               {s}

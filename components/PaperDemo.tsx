@@ -138,7 +138,7 @@ export function PaperDemo({
             ② デモ運用：本番同様に仮で張って保存
           </h2>
           <p className="mt-1 text-xs text-[var(--text-muted)] leading-relaxed">
-            実資金は使わず、今日のシグナルをPAPER建玉としてブラウザに保存。何を何枚で仮エントリーしたか、あとから経過確認できる。
+            練習モード。実資金は使わず、今日のサインを「仮の取引」としてブラウザに保存する。ボタンを押しても証券口座には注文されない。
           </p>
         </div>
         <button
@@ -156,10 +156,15 @@ export function PaperDemo({
         <Metric label="デモ残高" value={yen(account)} color="gold" />
       </div>
 
+      <div className="mb-4 rounded-lg border border-[var(--blue)]/30 bg-[var(--blue)]/5 p-3 text-xs leading-relaxed text-[var(--text-muted)]">
+        使い方: ① 今日の仮エントリー候補を見る → ②「PAPER建玉を保存」を押す → ③ 引け後に「仮決済」で損益を見る。
+        ここで1〜2週間動きを見て、買い/売り・枚数・損益の感覚を掴んでから本番に進む。
+      </div>
+
       <div className="rounded-lg border border-[var(--border)] bg-[var(--bg-elevated)] p-4 mb-4">
         <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-4 items-center">
           <div>
-            <div className="text-[10px] uppercase tracking-widest text-[var(--text-muted)]">今日の仮エントリー候補</div>
+            <div className="text-[10px] uppercase tracking-widest text-[var(--text-muted)]">今日の仮エントリー候補（実注文なし）</div>
             {signal && signal.direction !== "skip" ? (
               <div className="mt-1 text-2xl font-extrabold">
                 <span className={signal.direction === "買い" ? "text-[var(--green)]" : "text-[var(--red)]"}>
@@ -178,7 +183,7 @@ export function PaperDemo({
             disabled={!signal || signal.direction === "skip" || suggestedPieces <= 0}
             className="rounded-lg bg-[var(--blue)] px-5 py-3 text-sm font-bold text-white transition hover:bg-[var(--blue)]/80 disabled:cursor-not-allowed disabled:opacity-30"
           >
-            PAPER建玉を保存
+            実注文せずPAPER保存
           </button>
         </div>
       </div>
