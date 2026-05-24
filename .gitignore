@@ -23,6 +23,8 @@
 # misc
 .DS_Store
 *.pem
+__pycache__/
+*.py[cod]
 
 # debug
 npm-debug.log*
@@ -36,6 +38,9 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# tf bot local state
+/ops/tfbot/state/
 
 # typescript
 *.tsbuildinfo
