@@ -10,17 +10,28 @@ API接続前でも動く自動売買bot本体。Vercel画面ではなく、Xserv
 - 二重発注防止
 - LIVE発注ガード
 - IBKR接続ヘルスチェック用adapter
+- 日本市場の祝日/土日/SQ日ガード
+- 古い日足での誤発注防止（signal日付とJST今日の一致確認）
+- 日次損失・月次損失・連敗停止
+- 次の四半期限月ヒント表示
 
 ## DRY_RUN
 
 ```bash
 python -m ops.tfbot.cli health
+python -m ops.tfbot.cli calendar
 python -m ops.tfbot.cli signal
 python -m ops.tfbot.cli open
 python -m ops.tfbot.cli close
 ```
 
 DRY_RUNは実注文しない。`ops/tfbot/state/orders.json` に記録するだけ。
+
+土日・祝日・SQ日・古い日足の場合、`open` は停止する。手動検証だけは `--force` を付ける。
+
+```bash
+python -m ops.tfbot.cli open --range 1y --force
+```
 
 ## PAPER/IBKR接続準備
 
@@ -33,6 +44,10 @@ TF_LIVE_ENABLED=false
 TF_POLICY=gap_pr_80
 TF_CONTRACT=micro
 TF_MAX_BASE_PIECES=1
+TF_MAX_DAILY_LOSS_YEN=30000
+TF_MAX_MONTHLY_LOSS_YEN=100000
+TF_MAX_CONSECUTIVE_LOSSES=3
+TF_AVOID_SQ_DAY=true
 IBKR_HOST=127.0.0.1
 IBKR_PORT=4002
 IBKR_CLIENT_ID=101
@@ -53,8 +68,10 @@ python -m ops.tfbot.cli health
 ## cron例
 
 ```cron
-50 8 * * 1-5  cd /path/to/tf-trading-next && python -m ops.tfbot.cli open
-25 15 * * 1-5 cd /path/to/tf-trading-next && python -m ops.tfbot.cli close
+50 8 * * 1-5  cd /path/to/tf-trading-next && ops/tfbot/run_cron.sh open
+25 15 * * 1-5 cd /path/to/tf-trading-next && ops/tfbot/run_cron.sh close
 ```
 
-実運用では祝日判定、SQ/限月切替、IBKR contract確認を入れてから有効化する。
+`run_cron.sh` は `ops/tfbot/logs/YYYYMMDD-open.log` に結果を残す。
+
+実運用ではIBKR contractをPaperで確認し、`health` の `contract_hint` とIBKR側の実contract詳細が一致してから有効化する。

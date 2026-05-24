@@ -1,13 +1,14 @@
 from __future__ import annotations
 
 import json
+import sys
 import urllib.request
 from .config import BotConfig
 
 
 def notify(config: BotConfig, message: str) -> None:
     if not config.slack_webhook_url:
-        print(message)
+        print(message, file=sys.stderr)
         return
     payload = json.dumps({"text": message}).encode("utf-8")
     req = urllib.request.Request(

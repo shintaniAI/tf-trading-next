@@ -1,0 +1,1778 @@
+{
+  "generated_at": "2026-05-24T00:17:50.553861",
+  "data_period": [
+    "2011-01-04",
+    "2026-05-22"
+  ],
+  "baseline": {
+    "name": "baseline_S1",
+    "full": {
+      "trades": 3762,
+      "total_yen": 1822227,
+      "avg_yen": 484.4,
+      "winrate": 51.9,
+      "maxdd_yen": -99583,
+      "pf": 1.458,
+      "survive_10万": true,
+      "min_equity_10万": 97114,
+      "mar": 18.3
+    },
+    "train_2011_2020": {
+      "trades": 2447,
+      "total_yen": 445900,
+      "avg_yen": 182.2,
+      "winrate": 50.7,
+      "maxdd_yen": -99583,
+      "pf": 1.222,
+      "survive_10万": true,
+      "min_equity_10万": 97114,
+      "mar": 4.48
+    },
+    "test_2021_2026": {
+      "trades": 1315,
+      "total_yen": 1376327,
+      "avg_yen": 1046.6,
+      "winrate": 54.0,
+      "maxdd_yen": -57457,
+      "pf": 1.697,
+      "survive_10万": true,
+      "min_equity_10万": 69283,
+      "mar": 23.95
+    },
+    "post2020": {
+      "trades": 1557,
+      "total_yen": 1568665,
+      "avg_yen": 1007.5,
+      "winrate": 54.2,
+      "maxdd_yen": -57457,
+      "pf": 1.708,
+      "survive_10万": true,
+      "min_equity_10万": 100000,
+      "mar": 27.3
+    },
+    "survival_10万_1y": {
+      "n": 3511,
+      "survive_pct": 100.0,
+      "profit_pct": 83.7,
+      "both_pct": 83.7
+    },
+    "survival_10万_3y": {
+      "n": 3007,
+      "survive_pct": 100.0,
+      "profit_pct": 100.0,
+      "both_pct": 100.0
+    }
+  },
+  "top_by_test_mar": [
+    {
+      "name": "trade_gap_pr_ge_0.8",
+      "full": {
+        "trades": 845,
+        "total_yen": 1740471,
+        "avg_yen": 2059.7,
+        "winrate": 63.4,
+        "maxdd_yen": -22315,
+        "pf": 3.073,
+        "survive_10万": true,
+        "min_equity_10万": 100000,
+        "mar": 77.99
+      },
+      "train_2011_2020": {
+        "trades": 530,
+        "total_yen": 577938,
+        "avg_yen": 1090.4,
+        "winrate": 62.0,
+        "maxdd_yen": -22315,
+        "pf": 2.358,
+        "survive_10万": true,
+        "min_equity_10万": 100000,
+        "mar": 25.9
+      },
+      "test_2021_2026": {
+        "trades": 315,
+        "total_yen": 1162533,
+        "avg_yen": 3690.6,
+        "winrate": 65.7,
+        "maxdd_yen": -18925,
+        "pf": 3.808,
+        "survive_10万": true,
+        "min_equity_10万": 100000,
+        "mar": 61.43
+      },
+      "post2020": {
+        "trades": 376,
+        "total_yen": 1264774,
+        "avg_yen": 3363.8,
+        "winrate": 64.1,
+        "maxdd_yen": -18925,
+        "pf": 3.571,
+        "survive_10万": true,
+        "min_equity_10万": 98621,
+        "mar": 66.83
+      },
+      "survival_10万_1y": {
+        "n": 594,
+        "survive_pct": 100.0,
+        "profit_pct": 100.0,
+        "both_pct": 100.0
+      },
+      "survival_10万_3y": {
+        "n": 90,
+        "survive_pct": 100.0,
+        "profit_pct": 100.0,
+        "both_pct": 100.0
+      }
+    },
+    {
+      "name": "trade_gap_pr_ge_0.9",
+      "full": {
+        "trades": 460,
+        "total_yen": 1465650,
+        "avg_yen": 3186.2,
+        "winrate": 68.8,
+        "maxdd_yen": -18925,
+        "pf": 4.54,
+        "survive_10万": true,
+        "min_equity_10万": 100000,
+        "mar": 77.45
+      },
+      "train_2011_2020": {
+        "trades": 279,
+        "total_yen": 419281,
+        "avg_yen": 1502.8,
+        "winrate": 64.7,
+        "maxdd_yen": -17743,
+        "pf": 2.741,
+        "survive_10万": true,
+        "min_equity_10万": 100000,
+        "mar": 23.63
+      },
+      "test_2021_2026": {
+        "trades": 181,
+        "total_yen": 1046368,
+        "avg_yen": 5781.0,
+        "winrate": 75.1,
+        "maxdd_yen": -18925,
+        "pf": 7.042,
+        "survive_10万": true,
+        "min_equity_10万": 99437,
+        "mar": 55.29
+      },
+      "post2020": {
+        "trades": 212,
+        "total_yen": 1138894,
+        "avg_yen": 5372.1,
+        "winrate": 73.1,
+        "maxdd_yen": -18925,
+        "pf": 6.433,
+        "survive_10万": true,
+        "min_equity_10万": 100000,
+        "mar": 60.18
+      },
+      "survival_10万_1y": {
+        "n": 209,
+        "survive_pct": 100.0,
+        "profit_pct": 100.0,
+        "both_pct": 100.0
+      },
+      "survival_10万_3y": null
+    },
+    {
+      "name": "trade_gap_pr_ge_0.7",
+      "full": {
+        "trades": 1210,
+        "total_yen": 1853535,
+        "avg_yen": 1531.8,
+        "winrate": 60.0,
+        "maxdd_yen": -28756,
+        "pf": 2.439,
+        "survive_10万": true,
+        "min_equity_10万": 99574,
+        "mar": 64.46
+      },
+      "train_2011_2020": {
+        "trades": 753,
+        "total_yen": 567938,
+        "avg_yen": 754.2,
+        "winrate": 58.0,
+        "maxdd_yen": -23001,
+        "pf": 1.886,
+        "survive_10万": true,
+        "min_equity_10万": 99574,
+        "mar": 24.69
+      },
+      "test_2021_2026": {
+        "trades": 457,
+        "total_yen": 1285597,
+        "avg_yen": 2813.1,
+        "winrate": 63.2,
+        "maxdd_yen": -28756,
+        "pf": 2.989,
+        "survive_10万": true,
+        "min_equity_10万": 100000,
+        "mar": 44.71
+      },
+      "post2020": {
+        "trades": 539,
+        "total_yen": 1429132,
+        "avg_yen": 2651.5,
+        "winrate": 62.7,
+        "maxdd_yen": -28756,
+        "pf": 2.939,
+        "survive_10万": true,
+        "min_equity_10万": 100000,
+        "mar": 49.7
+      },
+      "survival_10万_1y": {
+        "n": 959,
+        "survive_pct": 100.0,
+        "profit_pct": 100.0,
+        "both_pct": 100.0
+      },
+      "survival_10万_3y": {
+        "n": 455,
+        "survive_pct": 100.0,
+        "profit_pct": 100.0,
+        "both_pct": 100.0
+      }
+    },
+    {
+      "name": "trade_abs_gap_ge_500",
+      "full": {
+        "trades": 85,
+        "total_yen": 819355,
+        "avg_yen": 9639.5,
+        "winrate": 76.5,
+        "maxdd_yen": -18925,
+        "pf": 9.101,
+        "survive_10万": true,
+        "min_equity_10万": 95982,
+        "mar": 43.3
+      },
+      "train_2011_2020": {
+        "trades": 1,
+        "total_yen": -4018,
+        "avg_yen": -4018.0,
+        "winrate": 0.0,
+        "maxdd_yen": -4018,
+        "pf": 0.0,
+        "survive_10万": true,
+        "min_equity_10万": 95982,
+        "mar": -1.0
+      },
+      "test_2021_2026": {
+        "trades": 84,
+        "total_yen": 823373,
+        "avg_yen": 9802.1,
+        "winrate": 77.4,
+        "maxdd_yen": -18925,
+        "pf": 9.478,
+        "survive_10万": true,
+        "min_equity_10万": 100000,
+        "mar": 43.51
+      },
+      "post2020": {
+        "trades": 85,
+        "total_yen": 819355,
+        "avg_yen": 9639.5,
+        "winrate": 76.5,
+        "maxdd_yen": -18925,
+        "pf": 9.101,
+        "survive_10万": true,
+        "min_equity_10万": 95982,
+        "mar": 43.3
+      },
+      "survival_10万_1y": null,
+      "survival_10万_3y": null
+    },
+    {
+      "name": "trade_abs_gap_ge_300",
+      "full": {
+        "trades": 427,
+        "total_yen": 1497397,
+        "avg_yen": 3506.8,
+        "winrate": 67.4,
+        "maxdd_yen": -37497,
+        "pf": 3.586,
+        "survive_10万": true,
+        "min_equity_10万": 100000,
+        "mar": 39.93
+      },
+      "train_2011_2020": {
+        "trades": 97,
+        "total_yen": 306731,
+        "avg_yen": 3162.2,
+        "winrate": 74.2,
+        "maxdd_yen": -11385,
+        "pf": 4.929,
+        "survive_10万": true,
+        "min_equity_10万": 100000,
+        "mar": 26.94
+      },
+      "test_2021_2026": {
+        "trades": 330,
+        "total_yen": 1190667,
+        "avg_yen": 3608.1,
+        "winrate": 65.5,
+        "maxdd_yen": -37497,
+        "pf": 3.376,
+        "survive_10万": true,
+        "min_equity_10万": 99437,
+        "mar": 31.75
+      },
+      "post2020": {
+        "trades": 361,
+        "total_yen": 1294476,
+        "avg_yen": 3585.8,
+        "winrate": 65.7,
+        "maxdd_yen": -37497,
+        "pf": 3.436,
+        "survive_10万": true,
+        "min_equity_10万": 100000,
+        "mar": 34.52
+      },
+      "survival_10万_1y": {
+        "n": 176,
+        "survive_pct": 100.0,
+        "profit_pct": 100.0,
+        "both_pct": 100.0
+      },
+      "survival_10万_3y": null
+    },
+    {
+      "name": "gap_ge_0.9_and_trend_ma200",
+      "full": {
+        "trades": 230,
+        "total_yen": 731334,
+        "avg_yen": 3179.7,
+        "winrate": 67.8,
+        "maxdd_yen": -31048,
+        "pf": 5.01,
+        "survive_10万": true,
+        "min_equity_10万": 100000,
+        "mar": 23.55
+      },
+      "train_2011_2020": {
+        "trades": 143,
+        "total_yen": 172131,
+        "avg_yen": 1203.7,
+        "winrate": 62.2,
+        "maxdd_yen": -31048,
+        "pf": 2.51,
+        "survive_10万": true,
+        "min_equity_10万": 100000,
+        "mar": 5.54
+      },
+      "test_2021_2026": {
+        "trades": 87,
+        "total_yen": 559203,
+        "avg_yen": 6427.6,
+        "winrate": 77.0,
+        "maxdd_yen": -18485,
+        "pf": 9.179,
+        "survive_10万": true,
+        "min_equity_10万": 94962,
+        "mar": 30.25
+      },
+      "post2020": {
+        "trades": 103,
+        "total_yen": 609844,
+        "avg_yen": 5920.8,
+        "winrate": 74.8,
+        "maxdd_yen": -18485,
+        "pf": 8.316,
+        "survive_10万": true,
+        "min_equity_10万": 100000,
+        "mar": 32.99
+      },
+      "survival_10万_1y": null,
+      "survival_10万_3y": null
+    },
+    {
+      "name": "gap_ge_0.9_and_trend_ma20",
+      "full": {
+        "trades": 242,
+        "total_yen": 789275,
+        "avg_yen": 3261.5,
+        "winrate": 66.0,
+        "maxdd_yen": -18925,
+        "pf": 4.607,
+        "survive_10万": true,
+        "min_equity_10万": 100000,
+        "mar": 41.71
+      },
+      "train_2011_2020": {
+        "trades": 155,
+        "total_yen": 229363,
+        "avg_yen": 1479.8,
+        "winrate": 63.6,
+        "maxdd_yen": -15210,
+        "pf": 2.857,
+        "survive_10万": true,
+        "min_equity_10万": 100000,
+        "mar": 15.08
+      },
+      "test_2021_2026": {
+        "trades": 87,
+        "total_yen": 559912,
+        "avg_yen": 6435.8,
+        "winrate": 70.1,
+        "maxdd_yen": -18925,
+        "pf": 6.875,
+        "survive_10万": true,
+        "min_equity_10万": 100000,
+        "mar": 29.59
+      },
+      "post2020": {
+        "trades": 101,
+        "total_yen": 611208,
+        "avg_yen": 6051.6,
+        "winrate": 70.3,
+        "maxdd_yen": -18925,
+        "pf": 6.898,
+        "survive_10万": true,
+        "min_equity_10万": 99450,
+        "mar": 32.3
+      },
+      "survival_10万_1y": null,
+      "survival_10万_3y": null
+    },
+    {
+      "name": "trade_gap_pr_ge_0.2",
+      "full": {
+        "trades": 3040,
+        "total_yen": 1945862,
+        "avg_yen": 640.1,
+        "winrate": 53.3,
+        "maxdd_yen": -70057,
+        "pf": 1.596,
+        "survive_10万": true,
+        "min_equity_10万": 97042,
+        "mar": 27.78
+      },
+      "train_2011_2020": {
+        "trades": 1967,
+        "total_yen": 531126,
+        "avg_yen": 270.0,
+        "winrate": 51.9,
+        "maxdd_yen": -70057,
+        "pf": 1.326,
+        "survive_10万": true,
+        "min_equity_10万": 97042,
+        "mar": 7.58
+      },
+      "test_2021_2026": {
+        "trades": 1073,
+        "total_yen": 1414735,
+        "avg_yen": 1318.5,
+        "winrate": 55.9,
+        "maxdd_yen": -55923,
+        "pf": 1.865,
+        "survive_10万": true,
+        "min_equity_10万": 86398,
+        "mar": 25.3
+      },
+      "post2020": {
+        "trades": 1275,
+        "total_yen": 1614025,
+        "avg_yen": 1265.9,
+        "winrate": 56.1,
+        "maxdd_yen": -55923,
+        "pf": 1.878,
+        "survive_10万": true,
+        "min_equity_10万": 100000,
+        "mar": 28.86
+      },
+      "survival_10万_1y": {
+        "n": 2789,
+        "survive_pct": 100.0,
+        "profit_pct": 94.2,
+        "both_pct": 94.2
+      },
+      "survival_10万_3y": {
+        "n": 2285,
+        "survive_pct": 100.0,
+        "profit_pct": 100.0,
+        "both_pct": 100.0
+      }
+    },
+    {
+      "name": "trade_abs_gap_ge_100",
+      "full": {
+        "trades": 1917,
+        "total_yen": 1907221,
+        "avg_yen": 994.9,
+        "winrate": 55.7,
+        "maxdd_yen": -55923,
+        "pf": 1.792,
+        "survive_10万": true,
+        "min_equity_10万": 100000,
+        "mar": 34.1
+      },
+      "train_2011_2020": {
+        "trades": 994,
+        "total_yen": 518767,
+        "avg_yen": 521.9,
+        "winrate": 54.8,
+        "maxdd_yen": -46732,
+        "pf": 1.542,
+        "survive_10万": true,
+        "min_equity_10万": 100000,
+        "mar": 11.1
+      },
+      "test_2021_2026": {
+        "trades": 923,
+        "total_yen": 1388454,
+        "avg_yen": 1504.3,
+        "winrate": 56.8,
+        "maxdd_yen": -55923,
+        "pf": 1.958,
+        "survive_10万": true,
+        "min_equity_10万": 87278,
+        "mar": 24.83
+      },
+      "post2020": {
+        "trades": 1068,
+        "total_yen": 1543809,
+        "avg_yen": 1445.5,
+        "winrate": 56.7,
+        "maxdd_yen": -55923,
+        "pf": 1.957,
+        "survive_10万": true,
+        "min_equity_10万": 100000,
+        "mar": 27.61
+      },
+      "survival_10万_1y": {
+        "n": 1666,
+        "survive_pct": 100.0,
+        "profit_pct": 99.6,
+        "both_pct": 99.6
+      },
+      "survival_10万_3y": {
+        "n": 1162,
+        "survive_pct": 100.0,
+        "profit_pct": 100.0,
+        "both_pct": 100.0
+      }
+    },
+    {
+      "name": "trade_gap_pr_ge_0.1",
+      "full": {
+        "trades": 3397,
+        "total_yen": 1843441,
+        "avg_yen": 542.7,
+        "winrate": 52.2,
+        "maxdd_yen": -94575,
+        "pf": 1.506,
+        "survive_10万": true,
+        "min_equity_10万": 97114,
+        "mar": 19.49
+      },
+      "train_2011_2020": {
+        "trades": 2207,
+        "total_yen": 460317,
+        "avg_yen": 208.6,
+        "winrate": 50.8,
+        "maxdd_yen": -94575,
+        "pf": 1.251,
+        "survive_10万": true,
+        "min_equity_10万": 97114,
+        "mar": 4.87
+      },
+      "test_2021_2026": {
+        "trades": 1190,
+        "total_yen": 1383124,
+        "avg_yen": 1162.3,
+        "winrate": 54.9,
+        "maxdd_yen": -55923,
+        "pf": 1.764,
+        "survive_10万": true,
+        "min_equity_10万": 83233,
+        "mar": 24.73
+      },
+      "post2020": {
+        "trades": 1415,
+        "total_yen": 1574697,
+        "avg_yen": 1112.9,
+        "winrate": 55.0,
+        "maxdd_yen": -55923,
+        "pf": 1.772,
+        "survive_10万": true,
+        "min_equity_10万": 100000,
+        "mar": 28.16
+      },
+      "survival_10万_1y": {
+        "n": 3146,
+        "survive_pct": 100.0,
+        "profit_pct": 87.4,
+        "both_pct": 87.4
+      },
+      "survival_10万_3y": {
+        "n": 2642,
+        "survive_pct": 100.0,
+        "profit_pct": 100.0,
+        "both_pct": 100.0
+      }
+    },
+    {
+      "name": "trade_abs_gap_ge_50",
+      "full": {
+        "trades": 2782,
+        "total_yen": 1896973,
+        "avg_yen": 681.9,
+        "winrate": 53.9,
+        "maxdd_yen": -78037,
+        "pf": 1.591,
+        "survive_10万": true,
+        "min_equity_10万": 99268,
+        "mar": 24.31
+      },
+      "train_2011_2020": {
+        "trades": 1654,
+        "total_yen": 531513,
+        "avg_yen": 321.4,
+        "winrate": 53.0,
+        "maxdd_yen": -78037,
+        "pf": 1.366,
+        "survive_10万": true,
+        "min_equity_10万": 99268,
+        "mar": 6.81
+      },
+      "test_2021_2026": {
+        "trades": 1128,
+        "total_yen": 1365459,
+        "avg_yen": 1210.5,
+        "winrate": 55.2,
+        "maxdd_yen": -55923,
+        "pf": 1.776,
+        "survive_10万": true,
+        "min_equity_10万": 86398,
+        "mar": 24.42
+      },
+      "post2020": {
+        "trades": 1319,
+        "total_yen": 1557855,
+        "avg_yen": 1181.1,
+        "winrate": 55.4,
+        "maxdd_yen": -55923,
+        "pf": 1.797,
+        "survive_10万": true,
+        "min_equity_10万": 100000,
+        "mar": 27.86
+      },
+      "survival_10万_1y": {
+        "n": 2531,
+        "survive_pct": 100.0,
+        "profit_pct": 94.6,
+        "both_pct": 94.6
+      },
+      "survival_10万_3y": {
+        "n": 2027,
+        "survive_pct": 100.0,
+        "profit_pct": 100.0,
+        "both_pct": 100.0
+      }
+    },
+    {
+      "name": "opposite_day_double",
+      "full": {
+        "trades": 3762,
+        "total_yen": 2163770,
+        "avg_yen": 575.2,
+        "winrate": 51.9,
+        "maxdd_yen": -111848,
+        "pf": 1.468,
+        "survive_10万": true,
+        "min_equity_10万": 94761,
+        "mar": 19.35
+      },
+      "train_2011_2020": {
+        "trades": 2447,
+        "total_yen": 532411,
+        "avg_yen": 217.6,
+        "winrate": 50.7,
+        "maxdd_yen": -111848,
+        "pf": 1.232,
+        "survive_10万": true,
+        "min_equity_10万": 94761,
+        "mar": 4.76
+      },
+      "test_2021_2026": {
+        "trades": 1315,
+        "total_yen": 1631359,
+        "avg_yen": 1240.6,
+        "winrate": 54.0,
+        "maxdd_yen": -67733,
+        "pf": 1.7,
+        "survive_10万": true,
+        "min_equity_10万": 67217,
+        "mar": 24.09
+      },
+      "post2020": {
+        "trades": 1557,
+        "total_yen": 1859066,
+        "avg_yen": 1194.0,
+        "winrate": 54.2,
+        "maxdd_yen": -67733,
+        "pf": 1.711,
+        "survive_10万": true,
+        "min_equity_10万": 100000,
+        "mar": 27.45
+      },
+      "survival_10万_1y": {
+        "n": 3511,
+        "survive_pct": 100.0,
+        "profit_pct": 81.3,
+        "both_pct": 81.3
+      },
+      "survival_10万_3y": {
+        "n": 3007,
+        "survive_pct": 99.5,
+        "profit_pct": 99.7,
+        "both_pct": 99.2
+      }
+    },
+    {
+      "name": "same_day_1x_not_2x",
+      "full": {
+        "trades": 3762,
+        "total_yen": 1081885,
+        "avg_yen": 287.6,
+        "winrate": 51.9,
+        "maxdd_yen": -55924,
+        "pf": 1.468,
+        "survive_10万": true,
+        "min_equity_10万": 97380,
+        "mar": 19.35
+      },
+      "train_2011_2020": {
+        "trades": 2447,
+        "total_yen": 266206,
+        "avg_yen": 108.8,
+        "winrate": 50.7,
+        "maxdd_yen": -55924,
+        "pf": 1.232,
+        "survive_10万": true,
+        "min_equity_10万": 97380,
+        "mar": 4.76
+      },
+      "test_2021_2026": {
+        "trades": 1315,
+        "total_yen": 815679,
+        "avg_yen": 620.3,
+        "winrate": 54.0,
+        "maxdd_yen": -33866,
+        "pf": 1.7,
+        "survive_10万": true,
+        "min_equity_10万": 83608,
+        "mar": 24.09
+      },
+      "post2020": {
+        "trades": 1557,
+        "total_yen": 929533,
+        "avg_yen": 597.0,
+        "winrate": 54.2,
+        "maxdd_yen": -33866,
+        "pf": 1.711,
+        "survive_10万": true,
+        "min_equity_10万": 100000,
+        "mar": 27.45
+      },
+      "survival_10万_1y": {
+        "n": 3511,
+        "survive_pct": 100.0,
+        "profit_pct": 81.3,
+        "both_pct": 81.3
+      },
+      "survival_10万_3y": {
+        "n": 3007,
+        "survive_pct": 100.0,
+        "profit_pct": 99.7,
+        "both_pct": 99.7
+      }
+    },
+    {
+      "name": "baseline_S1",
+      "full": {
+        "trades": 3762,
+        "total_yen": 1822227,
+        "avg_yen": 484.4,
+        "winrate": 51.9,
+        "maxdd_yen": -99583,
+        "pf": 1.458,
+        "survive_10万": true,
+        "min_equity_10万": 97114,
+        "mar": 18.3
+      },
+      "train_2011_2020": {
+        "trades": 2447,
+        "total_yen": 445900,
+        "avg_yen": 182.2,
+        "winrate": 50.7,
+        "maxdd_yen": -99583,
+        "pf": 1.222,
+        "survive_10万": true,
+        "min_equity_10万": 97114,
+        "mar": 4.48
+      },
+      "test_2021_2026": {
+        "trades": 1315,
+        "total_yen": 1376327,
+        "avg_yen": 1046.6,
+        "winrate": 54.0,
+        "maxdd_yen": -57457,
+        "pf": 1.697,
+        "survive_10万": true,
+        "min_equity_10万": 69283,
+        "mar": 23.95
+      },
+      "post2020": {
+        "trades": 1557,
+        "total_yen": 1568665,
+        "avg_yen": 1007.5,
+        "winrate": 54.2,
+        "maxdd_yen": -57457,
+        "pf": 1.708,
+        "survive_10万": true,
+        "min_equity_10万": 100000,
+        "mar": 27.3
+      },
+      "survival_10万_1y": {
+        "n": 3511,
+        "survive_pct": 100.0,
+        "profit_pct": 83.7,
+        "both_pct": 83.7
+      },
+      "survival_10万_3y": {
+        "n": 3007,
+        "survive_pct": 100.0,
+        "profit_pct": 100.0,
+        "both_pct": 100.0
+      }
+    },
+    {
+      "name": "skip_Tue",
+      "full": {
+        "trades": 2996,
+        "total_yen": 1518324,
+        "avg_yen": 506.8,
+        "winrate": 52.7,
+        "maxdd_yen": -74345,
+        "pf": 1.484,
+        "survive_10万": true,
+        "min_equity_10万": 97296,
+        "mar": 20.42
+      },
+      "train_2011_2020": {
+        "trades": 1949,
+        "total_yen": 347735,
+        "avg_yen": 178.4,
+        "winrate": 51.5,
+        "maxdd_yen": -74345,
+        "pf": 1.221,
+        "survive_10万": true,
+        "min_equity_10万": 97296,
+        "mar": 4.68
+      },
+      "test_2021_2026": {
+        "trades": 1047,
+        "total_yen": 1170588,
+        "avg_yen": 1118.0,
+        "winrate": 54.7,
+        "maxdd_yen": -48939,
+        "pf": 1.748,
+        "survive_10万": true,
+        "min_equity_10万": 67345,
+        "mar": 23.92
+      },
+      "post2020": {
+        "trades": 1241,
+        "total_yen": 1315458,
+        "avg_yen": 1060.0,
+        "winrate": 54.8,
+        "maxdd_yen": -50051,
+        "pf": 1.749,
+        "survive_10万": true,
+        "min_equity_10万": 100000,
+        "mar": 26.28
+      },
+      "survival_10万_1y": {
+        "n": 2745,
+        "survive_pct": 100.0,
+        "profit_pct": 88.3,
+        "both_pct": 88.3
+      },
+      "survival_10万_3y": {
+        "n": 2241,
+        "survive_pct": 100.0,
+        "profit_pct": 100.0,
+        "both_pct": 100.0
+      }
+    },
+    {
+      "name": "skip_abs_gap_ge_1000",
+      "full": {
+        "trades": 3760,
+        "total_yen": 1781252,
+        "avg_yen": 473.7,
+        "winrate": 51.8,
+        "maxdd_yen": -99583,
+        "pf": 1.447,
+        "survive_10万": true,
+        "min_equity_10万": 97114,
+        "mar": 17.89
+      },
+      "train_2011_2020": {
+        "trades": 2447,
+        "total_yen": 445900,
+        "avg_yen": 182.2,
+        "winrate": 50.7,
+        "maxdd_yen": -99583,
+        "pf": 1.222,
+        "survive_10万": true,
+        "min_equity_10万": 97114,
+        "mar": 4.48
+      },
+      "test_2021_2026": {
+        "trades": 1313,
+        "total_yen": 1335352,
+        "avg_yen": 1017.0,
+        "winrate": 53.9,
+        "maxdd_yen": -57457,
+        "pf": 1.677,
+        "survive_10万": true,
+        "min_equity_10万": 69283,
+        "mar": 23.24
+      },
+      "post2020": {
+        "trades": 1555,
+        "total_yen": 1527690,
+        "avg_yen": 982.4,
+        "winrate": 54.1,
+        "maxdd_yen": -57457,
+        "pf": 1.69,
+        "survive_10万": true,
+        "min_equity_10万": 100000,
+        "mar": 26.59
+      },
+      "survival_10万_1y": {
+        "n": 3509,
+        "survive_pct": 100.0,
+        "profit_pct": 83.7,
+        "both_pct": 83.7
+      },
+      "survival_10万_3y": {
+        "n": 3005,
+        "survive_pct": 100.0,
+        "profit_pct": 100.0,
+        "both_pct": 100.0
+      }
+    },
+    {
+      "name": "gap_ge_0.9_and_trend_ma60",
+      "full": {
+        "trades": 223,
+        "total_yen": 719863,
+        "avg_yen": 3228.1,
+        "winrate": 65.5,
+        "maxdd_yen": -22787,
+        "pf": 4.627,
+        "survive_10万": true,
+        "min_equity_10万": 100000,
+        "mar": 31.59
+      },
+      "train_2011_2020": {
+        "trades": 143,
+        "total_yen": 218685,
+        "avg_yen": 1529.3,
+        "winrate": 60.8,
+        "maxdd_yen": -22600,
+        "pf": 2.754,
+        "survive_10万": true,
+        "min_equity_10万": 100000,
+        "mar": 9.68
+      },
+      "test_2021_2026": {
+        "trades": 80,
+        "total_yen": 501178,
+        "avg_yen": 6264.7,
+        "winrate": 73.8,
+        "maxdd_yen": -22787,
+        "pf": 7.795,
+        "survive_10万": true,
+        "min_equity_10万": 94962,
+        "mar": 21.99
+      },
+      "post2020": {
+        "trades": 97,
+        "total_yen": 569158,
+        "avg_yen": 5867.6,
+        "winrate": 72.2,
+        "maxdd_yen": -22787,
+        "pf": 7.539,
+        "survive_10万": true,
+        "min_equity_10万": 100000,
+        "mar": 24.98
+      },
+      "survival_10万_1y": null,
+      "survival_10万_3y": null
+    },
+    {
+      "name": "gap_ge_0.8_and_trend_ma20",
+      "full": {
+        "trades": 437,
+        "total_yen": 916468,
+        "avg_yen": 2097.2,
+        "winrate": 60.8,
+        "maxdd_yen": -29839,
+        "pf": 3.04,
+        "survive_10万": true,
+        "min_equity_10万": 99641,
+        "mar": 30.71
+      },
+      "train_2011_2020": {
+        "trades": 281,
+        "total_yen": 267321,
+        "avg_yen": 951.3,
+        "winrate": 58.9,
+        "maxdd_yen": -18876,
+        "pf": 2.137,
+        "survive_10万": true,
+        "min_equity_10万": 99641,
+        "mar": 14.16
+      },
+      "test_2021_2026": {
+        "trades": 156,
+        "total_yen": 649147,
+        "avg_yen": 4161.2,
+        "winrate": 64.1,
+        "maxdd_yen": -29839,
+        "pf": 4.032,
+        "survive_10万": true,
+        "min_equity_10万": 86894,
+        "mar": 21.76
+      },
+      "post2020": {
+        "trades": 188,
+        "total_yen": 698855,
+        "avg_yen": 3717.3,
+        "winrate": 63.3,
+        "maxdd_yen": -29839,
+        "pf": 3.8,
+        "survive_10万": true,
+        "min_equity_10万": 97675,
+        "mar": 23.42
+      },
+      "survival_10万_1y": {
+        "n": 186,
+        "survive_pct": 100.0,
+        "profit_pct": 100.0,
+        "both_pct": 100.0
+      },
+      "survival_10万_3y": null
+    },
+    {
+      "name": "gap_ge_0.8_and_trend_ma200",
+      "full": {
+        "trades": 433,
+        "total_yen": 888920,
+        "avg_yen": 2052.9,
+        "winrate": 61.7,
+        "maxdd_yen": -29839,
+        "pf": 3.049,
+        "survive_10万": true,
+        "min_equity_10万": 100000,
+        "mar": 29.79
+      },
+      "train_2011_2020": {
+        "trades": 274,
+        "total_yen": 240100,
+        "avg_yen": 876.3,
+        "winrate": 59.1,
+        "maxdd_yen": -28519,
+        "pf": 2.064,
+        "survive_10万": true,
+        "min_equity_10万": 100000,
+        "mar": 8.42
+      },
+      "test_2021_2026": {
+        "trades": 159,
+        "total_yen": 648820,
+        "avg_yen": 4080.6,
+        "winrate": 66.0,
+        "maxdd_yen": -29839,
+        "pf": 4.117,
+        "survive_10万": true,
+        "min_equity_10万": 88782,
+        "mar": 21.74
+      },
+      "post2020": {
+        "trades": 189,
+        "total_yen": 701361,
+        "avg_yen": 3710.9,
+        "winrate": 64.6,
+        "maxdd_yen": -29839,
+        "pf": 3.831,
+        "survive_10万": true,
+        "min_equity_10万": 100000,
+        "mar": 23.51
+      },
+      "survival_10万_1y": {
+        "n": 182,
+        "survive_pct": 100.0,
+        "profit_pct": 100.0,
+        "both_pct": 100.0
+      },
+      "survival_10万_3y": null
+    },
+    {
+      "name": "skip_Mon",
+      "full": {
+        "trades": 3070,
+        "total_yen": 1389340,
+        "avg_yen": 452.6,
+        "winrate": 51.0,
+        "maxdd_yen": -115237,
+        "pf": 1.425,
+        "survive_10万": true,
+        "min_equity_10万": 98298,
+        "mar": 12.06
+      },
+      "train_2011_2020": {
+        "trades": 1998,
+        "total_yen": 309905,
+        "avg_yen": 155.1,
+        "winrate": 49.6,
+        "maxdd_yen": -115237,
+        "pf": 1.183,
+        "survive_10万": true,
+        "min_equity_10万": 98298,
+        "mar": 2.69
+      },
+      "test_2021_2026": {
+        "trades": 1072,
+        "total_yen": 1079435,
+        "avg_yen": 1006.9,
+        "winrate": 53.6,
+        "maxdd_yen": -52709,
+        "pf": 1.685,
+        "survive_10万": true,
+        "min_equity_10万": 83303,
+        "mar": 20.48
+      },
+      "post2020": {
+        "trades": 1268,
+        "total_yen": 1222968,
+        "avg_yen": 964.5,
+        "winrate": 53.5,
+        "maxdd_yen": -52709,
+        "pf": 1.69,
+        "survive_10万": true,
+        "min_equity_10万": 100000,
+        "mar": 23.2
+      },
+      "survival_10万_1y": {
+        "n": 2819,
+        "survive_pct": 100.0,
+        "profit_pct": 81.6,
+        "both_pct": 81.6
+      },
+      "survival_10万_3y": {
+        "n": 2315,
+        "survive_pct": 99.4,
+        "profit_pct": 100.0,
+        "both_pct": 99.4
+      }
+    },
+    {
+      "name": "trade_gap_pr_ge_0.3",
+      "full": {
+        "trades": 2692,
+        "total_yen": 1879398,
+        "avg_yen": 698.1,
+        "winrate": 53.9,
+        "maxdd_yen": -68799,
+        "pf": 1.63,
+        "survive_10万": true,
+        "min_equity_10万": 98473,
+        "mar": 27.32
+      },
+      "train_2011_2020": {
+        "trades": 1731,
+        "total_yen": 541066,
+        "avg_yen": 312.6,
+        "winrate": 52.9,
+        "maxdd_yen": -68799,
+        "pf": 1.369,
+        "survive_10万": true,
+        "min_equity_10万": 98473,
+        "mar": 7.86
+      },
+      "test_2021_2026": {
+        "trades": 961,
+        "total_yen": 1338332,
+        "avg_yen": 1392.6,
+        "winrate": 55.7,
+        "maxdd_yen": -65601,
+        "pf": 1.883,
+        "survive_10万": true,
+        "min_equity_10万": 84695,
+        "mar": 20.4
+      },
+      "post2020": {
+        "trades": 1145,
+        "total_yen": 1528306,
+        "avg_yen": 1334.8,
+        "winrate": 56.0,
+        "maxdd_yen": -65601,
+        "pf": 1.897,
+        "survive_10万": true,
+        "min_equity_10万": 100000,
+        "mar": 23.3
+      },
+      "survival_10万_1y": {
+        "n": 2441,
+        "survive_pct": 100.0,
+        "profit_pct": 94.3,
+        "both_pct": 94.3
+      },
+      "survival_10万_3y": {
+        "n": 1937,
+        "survive_pct": 100.0,
+        "profit_pct": 100.0,
+        "both_pct": 100.0
+      }
+    },
+    {
+      "name": "trade_abs_gap_ge_200",
+      "full": {
+        "trades": 915,
+        "total_yen": 1805308,
+        "avg_yen": 1973.0,
+        "winrate": 61.7,
+        "maxdd_yen": -64409,
+        "pf": 2.498,
+        "survive_10万": true,
+        "min_equity_10万": 100000,
+        "mar": 28.03
+      },
+      "train_2011_2020": {
+        "trades": 325,
+        "total_yen": 491385,
+        "avg_yen": 1512.0,
+        "winrate": 63.9,
+        "maxdd_yen": -17743,
+        "pf": 2.692,
+        "survive_10万": true,
+        "min_equity_10万": 100000,
+        "mar": 27.69
+      },
+      "test_2021_2026": {
+        "trades": 590,
+        "total_yen": 1313924,
+        "avg_yen": 2227.0,
+        "winrate": 60.5,
+        "maxdd_yen": -64409,
+        "pf": 2.436,
+        "survive_10万": true,
+        "min_equity_10万": 100000,
+        "mar": 20.4
+      },
+      "post2020": {
+        "trades": 657,
+        "total_yen": 1435029,
+        "avg_yen": 2184.2,
+        "winrate": 60.4,
+        "maxdd_yen": -64409,
+        "pf": 2.441,
+        "survive_10万": true,
+        "min_equity_10万": 99413,
+        "mar": 22.28
+      },
+      "survival_10万_1y": {
+        "n": 664,
+        "survive_pct": 100.0,
+        "profit_pct": 100.0,
+        "both_pct": 100.0
+      },
+      "survival_10万_3y": {
+        "n": 160,
+        "survive_pct": 100.0,
+        "profit_pct": 100.0,
+        "both_pct": 100.0
+      }
+    },
+    {
+      "name": "trade_gap_pr_ge_0.5",
+      "full": {
+        "trades": 1973,
+        "total_yen": 1885604,
+        "avg_yen": 955.7,
+        "winrate": 55.8,
+        "maxdd_yen": -66886,
+        "pf": 1.856,
+        "survive_10万": true,
+        "min_equity_10万": 100000,
+        "mar": 28.19
+      },
+      "train_2011_2020": {
+        "trades": 1267,
+        "total_yen": 524058,
+        "avg_yen": 413.6,
+        "winrate": 53.8,
+        "maxdd_yen": -58728,
+        "pf": 1.461,
+        "survive_10万": true,
+        "min_equity_10万": 100000,
+        "mar": 8.92
+      },
+      "test_2021_2026": {
+        "trades": 706,
+        "total_yen": 1361546,
+        "avg_yen": 1928.5,
+        "winrate": 59.5,
+        "maxdd_yen": -66886,
+        "pf": 2.276,
+        "survive_10万": true,
+        "min_equity_10万": 93656,
+        "mar": 20.36
+      },
+      "post2020": {
+        "trades": 850,
+        "total_yen": 1523959,
+        "avg_yen": 1792.9,
+        "winrate": 59.2,
+        "maxdd_yen": -66886,
+        "pf": 2.237,
+        "survive_10万": true,
+        "min_equity_10万": 100000,
+        "mar": 22.78
+      },
+      "survival_10万_1y": {
+        "n": 1722,
+        "survive_pct": 100.0,
+        "profit_pct": 99.8,
+        "both_pct": 99.8
+      },
+      "survival_10万_3y": {
+        "n": 1218,
+        "survive_pct": 100.0,
+        "profit_pct": 100.0,
+        "both_pct": 100.0
+      }
+    },
+    {
+      "name": "skip_abs_gap_ge_800",
+      "full": {
+        "trades": 3747,
+        "total_yen": 1615744,
+        "avg_yen": 431.2,
+        "winrate": 51.8,
+        "maxdd_yen": -99583,
+        "pf": 1.407,
+        "survive_10万": true,
+        "min_equity_10万": 97114,
+        "mar": 16.23
+      },
+      "train_2011_2020": {
+        "trades": 2447,
+        "total_yen": 445900,
+        "avg_yen": 182.2,
+        "winrate": 50.7,
+        "maxdd_yen": -99583,
+        "pf": 1.222,
+        "survive_10万": true,
+        "min_equity_10万": 97114,
+        "mar": 4.48
+      },
+      "test_2021_2026": {
+        "trades": 1300,
+        "total_yen": 1169844,
+        "avg_yen": 899.9,
+        "winrate": 53.7,
+        "maxdd_yen": -57457,
+        "pf": 1.595,
+        "survive_10万": true,
+        "min_equity_10万": 69283,
+        "mar": 20.36
+      },
+      "post2020": {
+        "trades": 1542,
+        "total_yen": 1362182,
+        "avg_yen": 883.4,
+        "winrate": 54.0,
+        "maxdd_yen": -57457,
+        "pf": 1.617,
+        "survive_10万": true,
+        "min_equity_10万": 100000,
+        "mar": 23.71
+      },
+      "survival_10万_1y": {
+        "n": 3496,
+        "survive_pct": 100.0,
+        "profit_pct": 83.6,
+        "both_pct": 83.6
+      },
+      "survival_10万_3y": {
+        "n": 2992,
+        "survive_pct": 100.0,
+        "profit_pct": 100.0,
+        "both_pct": 100.0
+      }
+    },
+    {
+      "name": "trade_abs_gap_ge_150",
+      "full": {
+        "trades": 1329,
+        "total_yen": 1866821,
+        "avg_yen": 1404.7,
+        "winrate": 58.1,
+        "maxdd_yen": -65601,
+        "pf": 2.065,
+        "survive_10万": true,
+        "min_equity_10万": 100000,
+        "mar": 28.46
+      },
+      "train_2011_2020": {
+        "trades": 580,
+        "total_yen": 532671,
+        "avg_yen": 918.4,
+        "winrate": 58.4,
+        "maxdd_yen": -24082,
+        "pf": 1.932,
+        "survive_10万": true,
+        "min_equity_10万": 100000,
+        "mar": 22.12
+      },
+      "test_2021_2026": {
+        "trades": 749,
+        "total_yen": 1334150,
+        "avg_yen": 1781.2,
+        "winrate": 57.9,
+        "maxdd_yen": -65601,
+        "pf": 2.129,
+        "survive_10万": true,
+        "min_equity_10万": 100000,
+        "mar": 20.34
+      },
+      "post2020": {
+        "trades": 849,
+        "total_yen": 1480443,
+        "avg_yen": 1743.7,
+        "winrate": 58.1,
+        "maxdd_yen": -65601,
+        "pf": 2.138,
+        "survive_10万": true,
+        "min_equity_10万": 100000,
+        "mar": 22.57
+      },
+      "survival_10万_1y": {
+        "n": 1078,
+        "survive_pct": 100.0,
+        "profit_pct": 100.0,
+        "both_pct": 100.0
+      },
+      "survival_10万_3y": {
+        "n": 574,
+        "survive_pct": 100.0,
+        "profit_pct": 100.0,
+        "both_pct": 100.0
+      }
+    },
+    {
+      "name": "half_after_1_loss",
+      "full": {
+        "trades": 3762,
+        "total_yen": 1323500,
+        "avg_yen": 351.8,
+        "winrate": 51.9,
+        "maxdd_yen": -86890,
+        "pf": 1.425,
+        "survive_10万": true,
+        "min_equity_10万": 93034,
+        "mar": 15.23
+      },
+      "train_2011_2020": {
+        "trades": 2447,
+        "total_yen": 295972,
+        "avg_yen": 121.0,
+        "winrate": 50.7,
+        "maxdd_yen": -86890,
+        "pf": 1.193,
+        "survive_10万": true,
+        "min_equity_10万": 93034,
+        "mar": 3.41
+      },
+      "test_2021_2026": {
+        "trades": 1315,
+        "total_yen": 1027528,
+        "avg_yen": 781.4,
+        "winrate": 54.0,
+        "maxdd_yen": -54912,
+        "pf": 1.65,
+        "survive_10万": true,
+        "min_equity_10万": 83639,
+        "mar": 18.71
+      },
+      "post2020": {
+        "trades": 1557,
+        "total_yen": 1185202,
+        "avg_yen": 761.2,
+        "winrate": 54.2,
+        "maxdd_yen": -54912,
+        "pf": 1.672,
+        "survive_10万": true,
+        "min_equity_10万": 100000,
+        "mar": 21.58
+      },
+      "survival_10万_1y": {
+        "n": 3511,
+        "survive_pct": 100.0,
+        "profit_pct": 78.0,
+        "both_pct": 78.0
+      },
+      "survival_10万_3y": {
+        "n": 3007,
+        "survive_pct": 100.0,
+        "profit_pct": 87.1,
+        "both_pct": 87.1
+      }
+    },
+    {
+      "name": "avoid_long_above_ma20_short_below",
+      "full": {
+        "trades": 1889,
+        "total_yen": 963099,
+        "avg_yen": 509.8,
+        "winrate": 53.7,
+        "maxdd_yen": -40669,
+        "pf": 1.527,
+        "survive_10万": true,
+        "min_equity_10万": 99084,
+        "mar": 23.68
+      },
+      "train_2011_2020": {
+        "trades": 1229,
+        "total_yen": 254005,
+        "avg_yen": 206.7,
+        "winrate": 52.4,
+        "maxdd_yen": -40669,
+        "pf": 1.268,
+        "survive_10万": true,
+        "min_equity_10万": 99084,
+        "mar": 6.25
+      },
+      "test_2021_2026": {
+        "trades": 660,
+        "total_yen": 709094,
+        "avg_yen": 1074.4,
+        "winrate": 56.1,
+        "maxdd_yen": -39488,
+        "pf": 1.806,
+        "survive_10万": true,
+        "min_equity_10万": 87754,
+        "mar": 17.96
+      },
+      "post2020": {
+        "trades": 794,
+        "total_yen": 786266,
+        "avg_yen": 990.3,
+        "winrate": 56.0,
+        "maxdd_yen": -40669,
+        "pf": 1.772,
+        "survive_10万": true,
+        "min_equity_10万": 75597,
+        "mar": 19.33
+      },
+      "survival_10万_1y": {
+        "n": 1638,
+        "survive_pct": 100.0,
+        "profit_pct": 97.0,
+        "both_pct": 97.0
+      },
+      "survival_10万_3y": {
+        "n": 1134,
+        "survive_pct": 100.0,
+        "profit_pct": 100.0,
+        "both_pct": 100.0
+      }
+    },
+    {
+      "name": "skip_Wed",
+      "full": {
+        "trades": 2993,
+        "total_yen": 1503086,
+        "avg_yen": 502.2,
+        "winrate": 52.0,
+        "maxdd_yen": -67978,
+        "pf": 1.473,
+        "survive_10万": true,
+        "min_equity_10万": 90344,
+        "mar": 22.11
+      },
+      "train_2011_2020": {
+        "trades": 1946,
+        "total_yen": 385948,
+        "avg_yen": 198.3,
+        "winrate": 51.0,
+        "maxdd_yen": -67978,
+        "pf": 1.243,
+        "survive_10万": true,
+        "min_equity_10万": 90344,
+        "mar": 5.68
+      },
+      "test_2021_2026": {
+        "trades": 1047,
+        "total_yen": 1117138,
+        "avg_yen": 1067.0,
+        "winrate": 54.0,
+        "maxdd_yen": -63394,
+        "pf": 1.704,
+        "survive_10万": true,
+        "min_equity_10万": 77790,
+        "mar": 17.62
+      },
+      "post2020": {
+        "trades": 1239,
+        "total_yen": 1285671,
+        "avg_yen": 1037.7,
+        "winrate": 54.5,
+        "maxdd_yen": -63394,
+        "pf": 1.724,
+        "survive_10万": true,
+        "min_equity_10万": 100000,
+        "mar": 20.28
+      },
+      "survival_10万_1y": {
+        "n": 2742,
+        "survive_pct": 100.0,
+        "profit_pct": 85.3,
+        "both_pct": 85.3
+      },
+      "survival_10万_3y": {
+        "n": 2238,
+        "survive_pct": 100.0,
+        "profit_pct": 100.0,
+        "both_pct": 100.0
+      }
+    },
+    {
+      "name": "skip_Thu",
+      "full": {
+        "trades": 2994,
+        "total_yen": 1361794,
+        "avg_yen": 454.8,
+        "winrate": 51.0,
+        "maxdd_yen": -108218,
+        "pf": 1.427,
+        "survive_10万": true,
+        "min_equity_10万": 78291,
+        "mar": 12.58
+      },
+      "train_2011_2020": {
+        "trades": 1947,
+        "total_yen": 285213,
+        "avg_yen": 146.5,
+        "winrate": 49.4,
+        "maxdd_yen": -108218,
+        "pf": 1.176,
+        "survive_10万": true,
+        "min_equity_10万": 78291,
+        "mar": 2.64
+      },
+      "test_2021_2026": {
+        "trades": 1047,
+        "total_yen": 1076581,
+        "avg_yen": 1028.3,
+        "winrate": 54.0,
+        "maxdd_yen": -63551,
+        "pf": 1.685,
+        "survive_10万": true,
+        "min_equity_10万": 71034,
+        "mar": 16.94
+      },
+      "post2020": {
+        "trades": 1240,
+        "total_yen": 1218384,
+        "avg_yen": 982.6,
+        "winrate": 53.9,
+        "maxdd_yen": -63551,
+        "pf": 1.688,
+        "survive_10万": true,
+        "min_equity_10万": 96993,
+        "mar": 19.17
+      },
+      "survival_10万_1y": {
+        "n": 2743,
+        "survive_pct": 100.0,
+        "profit_pct": 80.3,
+        "both_pct": 80.3
+      },
+      "survival_10万_3y": {
+        "n": 2239,
+        "survive_pct": 99.8,
+        "profit_pct": 96.9,
+        "both_pct": 96.7
+      }
+    },
+    {
+      "name": "only_yube_ny_same_2x_days",
+      "full": {
+        "trades": 2681,
+        "total_yen": 1480684,
+        "avg_yen": 552.3,
+        "winrate": 50.9,
+        "maxdd_yen": -87318,
+        "pf": 1.444,
+        "survive_10万": true,
+        "min_equity_10万": 98366,
+        "mar": 16.96
+      },
+      "train_2011_2020": {
+        "trades": 1780,
+        "total_yen": 359389,
+        "avg_yen": 201.9,
+        "winrate": 49.8,
+        "maxdd_yen": -87318,
+        "pf": 1.209,
+        "survive_10万": true,
+        "min_equity_10万": 98366,
+        "mar": 4.12
+      },
+      "test_2021_2026": {
+        "trades": 901,
+        "total_yen": 1121295,
+        "avg_yen": 1244.5,
+        "winrate": 53.2,
+        "maxdd_yen": -66509,
+        "pf": 1.694,
+        "survive_10万": true,
+        "min_equity_10万": 71349,
+        "mar": 16.86
+      },
+      "post2020": {
+        "trades": 1076,
+        "total_yen": 1278264,
+        "avg_yen": 1188.0,
+        "winrate": 53.4,
+        "maxdd_yen": -66509,
+        "pf": 1.704,
+        "survive_10万": true,
+        "min_equity_10万": 100000,
+        "mar": 19.22
+      },
+      "survival_10万_1y": {
+        "n": 2430,
+        "survive_pct": 100.0,
+        "profit_pct": 91.0,
+        "both_pct": 91.0
+      },
+      "survival_10万_3y": {
+        "n": 1926,
+        "survive_pct": 100.0,
+        "profit_pct": 100.0,
+        "both_pct": 100.0
+      }
+    }
+  ]
+}

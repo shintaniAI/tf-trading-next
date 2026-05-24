@@ -4,6 +4,8 @@ from dataclasses import dataclass
 from uuid import uuid4
 
 from .config import BotConfig
+from .contracts import estimate_pnl_yen, ibkr_contract_hint
+from .calendar import parse_date
 from .store import JsonStore, OrderRecord, now_iso
 
 
@@ -58,6 +60,15 @@ class DryRunBroker(Broker):
                 order["status"] = "closed"
                 order["closed_at"] = now_iso()
                 order["close_price_ref"] = price_ref
+                pnl_yen = estimate_pnl_yen(
+                    side=str(order.get("side", "")),
+                    entry=order.get("price_ref"),
+                    exit_=price_ref,
+                    quantity=int(order.get("quantity", 0)),
+                    contract=str(order.get("contract", self.config.contract)),
+                )
+                if pnl_yen is not None:
+                    order["pnl_yen"] = pnl_yen
                 changed += 1
         self.store.save(data)
         return BrokerResult(True, None, f"DRY_RUN CLOSE記録完了: {changed}件")
@@ -87,8 +98,9 @@ class IbkrBroker(Broker):
         try:
             ib = self._connect()
             accounts = ib.managedAccounts()
+            hint = ibkr_contract_hint(self.config.contract, parse_date(self.config.trading_date))
             ib.disconnect()
-            return BrokerResult(True, None, f"IBKR接続OK accounts={accounts}")
+            return BrokerResult(True, None, f"IBKR接続OK accounts={accounts} contract_hint={hint}")
         except Exception as exc:
             return BrokerResult(False, None, f"IBKR接続NG: {exc}")
 

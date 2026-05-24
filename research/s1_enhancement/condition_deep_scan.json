@@ -1,0 +1,5823 @@
+{
+  "generated_at": "2026-05-24T07:35:28",
+  "data_period": [
+    "2011-01-04",
+    "2026-05-22"
+  ],
+  "rows": 3762,
+  "policies": [
+    {
+      "name": "baseline_S1",
+      "category": "baseline",
+      "thesis": "全営業日S1",
+      "full": {
+        "trades": 3762,
+        "total_yen": 1822227,
+        "avg_yen": 484.4,
+        "winrate": 51.9,
+        "maxdd_yen": -99583,
+        "pf": 1.458,
+        "mar": 18.3
+      },
+      "train_2011_2020": {
+        "trades": 2447,
+        "total_yen": 445900,
+        "avg_yen": 182.2,
+        "winrate": 50.7,
+        "maxdd_yen": -99583,
+        "pf": 1.222,
+        "mar": 4.48
+      },
+      "test_2021_2026": {
+        "trades": 1315,
+        "total_yen": 1376327,
+        "avg_yen": 1046.6,
+        "winrate": 54.0,
+        "maxdd_yen": -57457,
+        "pf": 1.697,
+        "mar": 23.95
+      },
+      "rolling_1y": {
+        "n": 3511,
+        "profit_pct": 83.7,
+        "worst_total_yen": -68950,
+        "worst_dd_yen": -71455
+      },
+      "rolling_3y": {
+        "n": 3007,
+        "profit_pct": 100.0,
+        "worst_total_yen": 3837,
+        "worst_dd_yen": -99583
+      }
+    },
+    {
+      "name": "gap_pr_ge_0.5",
+      "category": "gap",
+      "thesis": "過去1年比のギャップ分位が50%以上だけ",
+      "full": {
+        "trades": 1973,
+        "total_yen": 1885604,
+        "avg_yen": 955.7,
+        "winrate": 55.8,
+        "maxdd_yen": -66886,
+        "pf": 1.856,
+        "mar": 28.19
+      },
+      "train_2011_2020": {
+        "trades": 1267,
+        "total_yen": 524058,
+        "avg_yen": 413.6,
+        "winrate": 53.8,
+        "maxdd_yen": -58728,
+        "pf": 1.461,
+        "mar": 8.92
+      },
+      "test_2021_2026": {
+        "trades": 706,
+        "total_yen": 1361546,
+        "avg_yen": 1928.5,
+        "winrate": 59.5,
+        "maxdd_yen": -66886,
+        "pf": 2.276,
+        "mar": 20.36
+      },
+      "rolling_1y": {
+        "n": 1722,
+        "profit_pct": 99.8,
+        "worst_total_yen": -7790,
+        "worst_dd_yen": -66886
+      },
+      "rolling_3y": {
+        "n": 1218,
+        "profit_pct": 100.0,
+        "worst_total_yen": 191733,
+        "worst_dd_yen": -66886
+      }
+    },
+    {
+      "name": "gap_pr_ge_0.7",
+      "category": "gap",
+      "thesis": "過去1年比のギャップ分位が70%以上だけ",
+      "full": {
+        "trades": 1210,
+        "total_yen": 1853535,
+        "avg_yen": 1531.8,
+        "winrate": 60.0,
+        "maxdd_yen": -28756,
+        "pf": 2.439,
+        "mar": 64.46
+      },
+      "train_2011_2020": {
+        "trades": 753,
+        "total_yen": 567938,
+        "avg_yen": 754.2,
+        "winrate": 58.0,
+        "maxdd_yen": -23001,
+        "pf": 1.886,
+        "mar": 24.69
+      },
+      "test_2021_2026": {
+        "trades": 457,
+        "total_yen": 1285597,
+        "avg_yen": 2813.1,
+        "winrate": 63.2,
+        "maxdd_yen": -28756,
+        "pf": 2.989,
+        "mar": 44.71
+      },
+      "rolling_1y": {
+        "n": 959,
+        "profit_pct": 100.0,
+        "worst_total_yen": 94182,
+        "worst_dd_yen": -28756
+      },
+      "rolling_3y": {
+        "n": 455,
+        "profit_pct": 100.0,
+        "worst_total_yen": 553049,
+        "worst_dd_yen": -28756
+      }
+    },
+    {
+      "name": "gap_pr_ge_0.8",
+      "category": "gap",
+      "thesis": "過去1年比のギャップ分位が80%以上だけ",
+      "full": {
+        "trades": 845,
+        "total_yen": 1740471,
+        "avg_yen": 2059.7,
+        "winrate": 63.4,
+        "maxdd_yen": -22315,
+        "pf": 3.073,
+        "mar": 77.99
+      },
+      "train_2011_2020": {
+        "trades": 530,
+        "total_yen": 577938,
+        "avg_yen": 1090.4,
+        "winrate": 62.0,
+        "maxdd_yen": -22315,
+        "pf": 2.358,
+        "mar": 25.9
+      },
+      "test_2021_2026": {
+        "trades": 315,
+        "total_yen": 1162533,
+        "avg_yen": 3690.6,
+        "winrate": 65.7,
+        "maxdd_yen": -18925,
+        "pf": 3.808,
+        "mar": 61.43
+      },
+      "rolling_1y": {
+        "n": 594,
+        "profit_pct": 100.0,
+        "worst_total_yen": 196270,
+        "worst_dd_yen": -22315
+      },
+      "rolling_3y": {
+        "n": 90,
+        "profit_pct": 100.0,
+        "worst_total_yen": 1071264,
+        "worst_dd_yen": -22315
+      }
+    },
+    {
+      "name": "gap_pr_ge_0.9",
+      "category": "gap",
+      "thesis": "過去1年比のギャップ分位が90%以上だけ",
+      "full": {
+        "trades": 460,
+        "total_yen": 1465650,
+        "avg_yen": 3186.2,
+        "winrate": 68.8,
+        "maxdd_yen": -18925,
+        "pf": 4.54,
+        "mar": 77.45
+      },
+      "train_2011_2020": {
+        "trades": 279,
+        "total_yen": 419281,
+        "avg_yen": 1502.8,
+        "winrate": 64.7,
+        "maxdd_yen": -17743,
+        "pf": 2.741,
+        "mar": 23.63
+      },
+      "test_2021_2026": {
+        "trades": 181,
+        "total_yen": 1046368,
+        "avg_yen": 5781.0,
+        "winrate": 75.1,
+        "maxdd_yen": -18925,
+        "pf": 7.042,
+        "mar": 55.29
+      },
+      "rolling_1y": {
+        "n": 209,
+        "profit_pct": 100.0,
+        "worst_total_yen": 296940,
+        "worst_dd_yen": -18925
+      },
+      "rolling_3y": null
+    },
+    {
+      "name": "gap_pr_band_0.0_0.2",
+      "category": "gap_band",
+      "thesis": "ギャップ分位 0.0-0.2",
+      "full": {
+        "trades": 722,
+        "total_yen": -123635,
+        "avg_yen": -171.2,
+        "winrate": 45.8,
+        "maxdd_yen": -132769,
+        "pf": 0.828,
+        "mar": -0.93
+      },
+      "train_2011_2020": {
+        "trades": 480,
+        "total_yen": -85226,
+        "avg_yen": -177.6,
+        "winrate": 46.0,
+        "maxdd_yen": -97406,
+        "pf": 0.775,
+        "mar": -0.87
+      },
+      "test_2021_2026": {
+        "trades": 242,
+        "total_yen": -38409,
+        "avg_yen": -158.7,
+        "winrate": 45.5,
+        "maxdd_yen": -45426,
+        "pf": 0.887,
+        "mar": -0.85
+      },
+      "rolling_1y": {
+        "n": 471,
+        "profit_pct": 0.6,
+        "worst_total_yen": -82376,
+        "worst_dd_yen": -82376
+      },
+      "rolling_3y": null
+    },
+    {
+      "name": "gap_pr_band_0.2_0.5",
+      "category": "gap_band",
+      "thesis": "ギャップ分位 0.2-0.5",
+      "full": {
+        "trades": 1067,
+        "total_yen": 60258,
+        "avg_yen": 56.5,
+        "winrate": 48.6,
+        "maxdd_yen": -108399,
+        "pf": 1.057,
+        "mar": 0.56
+      },
+      "train_2011_2020": {
+        "trades": 700,
+        "total_yen": 7069,
+        "avg_yen": 10.1,
+        "winrate": 48.4,
+        "maxdd_yen": -74341,
+        "pf": 1.014,
+        "mar": 0.1
+      },
+      "test_2021_2026": {
+        "trades": 367,
+        "total_yen": 53189,
+        "avg_yen": 144.9,
+        "winrate": 49.0,
+        "maxdd_yen": -108399,
+        "pf": 1.094,
+        "mar": 0.49
+      },
+      "rolling_1y": {
+        "n": 816,
+        "profit_pct": 34.8,
+        "worst_total_yen": -73698,
+        "worst_dd_yen": -108399
+      },
+      "rolling_3y": {
+        "n": 312,
+        "profit_pct": 9.9,
+        "worst_total_yen": -86872,
+        "worst_dd_yen": -108399
+      }
+    },
+    {
+      "name": "gap_pr_band_0.5_0.7",
+      "category": "gap_band",
+      "thesis": "ギャップ分位 0.5-0.7",
+      "full": {
+        "trades": 763,
+        "total_yen": 32069,
+        "avg_yen": 42.0,
+        "winrate": 49.3,
+        "maxdd_yen": -125909,
+        "pf": 1.035,
+        "mar": 0.25
+      },
+      "train_2011_2020": {
+        "trades": 514,
+        "total_yen": -43880,
+        "avg_yen": -85.4,
+        "winrate": 47.7,
+        "maxdd_yen": -125909,
+        "pf": 0.911,
+        "mar": -0.35
+      },
+      "test_2021_2026": {
+        "trades": 249,
+        "total_yen": 75949,
+        "avg_yen": 305.0,
+        "winrate": 52.6,
+        "maxdd_yen": -57800,
+        "pf": 1.181,
+        "mar": 1.31
+      },
+      "rolling_1y": {
+        "n": 512,
+        "profit_pct": 48.2,
+        "worst_total_yen": -114993,
+        "worst_dd_yen": -119105
+      },
+      "rolling_3y": {
+        "n": 8,
+        "profit_pct": 100.0,
+        "worst_total_yen": 2348,
+        "worst_dd_yen": -125909
+      }
+    },
+    {
+      "name": "gap_pr_band_0.7_0.8",
+      "category": "gap_band",
+      "thesis": "ギャップ分位 0.7-0.8",
+      "full": {
+        "trades": 365,
+        "total_yen": 113064,
+        "avg_yen": 309.8,
+        "winrate": 52.1,
+        "maxdd_yen": -60938,
+        "pf": 1.252,
+        "mar": 1.86
+      },
+      "train_2011_2020": {
+        "trades": 223,
+        "total_yen": -10000,
+        "avg_yen": -44.8,
+        "winrate": 48.4,
+        "maxdd_yen": -60938,
+        "pf": 0.954,
+        "mar": -0.16
+      },
+      "test_2021_2026": {
+        "trades": 142,
+        "total_yen": 123064,
+        "avg_yen": 866.6,
+        "winrate": 57.7,
+        "maxdd_yen": -36762,
+        "pf": 1.529,
+        "mar": 3.35
+      },
+      "rolling_1y": {
+        "n": 114,
+        "profit_pct": 100.0,
+        "worst_total_yen": 33091,
+        "worst_dd_yen": -60938
+      },
+      "rolling_3y": null
+    },
+    {
+      "name": "gap_pr_band_0.8_0.9",
+      "category": "gap_band",
+      "thesis": "ギャップ分位 0.8-0.9",
+      "full": {
+        "trades": 385,
+        "total_yen": 274821,
+        "avg_yen": 713.8,
+        "winrate": 56.9,
+        "maxdd_yen": -38518,
+        "pf": 1.646,
+        "mar": 7.13
+      },
+      "train_2011_2020": {
+        "trades": 251,
+        "total_yen": 158656,
+        "avg_yen": 632.1,
+        "winrate": 59.0,
+        "maxdd_yen": -28789,
+        "pf": 1.858,
+        "mar": 5.51
+      },
+      "test_2021_2026": {
+        "trades": 134,
+        "total_yen": 116165,
+        "avg_yen": 866.9,
+        "winrate": 53.0,
+        "maxdd_yen": -38518,
+        "pf": 1.482,
+        "mar": 3.02
+      },
+      "rolling_1y": {
+        "n": 134,
+        "profit_pct": 100.0,
+        "worst_total_yen": 110927,
+        "worst_dd_yen": -38518
+      },
+      "rolling_3y": null
+    },
+    {
+      "name": "gap_pr_band_0.9_1.0",
+      "category": "gap_band",
+      "thesis": "ギャップ分位 0.9-1.0",
+      "full": {
+        "trades": 460,
+        "total_yen": 1465650,
+        "avg_yen": 3186.2,
+        "winrate": 68.8,
+        "maxdd_yen": -18925,
+        "pf": 4.54,
+        "mar": 77.45
+      },
+      "train_2011_2020": {
+        "trades": 279,
+        "total_yen": 419281,
+        "avg_yen": 1502.8,
+        "winrate": 64.7,
+        "maxdd_yen": -17743,
+        "pf": 2.741,
+        "mar": 23.63
+      },
+      "test_2021_2026": {
+        "trades": 181,
+        "total_yen": 1046368,
+        "avg_yen": 5781.0,
+        "winrate": 75.1,
+        "maxdd_yen": -18925,
+        "pf": 7.042,
+        "mar": 55.29
+      },
+      "rolling_1y": {
+        "n": 209,
+        "profit_pct": 100.0,
+        "worst_total_yen": 296940,
+        "worst_dd_yen": -18925
+      },
+      "rolling_3y": null
+    },
+    {
+      "name": "abs_gap_ge_100",
+      "category": "gap_abs",
+      "thesis": "絶対ギャップ100円以上だけ",
+      "full": {
+        "trades": 1917,
+        "total_yen": 1907221,
+        "avg_yen": 994.9,
+        "winrate": 55.7,
+        "maxdd_yen": -55923,
+        "pf": 1.792,
+        "mar": 34.1
+      },
+      "train_2011_2020": {
+        "trades": 994,
+        "total_yen": 518767,
+        "avg_yen": 521.9,
+        "winrate": 54.8,
+        "maxdd_yen": -46732,
+        "pf": 1.542,
+        "mar": 11.1
+      },
+      "test_2021_2026": {
+        "trades": 923,
+        "total_yen": 1388454,
+        "avg_yen": 1504.3,
+        "winrate": 56.8,
+        "maxdd_yen": -55923,
+        "pf": 1.958,
+        "mar": 24.83
+      },
+      "rolling_1y": {
+        "n": 1666,
+        "profit_pct": 99.6,
+        "worst_total_yen": -6678,
+        "worst_dd_yen": -55923
+      },
+      "rolling_3y": {
+        "n": 1162,
+        "profit_pct": 100.0,
+        "worst_total_yen": 304827,
+        "worst_dd_yen": -55923
+      }
+    },
+    {
+      "name": "abs_gap_ge_200",
+      "category": "gap_abs",
+      "thesis": "絶対ギャップ200円以上だけ",
+      "full": {
+        "trades": 915,
+        "total_yen": 1805308,
+        "avg_yen": 1973.0,
+        "winrate": 61.7,
+        "maxdd_yen": -64409,
+        "pf": 2.498,
+        "mar": 28.03
+      },
+      "train_2011_2020": {
+        "trades": 325,
+        "total_yen": 491385,
+        "avg_yen": 1512.0,
+        "winrate": 63.9,
+        "maxdd_yen": -17743,
+        "pf": 2.692,
+        "mar": 27.69
+      },
+      "test_2021_2026": {
+        "trades": 590,
+        "total_yen": 1313924,
+        "avg_yen": 2227.0,
+        "winrate": 60.5,
+        "maxdd_yen": -64409,
+        "pf": 2.436,
+        "mar": 20.4
+      },
+      "rolling_1y": {
+        "n": 664,
+        "profit_pct": 100.0,
+        "worst_total_yen": 253343,
+        "worst_dd_yen": -64409
+      },
+      "rolling_3y": {
+        "n": 160,
+        "profit_pct": 100.0,
+        "worst_total_yen": 1092818,
+        "worst_dd_yen": -64409
+      }
+    },
+    {
+      "name": "abs_gap_ge_300",
+      "category": "gap_abs",
+      "thesis": "絶対ギャップ300円以上だけ",
+      "full": {
+        "trades": 427,
+        "total_yen": 1497397,
+        "avg_yen": 3506.8,
+        "winrate": 67.4,
+        "maxdd_yen": -37497,
+        "pf": 3.586,
+        "mar": 39.93
+      },
+      "train_2011_2020": {
+        "trades": 97,
+        "total_yen": 306731,
+        "avg_yen": 3162.2,
+        "winrate": 74.2,
+        "maxdd_yen": -11385,
+        "pf": 4.929,
+        "mar": 26.94
+      },
+      "test_2021_2026": {
+        "trades": 330,
+        "total_yen": 1190667,
+        "avg_yen": 3608.1,
+        "winrate": 65.5,
+        "maxdd_yen": -37497,
+        "pf": 3.376,
+        "mar": 31.75
+      },
+      "rolling_1y": {
+        "n": 176,
+        "profit_pct": 100.0,
+        "worst_total_yen": 606592,
+        "worst_dd_yen": -37497
+      },
+      "rolling_3y": null
+    },
+    {
+      "name": "abs_gap_ge_500",
+      "category": "gap_abs",
+      "thesis": "絶対ギャップ500円以上だけ",
+      "full": {
+        "trades": 85,
+        "total_yen": 819355,
+        "avg_yen": 9639.5,
+        "winrate": 76.5,
+        "maxdd_yen": -18925,
+        "pf": 9.101,
+        "mar": 43.3
+      },
+      "train_2011_2020": {
+        "trades": 1,
+        "total_yen": -4018,
+        "avg_yen": -4018.0,
+        "winrate": 0.0,
+        "maxdd_yen": -4018,
+        "pf": 0.0,
+        "mar": -1.0
+      },
+      "test_2021_2026": {
+        "trades": 84,
+        "total_yen": 823373,
+        "avg_yen": 9802.1,
+        "winrate": 77.4,
+        "maxdd_yen": -18925,
+        "pf": 9.478,
+        "mar": 43.51
+      },
+      "rolling_1y": null,
+      "rolling_3y": null
+    },
+    {
+      "name": "ny_same_only",
+      "category": "NY",
+      "thesis": "夕場方向とNY方向が同じ=2枚日だけ",
+      "full": {
+        "trades": 2681,
+        "total_yen": 1480684,
+        "avg_yen": 552.3,
+        "winrate": 50.9,
+        "maxdd_yen": -87318,
+        "pf": 1.444,
+        "mar": 16.96
+      },
+      "train_2011_2020": {
+        "trades": 1780,
+        "total_yen": 359389,
+        "avg_yen": 201.9,
+        "winrate": 49.8,
+        "maxdd_yen": -87318,
+        "pf": 1.209,
+        "mar": 4.12
+      },
+      "test_2021_2026": {
+        "trades": 901,
+        "total_yen": 1121295,
+        "avg_yen": 1244.5,
+        "winrate": 53.2,
+        "maxdd_yen": -66509,
+        "pf": 1.694,
+        "mar": 16.86
+      },
+      "rolling_1y": {
+        "n": 2430,
+        "profit_pct": 91.0,
+        "worst_total_yen": -69455,
+        "worst_dd_yen": -74190
+      },
+      "rolling_3y": {
+        "n": 1926,
+        "profit_pct": 100.0,
+        "worst_total_yen": 36062,
+        "worst_dd_yen": -87318
+      }
+    },
+    {
+      "name": "ny_opposite_only",
+      "category": "NY",
+      "thesis": "夕場方向とNY方向が逆=1枚日だけ",
+      "full": {
+        "trades": 1081,
+        "total_yen": 341543,
+        "avg_yen": 316.0,
+        "winrate": 54.2,
+        "maxdd_yen": -31594,
+        "pf": 1.529,
+        "mar": 10.81
+      },
+      "train_2011_2020": {
+        "trades": 667,
+        "total_yen": 86511,
+        "avg_yen": 129.7,
+        "winrate": 53.2,
+        "maxdd_yen": -31594,
+        "pf": 1.3,
+        "mar": 2.74
+      },
+      "test_2021_2026": {
+        "trades": 414,
+        "total_yen": 255032,
+        "avg_yen": 616.0,
+        "winrate": 55.8,
+        "maxdd_yen": -20842,
+        "pf": 1.712,
+        "mar": 12.24
+      },
+      "rolling_1y": {
+        "n": 830,
+        "profit_pct": 98.0,
+        "worst_total_yen": -6002,
+        "worst_dd_yen": -31594
+      },
+      "rolling_3y": {
+        "n": 326,
+        "profit_pct": 100.0,
+        "worst_total_yen": 103083,
+        "worst_dd_yen": -31594
+      }
+    },
+    {
+      "name": "ny_up_only",
+      "category": "NY",
+      "thesis": "NY陽線後だけ",
+      "full": {
+        "trades": 2031,
+        "total_yen": 928549,
+        "avg_yen": 457.2,
+        "winrate": 51.7,
+        "maxdd_yen": -96561,
+        "pf": 1.433,
+        "mar": 9.62
+      },
+      "train_2011_2020": {
+        "trades": 1335,
+        "total_yen": 191477,
+        "avg_yen": 143.4,
+        "winrate": 49.9,
+        "maxdd_yen": -96561,
+        "pf": 1.179,
+        "mar": 1.98
+      },
+      "test_2021_2026": {
+        "trades": 696,
+        "total_yen": 737072,
+        "avg_yen": 1059.0,
+        "winrate": 55.2,
+        "maxdd_yen": -58314,
+        "pf": 1.686,
+        "mar": 12.64
+      },
+      "rolling_1y": {
+        "n": 1780,
+        "profit_pct": 86.6,
+        "worst_total_yen": -89803,
+        "worst_dd_yen": -96561
+      },
+      "rolling_3y": {
+        "n": 1276,
+        "profit_pct": 100.0,
+        "worst_total_yen": 23170,
+        "worst_dd_yen": -96561
+      }
+    },
+    {
+      "name": "ny_down_only",
+      "category": "NY",
+      "thesis": "NY陰線後だけ",
+      "full": {
+        "trades": 1730,
+        "total_yen": 891773,
+        "avg_yen": 515.5,
+        "winrate": 52.1,
+        "maxdd_yen": -73411,
+        "pf": 1.486,
+        "mar": 12.15
+      },
+      "train_2011_2020": {
+        "trades": 1111,
+        "total_yen": 252518,
+        "avg_yen": 227.3,
+        "winrate": 51.7,
+        "maxdd_yen": -52021,
+        "pf": 1.27,
+        "mar": 4.85
+      },
+      "test_2021_2026": {
+        "trades": 619,
+        "total_yen": 639255,
+        "avg_yen": 1032.7,
+        "winrate": 52.7,
+        "maxdd_yen": -73411,
+        "pf": 1.71,
+        "mar": 8.71
+      },
+      "rolling_1y": {
+        "n": 1479,
+        "profit_pct": 84.1,
+        "worst_total_yen": -41539,
+        "worst_dd_yen": -73411
+      },
+      "rolling_3y": {
+        "n": 975,
+        "profit_pct": 100.0,
+        "worst_total_yen": 42576,
+        "worst_dd_yen": -73411
+      }
+    },
+    {
+      "name": "trend_aligned_ma20",
+      "category": "trend",
+      "thesis": "S1方向がMA20トレンドと一致",
+      "full": {
+        "trades": 1873,
+        "total_yen": 859128,
+        "avg_yen": 458.7,
+        "winrate": 50.1,
+        "maxdd_yen": -87188,
+        "pf": 1.399,
+        "mar": 9.85
+      },
+      "train_2011_2020": {
+        "trades": 1218,
+        "total_yen": 191896,
+        "avg_yen": 157.5,
+        "winrate": 49.1,
+        "maxdd_yen": -87188,
+        "pf": 1.181,
+        "mar": 2.2
+      },
+      "test_2021_2026": {
+        "trades": 655,
+        "total_yen": 667232,
+        "avg_yen": 1018.7,
+        "winrate": 51.9,
+        "maxdd_yen": -85402,
+        "pf": 1.61,
+        "mar": 7.81
+      },
+      "rolling_1y": {
+        "n": 1622,
+        "profit_pct": 80.0,
+        "worst_total_yen": -62713,
+        "worst_dd_yen": -87188
+      },
+      "rolling_3y": {
+        "n": 1118,
+        "profit_pct": 100.0,
+        "worst_total_yen": 8225,
+        "worst_dd_yen": -87188
+      }
+    },
+    {
+      "name": "trend_contrarian_ma20",
+      "category": "trend",
+      "thesis": "S1方向がMA20トレンドと逆",
+      "full": {
+        "trades": 1889,
+        "total_yen": 963099,
+        "avg_yen": 509.8,
+        "winrate": 53.7,
+        "maxdd_yen": -40669,
+        "pf": 1.527,
+        "mar": 23.68
+      },
+      "train_2011_2020": {
+        "trades": 1229,
+        "total_yen": 254005,
+        "avg_yen": 206.7,
+        "winrate": 52.4,
+        "maxdd_yen": -40669,
+        "pf": 1.268,
+        "mar": 6.25
+      },
+      "test_2021_2026": {
+        "trades": 660,
+        "total_yen": 709094,
+        "avg_yen": 1074.4,
+        "winrate": 56.1,
+        "maxdd_yen": -39488,
+        "pf": 1.806,
+        "mar": 17.96
+      },
+      "rolling_1y": {
+        "n": 1638,
+        "profit_pct": 97.0,
+        "worst_total_yen": -15843,
+        "worst_dd_yen": -40669
+      },
+      "rolling_3y": {
+        "n": 1134,
+        "profit_pct": 100.0,
+        "worst_total_yen": 43564,
+        "worst_dd_yen": -40669
+      }
+    },
+    {
+      "name": "trend_aligned_ma60",
+      "category": "trend",
+      "thesis": "S1方向がMA60トレンドと一致",
+      "full": {
+        "trades": 1883,
+        "total_yen": 894623,
+        "avg_yen": 475.1,
+        "winrate": 50.8,
+        "maxdd_yen": -75213,
+        "pf": 1.421,
+        "mar": 11.89
+      },
+      "train_2011_2020": {
+        "trades": 1228,
+        "total_yen": 218097,
+        "avg_yen": 177.6,
+        "winrate": 50.4,
+        "maxdd_yen": -70582,
+        "pf": 1.21,
+        "mar": 3.09
+      },
+      "test_2021_2026": {
+        "trades": 655,
+        "total_yen": 676526,
+        "avg_yen": 1032.9,
+        "winrate": 51.6,
+        "maxdd_yen": -75213,
+        "pf": 1.624,
+        "mar": 8.99
+      },
+      "rolling_1y": {
+        "n": 1632,
+        "profit_pct": 82.0,
+        "worst_total_yen": -55137,
+        "worst_dd_yen": -75213
+      },
+      "rolling_3y": {
+        "n": 1128,
+        "profit_pct": 100.0,
+        "worst_total_yen": 13814,
+        "worst_dd_yen": -75213
+      }
+    },
+    {
+      "name": "trend_contrarian_ma60",
+      "category": "trend",
+      "thesis": "S1方向がMA60トレンドと逆",
+      "full": {
+        "trades": 1879,
+        "total_yen": 927604,
+        "avg_yen": 493.7,
+        "winrate": 52.9,
+        "maxdd_yen": -43186,
+        "pf": 1.5,
+        "mar": 21.48
+      },
+      "train_2011_2020": {
+        "trades": 1219,
+        "total_yen": 227803,
+        "avg_yen": 186.9,
+        "winrate": 51.1,
+        "maxdd_yen": -42741,
+        "pf": 1.236,
+        "mar": 5.33
+      },
+      "test_2021_2026": {
+        "trades": 660,
+        "total_yen": 699801,
+        "avg_yen": 1060.3,
+        "winrate": 56.4,
+        "maxdd_yen": -43186,
+        "pf": 1.787,
+        "mar": 16.2
+      },
+      "rolling_1y": {
+        "n": 1628,
+        "profit_pct": 97.0,
+        "worst_total_yen": -20740,
+        "worst_dd_yen": -43186
+      },
+      "rolling_3y": {
+        "n": 1124,
+        "profit_pct": 100.0,
+        "worst_total_yen": 50224,
+        "worst_dd_yen": -43186
+      }
+    },
+    {
+      "name": "trend_aligned_ma200",
+      "category": "trend",
+      "thesis": "S1方向がMA200トレンドと一致",
+      "full": {
+        "trades": 1919,
+        "total_yen": 917948,
+        "avg_yen": 478.3,
+        "winrate": 50.8,
+        "maxdd_yen": -80436,
+        "pf": 1.433,
+        "mar": 11.41
+      },
+      "train_2011_2020": {
+        "trades": 1241,
+        "total_yen": 168739,
+        "avg_yen": 136.0,
+        "winrate": 49.4,
+        "maxdd_yen": -80436,
+        "pf": 1.166,
+        "mar": 2.1
+      },
+      "test_2021_2026": {
+        "trades": 678,
+        "total_yen": 749209,
+        "avg_yen": 1105.0,
+        "winrate": 53.4,
+        "maxdd_yen": -75974,
+        "pf": 1.678,
+        "mar": 9.86
+      },
+      "rolling_1y": {
+        "n": 1668,
+        "profit_pct": 77.6,
+        "worst_total_yen": -58731,
+        "worst_dd_yen": -75974
+      },
+      "rolling_3y": {
+        "n": 1164,
+        "profit_pct": 100.0,
+        "worst_total_yen": 17294,
+        "worst_dd_yen": -80436
+      }
+    },
+    {
+      "name": "trend_contrarian_ma200",
+      "category": "trend",
+      "thesis": "S1方向がMA200トレンドと逆",
+      "full": {
+        "trades": 1843,
+        "total_yen": 904279,
+        "avg_yen": 490.7,
+        "winrate": 53.0,
+        "maxdd_yen": -59792,
+        "pf": 1.485,
+        "mar": 15.12
+      },
+      "train_2011_2020": {
+        "trades": 1206,
+        "total_yen": 277161,
+        "avg_yen": 229.8,
+        "winrate": 52.1,
+        "maxdd_yen": -59792,
+        "pf": 1.279,
+        "mar": 4.64
+      },
+      "test_2021_2026": {
+        "trades": 637,
+        "total_yen": 627118,
+        "avg_yen": 984.5,
+        "winrate": 54.6,
+        "maxdd_yen": -43186,
+        "pf": 1.721,
+        "mar": 14.52
+      },
+      "rolling_1y": {
+        "n": 1592,
+        "profit_pct": 95.4,
+        "worst_total_yen": -31462,
+        "worst_dd_yen": -59792
+      },
+      "rolling_3y": {
+        "n": 1088,
+        "profit_pct": 100.0,
+        "worst_total_yen": 39705,
+        "worst_dd_yen": -59792
+      }
+    },
+    {
+      "name": "only_Mon",
+      "category": "weekday",
+      "thesis": "Monだけ",
+      "full": {
+        "trades": 692,
+        "total_yen": 432887,
+        "avg_yen": 625.6,
+        "winrate": 55.6,
+        "maxdd_yen": -34518,
+        "pf": 1.61,
+        "mar": 12.54
+      },
+      "train_2011_2020": {
+        "trades": 449,
+        "total_yen": 135995,
+        "avg_yen": 302.9,
+        "winrate": 55.6,
+        "maxdd_yen": -24887,
+        "pf": 1.438,
+        "mar": 5.46
+      },
+      "test_2021_2026": {
+        "trades": 243,
+        "total_yen": 296892,
+        "avg_yen": 1221.8,
+        "winrate": 55.6,
+        "maxdd_yen": -34518,
+        "pf": 1.744,
+        "mar": 8.6
+      },
+      "rolling_1y": {
+        "n": 441,
+        "profit_pct": 100.0,
+        "worst_total_yen": 30805,
+        "worst_dd_yen": -34518
+      },
+      "rolling_3y": null
+    },
+    {
+      "name": "skip_Mon",
+      "category": "weekday",
+      "thesis": "Monを除外",
+      "full": {
+        "trades": 3070,
+        "total_yen": 1389340,
+        "avg_yen": 452.6,
+        "winrate": 51.0,
+        "maxdd_yen": -115237,
+        "pf": 1.425,
+        "mar": 12.06
+      },
+      "train_2011_2020": {
+        "trades": 1998,
+        "total_yen": 309905,
+        "avg_yen": 155.1,
+        "winrate": 49.6,
+        "maxdd_yen": -115237,
+        "pf": 1.183,
+        "mar": 2.69
+      },
+      "test_2021_2026": {
+        "trades": 1072,
+        "total_yen": 1079435,
+        "avg_yen": 1006.9,
+        "winrate": 53.6,
+        "maxdd_yen": -52709,
+        "pf": 1.685,
+        "mar": 20.48
+      },
+      "rolling_1y": {
+        "n": 2819,
+        "profit_pct": 81.6,
+        "worst_total_yen": -82488,
+        "worst_dd_yen": -86590
+      },
+      "rolling_3y": {
+        "n": 2315,
+        "profit_pct": 100.0,
+        "worst_total_yen": 541,
+        "worst_dd_yen": -115237
+      }
+    },
+    {
+      "name": "only_Tue",
+      "category": "weekday",
+      "thesis": "Tueだけ",
+      "full": {
+        "trades": 766,
+        "total_yen": 303903,
+        "avg_yen": 396.7,
+        "winrate": 48.8,
+        "maxdd_yen": -35709,
+        "pf": 1.361,
+        "mar": 8.51
+      },
+      "train_2011_2020": {
+        "trades": 498,
+        "total_yen": 98165,
+        "avg_yen": 197.1,
+        "winrate": 47.6,
+        "maxdd_yen": -35709,
+        "pf": 1.227,
+        "mar": 2.75
+      },
+      "test_2021_2026": {
+        "trades": 268,
+        "total_yen": 205738,
+        "avg_yen": 767.7,
+        "winrate": 51.1,
+        "maxdd_yen": -22994,
+        "pf": 1.502,
+        "mar": 8.95
+      },
+      "rolling_1y": {
+        "n": 515,
+        "profit_pct": 100.0,
+        "worst_total_yen": 11994,
+        "worst_dd_yen": -35709
+      },
+      "rolling_3y": {
+        "n": 11,
+        "profit_pct": 100.0,
+        "worst_total_yen": 282396,
+        "worst_dd_yen": -35709
+      }
+    },
+    {
+      "name": "skip_Tue",
+      "category": "weekday",
+      "thesis": "Tueを除外",
+      "full": {
+        "trades": 2996,
+        "total_yen": 1518324,
+        "avg_yen": 506.8,
+        "winrate": 52.7,
+        "maxdd_yen": -74345,
+        "pf": 1.484,
+        "mar": 20.42
+      },
+      "train_2011_2020": {
+        "trades": 1949,
+        "total_yen": 347735,
+        "avg_yen": 178.4,
+        "winrate": 51.5,
+        "maxdd_yen": -74345,
+        "pf": 1.221,
+        "mar": 4.68
+      },
+      "test_2021_2026": {
+        "trades": 1047,
+        "total_yen": 1170588,
+        "avg_yen": 1118.0,
+        "winrate": 54.7,
+        "maxdd_yen": -48939,
+        "pf": 1.748,
+        "mar": 23.92
+      },
+      "rolling_1y": {
+        "n": 2745,
+        "profit_pct": 88.3,
+        "worst_total_yen": -52208,
+        "worst_dd_yen": -63119
+      },
+      "rolling_3y": {
+        "n": 2241,
+        "profit_pct": 100.0,
+        "worst_total_yen": 20826,
+        "worst_dd_yen": -74345
+      }
+    },
+    {
+      "name": "only_Wed",
+      "category": "weekday",
+      "thesis": "Wedだけ",
+      "full": {
+        "trades": 769,
+        "total_yen": 319141,
+        "avg_yen": 415.0,
+        "winrate": 51.4,
+        "maxdd_yen": -47057,
+        "pf": 1.397,
+        "mar": 6.78
+      },
+      "train_2011_2020": {
+        "trades": 501,
+        "total_yen": 59953,
+        "avg_yen": 119.7,
+        "winrate": 49.9,
+        "maxdd_yen": -47057,
+        "pf": 1.143,
+        "mar": 1.27
+      },
+      "test_2021_2026": {
+        "trades": 268,
+        "total_yen": 259188,
+        "avg_yen": 967.1,
+        "winrate": 54.1,
+        "maxdd_yen": -44498,
+        "pf": 1.671,
+        "mar": 5.82
+      },
+      "rolling_1y": {
+        "n": 518,
+        "profit_pct": 86.1,
+        "worst_total_yen": -35957,
+        "worst_dd_yen": -47057
+      },
+      "rolling_3y": {
+        "n": 14,
+        "profit_pct": 100.0,
+        "worst_total_yen": 228015,
+        "worst_dd_yen": -47057
+      }
+    },
+    {
+      "name": "skip_Wed",
+      "category": "weekday",
+      "thesis": "Wedを除外",
+      "full": {
+        "trades": 2993,
+        "total_yen": 1503086,
+        "avg_yen": 502.2,
+        "winrate": 52.0,
+        "maxdd_yen": -67978,
+        "pf": 1.473,
+        "mar": 22.11
+      },
+      "train_2011_2020": {
+        "trades": 1946,
+        "total_yen": 385948,
+        "avg_yen": 198.3,
+        "winrate": 51.0,
+        "maxdd_yen": -67978,
+        "pf": 1.243,
+        "mar": 5.68
+      },
+      "test_2021_2026": {
+        "trades": 1047,
+        "total_yen": 1117138,
+        "avg_yen": 1067.0,
+        "winrate": 54.0,
+        "maxdd_yen": -63394,
+        "pf": 1.704,
+        "mar": 17.62
+      },
+      "rolling_1y": {
+        "n": 2742,
+        "profit_pct": 85.3,
+        "worst_total_yen": -51918,
+        "worst_dd_yen": -63394
+      },
+      "rolling_3y": {
+        "n": 2238,
+        "profit_pct": 100.0,
+        "worst_total_yen": 6045,
+        "worst_dd_yen": -67978
+      }
+    },
+    {
+      "name": "only_Thu",
+      "category": "weekday",
+      "thesis": "Thuだけ",
+      "full": {
+        "trades": 768,
+        "total_yen": 460433,
+        "avg_yen": 599.5,
+        "winrate": 55.2,
+        "maxdd_yen": -62952,
+        "pf": 1.584,
+        "mar": 7.31
+      },
+      "train_2011_2020": {
+        "trades": 500,
+        "total_yen": 160688,
+        "avg_yen": 321.4,
+        "winrate": 55.8,
+        "maxdd_yen": -27706,
+        "pf": 1.417,
+        "mar": 5.8
+      },
+      "test_2021_2026": {
+        "trades": 268,
+        "total_yen": 299746,
+        "avg_yen": 1118.5,
+        "winrate": 54.1,
+        "maxdd_yen": -62952,
+        "pf": 1.744,
+        "mar": 4.76
+      },
+      "rolling_1y": {
+        "n": 517,
+        "profit_pct": 100.0,
+        "worst_total_yen": 31087,
+        "worst_dd_yen": -62952
+      },
+      "rolling_3y": {
+        "n": 13,
+        "profit_pct": 100.0,
+        "worst_total_yen": 368994,
+        "worst_dd_yen": -62952
+      }
+    },
+    {
+      "name": "skip_Thu",
+      "category": "weekday",
+      "thesis": "Thuを除外",
+      "full": {
+        "trades": 2994,
+        "total_yen": 1361794,
+        "avg_yen": 454.8,
+        "winrate": 51.0,
+        "maxdd_yen": -108218,
+        "pf": 1.427,
+        "mar": 12.58
+      },
+      "train_2011_2020": {
+        "trades": 1947,
+        "total_yen": 285213,
+        "avg_yen": 146.5,
+        "winrate": 49.4,
+        "maxdd_yen": -108218,
+        "pf": 1.176,
+        "mar": 2.64
+      },
+      "test_2021_2026": {
+        "trades": 1047,
+        "total_yen": 1076581,
+        "avg_yen": 1028.3,
+        "winrate": 54.0,
+        "maxdd_yen": -63551,
+        "pf": 1.685,
+        "mar": 16.94
+      },
+      "rolling_1y": {
+        "n": 2743,
+        "profit_pct": 80.3,
+        "worst_total_yen": -85970,
+        "worst_dd_yen": -91218
+      },
+      "rolling_3y": {
+        "n": 2239,
+        "profit_pct": 96.9,
+        "worst_total_yen": -13578,
+        "worst_dd_yen": -108218
+      }
+    },
+    {
+      "name": "only_Fri",
+      "category": "weekday",
+      "thesis": "Friだけ",
+      "full": {
+        "trades": 767,
+        "total_yen": 305862,
+        "avg_yen": 398.8,
+        "winrate": 48.8,
+        "maxdd_yen": -72881,
+        "pf": 1.365,
+        "mar": 4.2
+      },
+      "train_2011_2020": {
+        "trades": 499,
+        "total_yen": -8900,
+        "avg_yen": -17.8,
+        "winrate": 45.3,
+        "maxdd_yen": -72881,
+        "pf": 0.981,
+        "mar": -0.12
+      },
+      "test_2021_2026": {
+        "trades": 268,
+        "total_yen": 314762,
+        "avg_yen": 1174.5,
+        "winrate": 55.2,
+        "maxdd_yen": -42573,
+        "pf": 1.838,
+        "mar": 7.39
+      },
+      "rolling_1y": {
+        "n": 516,
+        "profit_pct": 69.8,
+        "worst_total_yen": -63985,
+        "worst_dd_yen": -70882
+      },
+      "rolling_3y": {
+        "n": 12,
+        "profit_pct": 100.0,
+        "worst_total_yen": 275494,
+        "worst_dd_yen": -72881
+      }
+    },
+    {
+      "name": "skip_Fri",
+      "category": "weekday",
+      "thesis": "Friを除外",
+      "full": {
+        "trades": 2995,
+        "total_yen": 1516365,
+        "avg_yen": 506.3,
+        "winrate": 52.7,
+        "maxdd_yen": -67393,
+        "pf": 1.482,
+        "mar": 22.5
+      },
+      "train_2011_2020": {
+        "trades": 1948,
+        "total_yen": 454801,
+        "avg_yen": 233.5,
+        "winrate": 52.1,
+        "maxdd_yen": -48066,
+        "pf": 1.294,
+        "mar": 9.46
+      },
+      "test_2021_2026": {
+        "trades": 1047,
+        "total_yen": 1061564,
+        "avg_yen": 1013.9,
+        "winrate": 53.7,
+        "maxdd_yen": -67393,
+        "pf": 1.664,
+        "mar": 15.75
+      },
+      "rolling_1y": {
+        "n": 2744,
+        "profit_pct": 91.9,
+        "worst_total_yen": -42384,
+        "worst_dd_yen": -67393
+      },
+      "rolling_3y": {
+        "n": 2240,
+        "profit_pct": 100.0,
+        "worst_total_yen": 58466,
+        "worst_dd_yen": -67393
+      }
+    },
+    {
+      "name": "prev_intraday_same_as_today_gap",
+      "category": "overnight_intraday",
+      "thesis": "前日ザラ場方向と今日ギャップ方向が同じ",
+      "full": {
+        "trades": 1913,
+        "total_yen": 817038,
+        "avg_yen": 427.1,
+        "winrate": 50.0,
+        "maxdd_yen": -93412,
+        "pf": 1.384,
+        "mar": 8.75
+      },
+      "train_2011_2020": {
+        "trades": 1274,
+        "total_yen": 114232,
+        "avg_yen": 89.7,
+        "winrate": 48.4,
+        "maxdd_yen": -93412,
+        "pf": 1.098,
+        "mar": 1.22
+      },
+      "test_2021_2026": {
+        "trades": 639,
+        "total_yen": 702806,
+        "avg_yen": 1099.9,
+        "winrate": 53.2,
+        "maxdd_yen": -44791,
+        "pf": 1.729,
+        "mar": 15.69
+      },
+      "rolling_1y": {
+        "n": 1662,
+        "profit_pct": 71.2,
+        "worst_total_yen": -83588,
+        "worst_dd_yen": -93412
+      },
+      "rolling_3y": {
+        "n": 1158,
+        "profit_pct": 76.6,
+        "worst_total_yen": -67586,
+        "worst_dd_yen": -93412
+      }
+    },
+    {
+      "name": "prev_intraday_opposite_today_gap",
+      "category": "overnight_intraday",
+      "thesis": "前日ザラ場方向と今日ギャップ方向が逆",
+      "full": {
+        "trades": 1848,
+        "total_yen": 1004313,
+        "avg_yen": 543.5,
+        "winrate": 53.8,
+        "maxdd_yen": -62220,
+        "pf": 1.542,
+        "mar": 16.14
+      },
+      "train_2011_2020": {
+        "trades": 1172,
+        "total_yen": 330792,
+        "avg_yen": 282.2,
+        "winrate": 53.3,
+        "maxdd_yen": -39174,
+        "pf": 1.393,
+        "mar": 8.44
+      },
+      "test_2021_2026": {
+        "trades": 676,
+        "total_yen": 673521,
+        "avg_yen": 996.3,
+        "winrate": 54.7,
+        "maxdd_yen": -62220,
+        "pf": 1.667,
+        "mar": 10.82
+      },
+      "rolling_1y": {
+        "n": 1597,
+        "profit_pct": 98.8,
+        "worst_total_yen": -13376,
+        "worst_dd_yen": -62220
+      },
+      "rolling_3y": {
+        "n": 1093,
+        "profit_pct": 100.0,
+        "worst_total_yen": 112891,
+        "worst_dd_yen": -62220
+      }
+    },
+    {
+      "name": "prev_day_reversed_own_gap",
+      "category": "overnight_intraday",
+      "thesis": "前日にovernightをザラ場で反転した後だけ",
+      "full": {
+        "trades": 1810,
+        "total_yen": 997454,
+        "avg_yen": 551.1,
+        "winrate": 52.7,
+        "maxdd_yen": -39544,
+        "pf": 1.575,
+        "mar": 25.22
+      },
+      "train_2011_2020": {
+        "trades": 1205,
+        "total_yen": 299857,
+        "avg_yen": 248.8,
+        "winrate": 51.3,
+        "maxdd_yen": -37898,
+        "pf": 1.315,
+        "mar": 7.91
+      },
+      "test_2021_2026": {
+        "trades": 605,
+        "total_yen": 697597,
+        "avg_yen": 1153.1,
+        "winrate": 55.4,
+        "maxdd_yen": -39544,
+        "pf": 1.89,
+        "mar": 17.64
+      },
+      "rolling_1y": {
+        "n": 1559,
+        "profit_pct": 98.5,
+        "worst_total_yen": -33746,
+        "worst_dd_yen": -39544
+      },
+      "rolling_3y": {
+        "n": 1055,
+        "profit_pct": 100.0,
+        "worst_total_yen": 133448,
+        "worst_dd_yen": -39544
+      }
+    },
+    {
+      "name": "prev_day_followed_own_gap",
+      "category": "overnight_intraday",
+      "thesis": "前日にovernightをザラ場で順行した後だけ",
+      "full": {
+        "trades": 1951,
+        "total_yen": 823897,
+        "avg_yen": 422.3,
+        "winrate": 51.1,
+        "maxdd_yen": -101028,
+        "pf": 1.367,
+        "mar": 8.16
+      },
+      "train_2011_2020": {
+        "trades": 1241,
+        "total_yen": 145168,
+        "avg_yen": 117.0,
+        "winrate": 50.1,
+        "maxdd_yen": -101028,
+        "pf": 1.137,
+        "mar": 1.44
+      },
+      "test_2021_2026": {
+        "trades": 710,
+        "total_yen": 678730,
+        "avg_yen": 956.0,
+        "winrate": 52.8,
+        "maxdd_yen": -65203,
+        "pf": 1.57,
+        "mar": 10.41
+      },
+      "rolling_1y": {
+        "n": 1700,
+        "profit_pct": 71.3,
+        "worst_total_yen": -77064,
+        "worst_dd_yen": -88331
+      },
+      "rolling_3y": {
+        "n": 1196,
+        "profit_pct": 76.3,
+        "worst_total_yen": -81130,
+        "worst_dd_yen": -101028
+      }
+    },
+    {
+      "name": "prev_big_up_intraday_300",
+      "category": "prev_candle",
+      "thesis": "前日大陽線(ザラ場+300円以上)",
+      "full": {
+        "trades": 232,
+        "total_yen": 303987,
+        "avg_yen": 1310.3,
+        "winrate": 52.2,
+        "maxdd_yen": -52512,
+        "pf": 1.774,
+        "mar": 5.79
+      },
+      "train_2011_2020": {
+        "trades": 57,
+        "total_yen": 36097,
+        "avg_yen": 633.3,
+        "winrate": 54.4,
+        "maxdd_yen": -14044,
+        "pf": 1.51,
+        "mar": 2.57
+      },
+      "test_2021_2026": {
+        "trades": 175,
+        "total_yen": 267890,
+        "avg_yen": 1530.8,
+        "winrate": 51.4,
+        "maxdd_yen": -52512,
+        "pf": 1.832,
+        "mar": 5.1
+      },
+      "rolling_1y": null,
+      "rolling_3y": null
+    },
+    {
+      "name": "prev_big_down_intraday_300",
+      "category": "prev_candle",
+      "thesis": "前日大陰線(ザラ場-300円以下)",
+      "full": {
+        "trades": 248,
+        "total_yen": 578948,
+        "avg_yen": 2334.5,
+        "winrate": 58.1,
+        "maxdd_yen": -40384,
+        "pf": 2.353,
+        "mar": 14.34
+      },
+      "train_2011_2020": {
+        "trades": 84,
+        "total_yen": 95859,
+        "avg_yen": 1141.2,
+        "winrate": 52.4,
+        "maxdd_yen": -32103,
+        "pf": 1.71,
+        "mar": 2.99
+      },
+      "test_2021_2026": {
+        "trades": 164,
+        "total_yen": 483088,
+        "avg_yen": 2945.7,
+        "winrate": 61.0,
+        "maxdd_yen": -40384,
+        "pf": 2.65,
+        "mar": 11.96
+      },
+      "rolling_1y": null,
+      "rolling_3y": null
+    },
+    {
+      "name": "skip_prev_big_abs_intraday_300",
+      "category": "prev_candle",
+      "thesis": "前日大陽/大陰線を除外",
+      "full": {
+        "trades": 3282,
+        "total_yen": 939292,
+        "avg_yen": 286.2,
+        "winrate": 51.4,
+        "maxdd_yen": -109653,
+        "pf": 1.297,
+        "mar": 8.57
+      },
+      "train_2011_2020": {
+        "trades": 2306,
+        "total_yen": 313944,
+        "avg_yen": 136.1,
+        "winrate": 50.6,
+        "maxdd_yen": -109653,
+        "pf": 1.174,
+        "mar": 2.86
+      },
+      "test_2021_2026": {
+        "trades": 976,
+        "total_yen": 625349,
+        "avg_yen": 640.7,
+        "winrate": 53.3,
+        "maxdd_yen": -45534,
+        "pf": 1.46,
+        "mar": 13.73
+      },
+      "rolling_1y": {
+        "n": 3031,
+        "profit_pct": 81.3,
+        "worst_total_yen": -82649,
+        "worst_dd_yen": -85528
+      },
+      "rolling_3y": {
+        "n": 2527,
+        "profit_pct": 98.8,
+        "worst_total_yen": -11647,
+        "worst_dd_yen": -109653
+      }
+    },
+    {
+      "name": "skip_prev_big_abs_cc_500",
+      "category": "prev_candle",
+      "thesis": "前日終値ベース大変動±500円を除外",
+      "full": {
+        "trades": 3381,
+        "total_yen": 1090501,
+        "avg_yen": 322.5,
+        "winrate": 51.5,
+        "maxdd_yen": -122405,
+        "pf": 1.33,
+        "mar": 8.91
+      },
+      "train_2011_2020": {
+        "trades": 2356,
+        "total_yen": 366699,
+        "avg_yen": 155.6,
+        "winrate": 50.6,
+        "maxdd_yen": -122405,
+        "pf": 1.197,
+        "mar": 3.0
+      },
+      "test_2021_2026": {
+        "trades": 1025,
+        "total_yen": 723802,
+        "avg_yen": 706.1,
+        "winrate": 53.5,
+        "maxdd_yen": -44324,
+        "pf": 1.501,
+        "mar": 16.33
+      },
+      "rolling_1y": {
+        "n": 3130,
+        "profit_pct": 81.2,
+        "worst_total_yen": -89893,
+        "worst_dd_yen": -92871
+      },
+      "rolling_3y": {
+        "n": 2626,
+        "profit_pct": 100.0,
+        "worst_total_yen": 3306,
+        "worst_dd_yen": -122405
+      }
+    },
+    {
+      "name": "vix_pr_ge_0.8",
+      "category": "VIX",
+      "thesis": "VIX過去1年分位80%以上",
+      "full": {
+        "trades": 683,
+        "total_yen": 879176,
+        "avg_yen": 1287.2,
+        "winrate": 57.0,
+        "maxdd_yen": -40505,
+        "pf": 1.931,
+        "mar": 21.71
+      },
+      "train_2011_2020": {
+        "trades": 439,
+        "total_yen": 288299,
+        "avg_yen": 656.7,
+        "winrate": 56.9,
+        "maxdd_yen": -40505,
+        "pf": 1.575,
+        "mar": 7.12
+      },
+      "test_2021_2026": {
+        "trades": 244,
+        "total_yen": 590877,
+        "avg_yen": 2421.6,
+        "winrate": 57.0,
+        "maxdd_yen": -32071,
+        "pf": 2.335,
+        "mar": 18.42
+      },
+      "rolling_1y": {
+        "n": 432,
+        "profit_pct": 100.0,
+        "worst_total_yen": 104335,
+        "worst_dd_yen": -40505
+      },
+      "rolling_3y": null
+    },
+    {
+      "name": "vix_pr_lt_0.8",
+      "category": "VIX",
+      "thesis": "VIX過去1年分位80%未満",
+      "full": {
+        "trades": 3079,
+        "total_yen": 943051,
+        "avg_yen": 306.3,
+        "winrate": 50.7,
+        "maxdd_yen": -89434,
+        "pf": 1.311,
+        "mar": 10.54
+      },
+      "train_2011_2020": {
+        "trades": 2008,
+        "total_yen": 157602,
+        "avg_yen": 78.5,
+        "winrate": 49.4,
+        "maxdd_yen": -89434,
+        "pf": 1.105,
+        "mar": 1.76
+      },
+      "test_2021_2026": {
+        "trades": 1071,
+        "total_yen": 785450,
+        "avg_yen": 733.4,
+        "winrate": 53.3,
+        "maxdd_yen": -57457,
+        "pf": 1.513,
+        "mar": 13.67
+      },
+      "rolling_1y": {
+        "n": 2828,
+        "profit_pct": 78.8,
+        "worst_total_yen": -71469,
+        "worst_dd_yen": -74317
+      },
+      "rolling_3y": {
+        "n": 2324,
+        "profit_pct": 78.1,
+        "worst_total_yen": -56644,
+        "worst_dd_yen": -89434
+      }
+    },
+    {
+      "name": "vix_close_ge_25",
+      "category": "VIX",
+      "thesis": "VIX 25以上",
+      "full": {
+        "trades": 477,
+        "total_yen": 758692,
+        "avg_yen": 1590.5,
+        "winrate": 58.9,
+        "maxdd_yen": -30352,
+        "pf": 2.549,
+        "mar": 25.0
+      },
+      "train_2011_2020": {
+        "trades": 288,
+        "total_yen": 274583,
+        "avg_yen": 953.4,
+        "winrate": 58.7,
+        "maxdd_yen": -30352,
+        "pf": 2.033,
+        "mar": 9.05
+      },
+      "test_2021_2026": {
+        "trades": 189,
+        "total_yen": 484109,
+        "avg_yen": 2561.4,
+        "winrate": 59.3,
+        "maxdd_yen": -24501,
+        "pf": 3.162,
+        "mar": 19.76
+      },
+      "rolling_1y": {
+        "n": 226,
+        "profit_pct": 100.0,
+        "worst_total_yen": 200763,
+        "worst_dd_yen": -30352
+      },
+      "rolling_3y": null
+    },
+    {
+      "name": "vix_close_lt_25",
+      "category": "VIX",
+      "thesis": "VIX 25未満",
+      "full": {
+        "trades": 3285,
+        "total_yen": 1063535,
+        "avg_yen": 323.8,
+        "winrate": 50.9,
+        "maxdd_yen": -101144,
+        "pf": 1.305,
+        "mar": 10.52
+      },
+      "train_2011_2020": {
+        "trades": 2159,
+        "total_yen": 171317,
+        "avg_yen": 79.4,
+        "winrate": 49.7,
+        "maxdd_yen": -101144,
+        "pf": 1.098,
+        "mar": 1.69
+      },
+      "test_2021_2026": {
+        "trades": 1126,
+        "total_yen": 892218,
+        "avg_yen": 792.4,
+        "winrate": 53.1,
+        "maxdd_yen": -57457,
+        "pf": 1.51,
+        "mar": 15.53
+      },
+      "rolling_1y": {
+        "n": 3034,
+        "profit_pct": 76.8,
+        "worst_total_yen": -71030,
+        "worst_dd_yen": -73016
+      },
+      "rolling_3y": {
+        "n": 2530,
+        "profit_pct": 95.6,
+        "worst_total_yen": -28162,
+        "worst_dd_yen": -101144
+      }
+    },
+    {
+      "name": "vol20_pr_ge_0.8",
+      "category": "volatility",
+      "thesis": "日経20日実現ボラ分位80%以上",
+      "full": {
+        "trades": 1046,
+        "total_yen": 934461,
+        "avg_yen": 893.4,
+        "winrate": 52.8,
+        "maxdd_yen": -72354,
+        "pf": 1.602,
+        "mar": 12.92
+      },
+      "train_2011_2020": {
+        "trades": 606,
+        "total_yen": 274880,
+        "avg_yen": 453.6,
+        "winrate": 53.1,
+        "maxdd_yen": -31733,
+        "pf": 1.407,
+        "mar": 8.66
+      },
+      "test_2021_2026": {
+        "trades": 440,
+        "total_yen": 659581,
+        "avg_yen": 1499.0,
+        "winrate": 52.3,
+        "maxdd_yen": -72354,
+        "pf": 1.753,
+        "mar": 9.12
+      },
+      "rolling_1y": {
+        "n": 795,
+        "profit_pct": 99.5,
+        "worst_total_yen": -6136,
+        "worst_dd_yen": -72354
+      },
+      "rolling_3y": {
+        "n": 291,
+        "profit_pct": 100.0,
+        "worst_total_yen": 232606,
+        "worst_dd_yen": -72354
+      }
+    },
+    {
+      "name": "vol20_pr_lt_0.8",
+      "category": "volatility",
+      "thesis": "日経20日実現ボラ分位80%未満",
+      "full": {
+        "trades": 2716,
+        "total_yen": 887766,
+        "avg_yen": 326.9,
+        "winrate": 51.5,
+        "maxdd_yen": -84026,
+        "pf": 1.365,
+        "mar": 10.57
+      },
+      "train_2011_2020": {
+        "trades": 1841,
+        "total_yen": 171020,
+        "avg_yen": 92.9,
+        "winrate": 49.9,
+        "maxdd_yen": -84026,
+        "pf": 1.128,
+        "mar": 2.04
+      },
+      "test_2021_2026": {
+        "trades": 875,
+        "total_yen": 716746,
+        "avg_yen": 819.1,
+        "winrate": 54.9,
+        "maxdd_yen": -36068,
+        "pf": 1.653,
+        "mar": 19.87
+      },
+      "rolling_1y": {
+        "n": 2465,
+        "profit_pct": 75.5,
+        "worst_total_yen": -68950,
+        "worst_dd_yen": -71455
+      },
+      "rolling_3y": {
+        "n": 1961,
+        "profit_pct": 91.7,
+        "worst_total_yen": -17480,
+        "worst_dd_yen": -84026
+      }
+    },
+    {
+      "name": "skip_after_1_loss",
+      "category": "loss_streak",
+      "thesis": "前日S1負けなら停止",
+      "full": {
+        "trades": 1952,
+        "total_yen": 824773,
+        "avg_yen": 422.5,
+        "winrate": 51.1,
+        "maxdd_yen": -100152,
+        "pf": 1.367,
+        "mar": 8.24
+      },
+      "train_2011_2020": {
+        "trades": 1242,
+        "total_yen": 146043,
+        "avg_yen": 117.6,
+        "winrate": 50.2,
+        "maxdd_yen": -100152,
+        "pf": 1.138,
+        "mar": 1.46
+      },
+      "test_2021_2026": {
+        "trades": 710,
+        "total_yen": 678730,
+        "avg_yen": 956.0,
+        "winrate": 52.8,
+        "maxdd_yen": -65203,
+        "pf": 1.57,
+        "mar": 10.41
+      },
+      "rolling_1y": {
+        "n": 1701,
+        "profit_pct": 71.9,
+        "worst_total_yen": -76793,
+        "worst_dd_yen": -87455
+      },
+      "rolling_3y": {
+        "n": 1197,
+        "profit_pct": 76.6,
+        "worst_total_yen": -80951,
+        "worst_dd_yen": -100152
+      }
+    },
+    {
+      "name": "skip_after_2_losses",
+      "category": "loss_streak",
+      "thesis": "2連敗後だけ停止",
+      "full": {
+        "trades": 2906,
+        "total_yen": 1368830,
+        "avg_yen": 471.0,
+        "winrate": 51.7,
+        "maxdd_yen": -108260,
+        "pf": 1.431,
+        "mar": 12.64
+      },
+      "train_2011_2020": {
+        "trades": 1861,
+        "total_yen": 333549,
+        "avg_yen": 179.2,
+        "winrate": 51.1,
+        "maxdd_yen": -108260,
+        "pf": 1.216,
+        "mar": 3.08
+      },
+      "test_2021_2026": {
+        "trades": 1045,
+        "total_yen": 1035281,
+        "avg_yen": 990.7,
+        "winrate": 52.7,
+        "maxdd_yen": -76392,
+        "pf": 1.634,
+        "mar": 13.55
+      },
+      "rolling_1y": {
+        "n": 2655,
+        "profit_pct": 77.0,
+        "worst_total_yen": -78423,
+        "worst_dd_yen": -84515
+      },
+      "rolling_3y": {
+        "n": 2151,
+        "profit_pct": 99.6,
+        "worst_total_yen": -3819,
+        "worst_dd_yen": -108260
+      }
+    },
+    {
+      "name": "only_after_2_losses",
+      "category": "loss_streak",
+      "thesis": "2連敗後だけ取引",
+      "full": {
+        "trades": 856,
+        "total_yen": 453397,
+        "avg_yen": 529.7,
+        "winrate": 52.5,
+        "maxdd_yen": -41885,
+        "pf": 1.565,
+        "mar": 10.82
+      },
+      "train_2011_2020": {
+        "trades": 586,
+        "total_yen": 112352,
+        "avg_yen": 191.7,
+        "winrate": 49.5,
+        "maxdd_yen": -30951,
+        "pf": 1.243,
+        "mar": 3.63
+      },
+      "test_2021_2026": {
+        "trades": 270,
+        "total_yen": 341046,
+        "avg_yen": 1263.1,
+        "winrate": 58.9,
+        "maxdd_yen": -27471,
+        "pf": 2.003,
+        "mar": 12.41
+      },
+      "rolling_1y": {
+        "n": 605,
+        "profit_pct": 100.0,
+        "worst_total_yen": 18024,
+        "worst_dd_yen": -41885
+      },
+      "rolling_3y": {
+        "n": 101,
+        "profit_pct": 100.0,
+        "worst_total_yen": 208088,
+        "worst_dd_yen": -41885
+      }
+    },
+    {
+      "name": "gap08_and_vix_lt25",
+      "category": "combo",
+      "thesis": "gap>=80%かつVIX<25",
+      "full": {
+        "trades": 676,
+        "total_yen": 1081320,
+        "avg_yen": 1599.6,
+        "winrate": 62.5,
+        "maxdd_yen": -30869,
+        "pf": 2.608,
+        "mar": 35.03
+      },
+      "train_2011_2020": {
+        "trades": 430,
+        "total_yen": 360239,
+        "avg_yen": 837.8,
+        "winrate": 61.8,
+        "maxdd_yen": -22315,
+        "pf": 2.106,
+        "mar": 16.14
+      },
+      "test_2021_2026": {
+        "trades": 246,
+        "total_yen": 721081,
+        "avg_yen": 2931.2,
+        "winrate": 63.8,
+        "maxdd_yen": -30869,
+        "pf": 3.08,
+        "mar": 23.36
+      },
+      "rolling_1y": {
+        "n": 425,
+        "profit_pct": 100.0,
+        "worst_total_yen": 164759,
+        "worst_dd_yen": -30869
+      },
+      "rolling_3y": null
+    },
+    {
+      "name": "gap08_and_vol20_lt80",
+      "category": "combo",
+      "thesis": "gap>=80%かつ日経20日ボラ80%未満",
+      "full": {
+        "trades": 475,
+        "total_yen": 763658,
+        "avg_yen": 1607.7,
+        "winrate": 63.5,
+        "maxdd_yen": -16026,
+        "pf": 3.236,
+        "mar": 47.65
+      },
+      "train_2011_2020": {
+        "trades": 306,
+        "total_yen": 267495,
+        "avg_yen": 874.2,
+        "winrate": 62.3,
+        "maxdd_yen": -12114,
+        "pf": 2.541,
+        "mar": 22.08
+      },
+      "test_2021_2026": {
+        "trades": 169,
+        "total_yen": 496162,
+        "avg_yen": 2935.9,
+        "winrate": 65.7,
+        "maxdd_yen": -16026,
+        "pf": 3.953,
+        "mar": 30.96
+      },
+      "rolling_1y": {
+        "n": 224,
+        "profit_pct": 100.0,
+        "worst_total_yen": 238166,
+        "worst_dd_yen": -16026
+      },
+      "rolling_3y": null
+    },
+    {
+      "name": "gap08_and_trend_ma20",
+      "category": "combo",
+      "thesis": "gap>=80%かつMA20順方向",
+      "full": {
+        "trades": 437,
+        "total_yen": 916468,
+        "avg_yen": 2097.2,
+        "winrate": 60.8,
+        "maxdd_yen": -29839,
+        "pf": 3.04,
+        "mar": 30.71
+      },
+      "train_2011_2020": {
+        "trades": 281,
+        "total_yen": 267321,
+        "avg_yen": 951.3,
+        "winrate": 58.9,
+        "maxdd_yen": -18876,
+        "pf": 2.137,
+        "mar": 14.16
+      },
+      "test_2021_2026": {
+        "trades": 156,
+        "total_yen": 649147,
+        "avg_yen": 4161.2,
+        "winrate": 64.1,
+        "maxdd_yen": -29839,
+        "pf": 4.032,
+        "mar": 21.76
+      },
+      "rolling_1y": {
+        "n": 186,
+        "profit_pct": 100.0,
+        "worst_total_yen": 203178,
+        "worst_dd_yen": -29839
+      },
+      "rolling_3y": null
+    },
+    {
+      "name": "gap08_and_ny_same",
+      "category": "combo",
+      "thesis": "gap>=80%かつNY同方向",
+      "full": {
+        "trades": 748,
+        "total_yen": 1594584,
+        "avg_yen": 2131.8,
+        "winrate": 62.8,
+        "maxdd_yen": -22315,
+        "pf": 3.054,
+        "mar": 71.46
+      },
+      "train_2011_2020": {
+        "trades": 473,
+        "total_yen": 525933,
+        "avg_yen": 1111.9,
+        "winrate": 60.8,
+        "maxdd_yen": -22315,
+        "pf": 2.311,
+        "mar": 23.57
+      },
+      "test_2021_2026": {
+        "trades": 275,
+        "total_yen": 1068652,
+        "avg_yen": 3886.0,
+        "winrate": 66.2,
+        "maxdd_yen": -19068,
+        "pf": 3.848,
+        "mar": 56.05
+      },
+      "rolling_1y": {
+        "n": 497,
+        "profit_pct": 100.0,
+        "worst_total_yen": 193768,
+        "worst_dd_yen": -22315
+      },
+      "rolling_3y": null
+    },
+    {
+      "name": "gap08_and_prev_big_not",
+      "category": "combo",
+      "thesis": "gap>=80%かつ前日大線なし",
+      "full": {
+        "trades": 678,
+        "total_yen": 947386,
+        "avg_yen": 1397.3,
+        "winrate": 63.2,
+        "maxdd_yen": -38210,
+        "pf": 2.581,
+        "mar": 24.79
+      },
+      "train_2011_2020": {
+        "trades": 461,
+        "total_yen": 420324,
+        "avg_yen": 911.8,
+        "winrate": 62.6,
+        "maxdd_yen": -20933,
+        "pf": 2.353,
+        "mar": 20.08
+      },
+      "test_2021_2026": {
+        "trades": 217,
+        "total_yen": 527061,
+        "avg_yen": 2428.9,
+        "winrate": 64.5,
+        "maxdd_yen": -38210,
+        "pf": 2.828,
+        "mar": 13.79
+      },
+      "rolling_1y": {
+        "n": 427,
+        "profit_pct": 100.0,
+        "worst_total_yen": 186152,
+        "worst_dd_yen": -38210
+      },
+      "rolling_3y": null
+    }
+  ],
+  "top_by_test_mar": [
+    {
+      "name": "gap_pr_ge_0.8",
+      "category": "gap",
+      "thesis": "過去1年比のギャップ分位が80%以上だけ",
+      "full": {
+        "trades": 845,
+        "total_yen": 1740471,
+        "avg_yen": 2059.7,
+        "winrate": 63.4,
+        "maxdd_yen": -22315,
+        "pf": 3.073,
+        "mar": 77.99
+      },
+      "train_2011_2020": {
+        "trades": 530,
+        "total_yen": 577938,
+        "avg_yen": 1090.4,
+        "winrate": 62.0,
+        "maxdd_yen": -22315,
+        "pf": 2.358,
+        "mar": 25.9
+      },
+      "test_2021_2026": {
+        "trades": 315,
+        "total_yen": 1162533,
+        "avg_yen": 3690.6,
+        "winrate": 65.7,
+        "maxdd_yen": -18925,
+        "pf": 3.808,
+        "mar": 61.43
+      },
+      "rolling_1y": {
+        "n": 594,
+        "profit_pct": 100.0,
+        "worst_total_yen": 196270,
+        "worst_dd_yen": -22315
+      },
+      "rolling_3y": {
+        "n": 90,
+        "profit_pct": 100.0,
+        "worst_total_yen": 1071264,
+        "worst_dd_yen": -22315
+      }
+    },
+    {
+      "name": "gap08_and_ny_same",
+      "category": "combo",
+      "thesis": "gap>=80%かつNY同方向",
+      "full": {
+        "trades": 748,
+        "total_yen": 1594584,
+        "avg_yen": 2131.8,
+        "winrate": 62.8,
+        "maxdd_yen": -22315,
+        "pf": 3.054,
+        "mar": 71.46
+      },
+      "train_2011_2020": {
+        "trades": 473,
+        "total_yen": 525933,
+        "avg_yen": 1111.9,
+        "winrate": 60.8,
+        "maxdd_yen": -22315,
+        "pf": 2.311,
+        "mar": 23.57
+      },
+      "test_2021_2026": {
+        "trades": 275,
+        "total_yen": 1068652,
+        "avg_yen": 3886.0,
+        "winrate": 66.2,
+        "maxdd_yen": -19068,
+        "pf": 3.848,
+        "mar": 56.05
+      },
+      "rolling_1y": {
+        "n": 497,
+        "profit_pct": 100.0,
+        "worst_total_yen": 193768,
+        "worst_dd_yen": -22315
+      },
+      "rolling_3y": null
+    },
+    {
+      "name": "gap_pr_ge_0.9",
+      "category": "gap",
+      "thesis": "過去1年比のギャップ分位が90%以上だけ",
+      "full": {
+        "trades": 460,
+        "total_yen": 1465650,
+        "avg_yen": 3186.2,
+        "winrate": 68.8,
+        "maxdd_yen": -18925,
+        "pf": 4.54,
+        "mar": 77.45
+      },
+      "train_2011_2020": {
+        "trades": 279,
+        "total_yen": 419281,
+        "avg_yen": 1502.8,
+        "winrate": 64.7,
+        "maxdd_yen": -17743,
+        "pf": 2.741,
+        "mar": 23.63
+      },
+      "test_2021_2026": {
+        "trades": 181,
+        "total_yen": 1046368,
+        "avg_yen": 5781.0,
+        "winrate": 75.1,
+        "maxdd_yen": -18925,
+        "pf": 7.042,
+        "mar": 55.29
+      },
+      "rolling_1y": {
+        "n": 209,
+        "profit_pct": 100.0,
+        "worst_total_yen": 296940,
+        "worst_dd_yen": -18925
+      },
+      "rolling_3y": null
+    },
+    {
+      "name": "gap_pr_band_0.9_1.0",
+      "category": "gap_band",
+      "thesis": "ギャップ分位 0.9-1.0",
+      "full": {
+        "trades": 460,
+        "total_yen": 1465650,
+        "avg_yen": 3186.2,
+        "winrate": 68.8,
+        "maxdd_yen": -18925,
+        "pf": 4.54,
+        "mar": 77.45
+      },
+      "train_2011_2020": {
+        "trades": 279,
+        "total_yen": 419281,
+        "avg_yen": 1502.8,
+        "winrate": 64.7,
+        "maxdd_yen": -17743,
+        "pf": 2.741,
+        "mar": 23.63
+      },
+      "test_2021_2026": {
+        "trades": 181,
+        "total_yen": 1046368,
+        "avg_yen": 5781.0,
+        "winrate": 75.1,
+        "maxdd_yen": -18925,
+        "pf": 7.042,
+        "mar": 55.29
+      },
+      "rolling_1y": {
+        "n": 209,
+        "profit_pct": 100.0,
+        "worst_total_yen": 296940,
+        "worst_dd_yen": -18925
+      },
+      "rolling_3y": null
+    },
+    {
+      "name": "gap_pr_ge_0.7",
+      "category": "gap",
+      "thesis": "過去1年比のギャップ分位が70%以上だけ",
+      "full": {
+        "trades": 1210,
+        "total_yen": 1853535,
+        "avg_yen": 1531.8,
+        "winrate": 60.0,
+        "maxdd_yen": -28756,
+        "pf": 2.439,
+        "mar": 64.46
+      },
+      "train_2011_2020": {
+        "trades": 753,
+        "total_yen": 567938,
+        "avg_yen": 754.2,
+        "winrate": 58.0,
+        "maxdd_yen": -23001,
+        "pf": 1.886,
+        "mar": 24.69
+      },
+      "test_2021_2026": {
+        "trades": 457,
+        "total_yen": 1285597,
+        "avg_yen": 2813.1,
+        "winrate": 63.2,
+        "maxdd_yen": -28756,
+        "pf": 2.989,
+        "mar": 44.71
+      },
+      "rolling_1y": {
+        "n": 959,
+        "profit_pct": 100.0,
+        "worst_total_yen": 94182,
+        "worst_dd_yen": -28756
+      },
+      "rolling_3y": {
+        "n": 455,
+        "profit_pct": 100.0,
+        "worst_total_yen": 553049,
+        "worst_dd_yen": -28756
+      }
+    },
+    {
+      "name": "abs_gap_ge_500",
+      "category": "gap_abs",
+      "thesis": "絶対ギャップ500円以上だけ",
+      "full": {
+        "trades": 85,
+        "total_yen": 819355,
+        "avg_yen": 9639.5,
+        "winrate": 76.5,
+        "maxdd_yen": -18925,
+        "pf": 9.101,
+        "mar": 43.3
+      },
+      "train_2011_2020": {
+        "trades": 1,
+        "total_yen": -4018,
+        "avg_yen": -4018.0,
+        "winrate": 0.0,
+        "maxdd_yen": -4018,
+        "pf": 0.0,
+        "mar": -1.0
+      },
+      "test_2021_2026": {
+        "trades": 84,
+        "total_yen": 823373,
+        "avg_yen": 9802.1,
+        "winrate": 77.4,
+        "maxdd_yen": -18925,
+        "pf": 9.478,
+        "mar": 43.51
+      },
+      "rolling_1y": null,
+      "rolling_3y": null
+    },
+    {
+      "name": "abs_gap_ge_300",
+      "category": "gap_abs",
+      "thesis": "絶対ギャップ300円以上だけ",
+      "full": {
+        "trades": 427,
+        "total_yen": 1497397,
+        "avg_yen": 3506.8,
+        "winrate": 67.4,
+        "maxdd_yen": -37497,
+        "pf": 3.586,
+        "mar": 39.93
+      },
+      "train_2011_2020": {
+        "trades": 97,
+        "total_yen": 306731,
+        "avg_yen": 3162.2,
+        "winrate": 74.2,
+        "maxdd_yen": -11385,
+        "pf": 4.929,
+        "mar": 26.94
+      },
+      "test_2021_2026": {
+        "trades": 330,
+        "total_yen": 1190667,
+        "avg_yen": 3608.1,
+        "winrate": 65.5,
+        "maxdd_yen": -37497,
+        "pf": 3.376,
+        "mar": 31.75
+      },
+      "rolling_1y": {
+        "n": 176,
+        "profit_pct": 100.0,
+        "worst_total_yen": 606592,
+        "worst_dd_yen": -37497
+      },
+      "rolling_3y": null
+    },
+    {
+      "name": "gap08_and_vol20_lt80",
+      "category": "combo",
+      "thesis": "gap>=80%かつ日経20日ボラ80%未満",
+      "full": {
+        "trades": 475,
+        "total_yen": 763658,
+        "avg_yen": 1607.7,
+        "winrate": 63.5,
+        "maxdd_yen": -16026,
+        "pf": 3.236,
+        "mar": 47.65
+      },
+      "train_2011_2020": {
+        "trades": 306,
+        "total_yen": 267495,
+        "avg_yen": 874.2,
+        "winrate": 62.3,
+        "maxdd_yen": -12114,
+        "pf": 2.541,
+        "mar": 22.08
+      },
+      "test_2021_2026": {
+        "trades": 169,
+        "total_yen": 496162,
+        "avg_yen": 2935.9,
+        "winrate": 65.7,
+        "maxdd_yen": -16026,
+        "pf": 3.953,
+        "mar": 30.96
+      },
+      "rolling_1y": {
+        "n": 224,
+        "profit_pct": 100.0,
+        "worst_total_yen": 238166,
+        "worst_dd_yen": -16026
+      },
+      "rolling_3y": null
+    },
+    {
+      "name": "abs_gap_ge_100",
+      "category": "gap_abs",
+      "thesis": "絶対ギャップ100円以上だけ",
+      "full": {
+        "trades": 1917,
+        "total_yen": 1907221,
+        "avg_yen": 994.9,
+        "winrate": 55.7,
+        "maxdd_yen": -55923,
+        "pf": 1.792,
+        "mar": 34.1
+      },
+      "train_2011_2020": {
+        "trades": 994,
+        "total_yen": 518767,
+        "avg_yen": 521.9,
+        "winrate": 54.8,
+        "maxdd_yen": -46732,
+        "pf": 1.542,
+        "mar": 11.1
+      },
+      "test_2021_2026": {
+        "trades": 923,
+        "total_yen": 1388454,
+        "avg_yen": 1504.3,
+        "winrate": 56.8,
+        "maxdd_yen": -55923,
+        "pf": 1.958,
+        "mar": 24.83
+      },
+      "rolling_1y": {
+        "n": 1666,
+        "profit_pct": 99.6,
+        "worst_total_yen": -6678,
+        "worst_dd_yen": -55923
+      },
+      "rolling_3y": {
+        "n": 1162,
+        "profit_pct": 100.0,
+        "worst_total_yen": 304827,
+        "worst_dd_yen": -55923
+      }
+    },
+    {
+      "name": "baseline_S1",
+      "category": "baseline",
+      "thesis": "全営業日S1",
+      "full": {
+        "trades": 3762,
+        "total_yen": 1822227,
+        "avg_yen": 484.4,
+        "winrate": 51.9,
+        "maxdd_yen": -99583,
+        "pf": 1.458,
+        "mar": 18.3
+      },
+      "train_2011_2020": {
+        "trades": 2447,
+        "total_yen": 445900,
+        "avg_yen": 182.2,
+        "winrate": 50.7,
+        "maxdd_yen": -99583,
+        "pf": 1.222,
+        "mar": 4.48
+      },
+      "test_2021_2026": {
+        "trades": 1315,
+        "total_yen": 1376327,
+        "avg_yen": 1046.6,
+        "winrate": 54.0,
+        "maxdd_yen": -57457,
+        "pf": 1.697,
+        "mar": 23.95
+      },
+      "rolling_1y": {
+        "n": 3511,
+        "profit_pct": 83.7,
+        "worst_total_yen": -68950,
+        "worst_dd_yen": -71455
+      },
+      "rolling_3y": {
+        "n": 3007,
+        "profit_pct": 100.0,
+        "worst_total_yen": 3837,
+        "worst_dd_yen": -99583
+      }
+    },
+    {
+      "name": "skip_Tue",
+      "category": "weekday",
+      "thesis": "Tueを除外",
+      "full": {
+        "trades": 2996,
+        "total_yen": 1518324,
+        "avg_yen": 506.8,
+        "winrate": 52.7,
+        "maxdd_yen": -74345,
+        "pf": 1.484,
+        "mar": 20.42
+      },
+      "train_2011_2020": {
+        "trades": 1949,
+        "total_yen": 347735,
+        "avg_yen": 178.4,
+        "winrate": 51.5,
+        "maxdd_yen": -74345,
+        "pf": 1.221,
+        "mar": 4.68
+      },
+      "test_2021_2026": {
+        "trades": 1047,
+        "total_yen": 1170588,
+        "avg_yen": 1118.0,
+        "winrate": 54.7,
+        "maxdd_yen": -48939,
+        "pf": 1.748,
+        "mar": 23.92
+      },
+      "rolling_1y": {
+        "n": 2745,
+        "profit_pct": 88.3,
+        "worst_total_yen": -52208,
+        "worst_dd_yen": -63119
+      },
+      "rolling_3y": {
+        "n": 2241,
+        "profit_pct": 100.0,
+        "worst_total_yen": 20826,
+        "worst_dd_yen": -74345
+      }
+    },
+    {
+      "name": "gap08_and_vix_lt25",
+      "category": "combo",
+      "thesis": "gap>=80%かつVIX<25",
+      "full": {
+        "trades": 676,
+        "total_yen": 1081320,
+        "avg_yen": 1599.6,
+        "winrate": 62.5,
+        "maxdd_yen": -30869,
+        "pf": 2.608,
+        "mar": 35.03
+      },
+      "train_2011_2020": {
+        "trades": 430,
+        "total_yen": 360239,
+        "avg_yen": 837.8,
+        "winrate": 61.8,
+        "maxdd_yen": -22315,
+        "pf": 2.106,
+        "mar": 16.14
+      },
+      "test_2021_2026": {
+        "trades": 246,
+        "total_yen": 721081,
+        "avg_yen": 2931.2,
+        "winrate": 63.8,
+        "maxdd_yen": -30869,
+        "pf": 3.08,
+        "mar": 23.36
+      },
+      "rolling_1y": {
+        "n": 425,
+        "profit_pct": 100.0,
+        "worst_total_yen": 164759,
+        "worst_dd_yen": -30869
+      },
+      "rolling_3y": null
+    },
+    {
+      "name": "gap08_and_trend_ma20",
+      "category": "combo",
+      "thesis": "gap>=80%かつMA20順方向",
+      "full": {
+        "trades": 437,
+        "total_yen": 916468,
+        "avg_yen": 2097.2,
+        "winrate": 60.8,
+        "maxdd_yen": -29839,
+        "pf": 3.04,
+        "mar": 30.71
+      },
+      "train_2011_2020": {
+        "trades": 281,
+        "total_yen": 267321,
+        "avg_yen": 951.3,
+        "winrate": 58.9,
+        "maxdd_yen": -18876,
+        "pf": 2.137,
+        "mar": 14.16
+      },
+      "test_2021_2026": {
+        "trades": 156,
+        "total_yen": 649147,
+        "avg_yen": 4161.2,
+        "winrate": 64.1,
+        "maxdd_yen": -29839,
+        "pf": 4.032,
+        "mar": 21.76
+      },
+      "rolling_1y": {
+        "n": 186,
+        "profit_pct": 100.0,
+        "worst_total_yen": 203178,
+        "worst_dd_yen": -29839
+      },
+      "rolling_3y": null
+    },
+    {
+      "name": "skip_Mon",
+      "category": "weekday",
+      "thesis": "Monを除外",
+      "full": {
+        "trades": 3070,
+        "total_yen": 1389340,
+        "avg_yen": 452.6,
+        "winrate": 51.0,
+        "maxdd_yen": -115237,
+        "pf": 1.425,
+        "mar": 12.06
+      },
+      "train_2011_2020": {
+        "trades": 1998,
+        "total_yen": 309905,
+        "avg_yen": 155.1,
+        "winrate": 49.6,
+        "maxdd_yen": -115237,
+        "pf": 1.183,
+        "mar": 2.69
+      },
+      "test_2021_2026": {
+        "trades": 1072,
+        "total_yen": 1079435,
+        "avg_yen": 1006.9,
+        "winrate": 53.6,
+        "maxdd_yen": -52709,
+        "pf": 1.685,
+        "mar": 20.48
+      },
+      "rolling_1y": {
+        "n": 2819,
+        "profit_pct": 81.6,
+        "worst_total_yen": -82488,
+        "worst_dd_yen": -86590
+      },
+      "rolling_3y": {
+        "n": 2315,
+        "profit_pct": 100.0,
+        "worst_total_yen": 541,
+        "worst_dd_yen": -115237
+      }
+    },
+    {
+      "name": "abs_gap_ge_200",
+      "category": "gap_abs",
+      "thesis": "絶対ギャップ200円以上だけ",
+      "full": {
+        "trades": 915,
+        "total_yen": 1805308,
+        "avg_yen": 1973.0,
+        "winrate": 61.7,
+        "maxdd_yen": -64409,
+        "pf": 2.498,
+        "mar": 28.03
+      },
+      "train_2011_2020": {
+        "trades": 325,
+        "total_yen": 491385,
+        "avg_yen": 1512.0,
+        "winrate": 63.9,
+        "maxdd_yen": -17743,
+        "pf": 2.692,
+        "mar": 27.69
+      },
+      "test_2021_2026": {
+        "trades": 590,
+        "total_yen": 1313924,
+        "avg_yen": 2227.0,
+        "winrate": 60.5,
+        "maxdd_yen": -64409,
+        "pf": 2.436,
+        "mar": 20.4
+      },
+      "rolling_1y": {
+        "n": 664,
+        "profit_pct": 100.0,
+        "worst_total_yen": 253343,
+        "worst_dd_yen": -64409
+      },
+      "rolling_3y": {
+        "n": 160,
+        "profit_pct": 100.0,
+        "worst_total_yen": 1092818,
+        "worst_dd_yen": -64409
+      }
+    },
+    {
+      "name": "gap_pr_ge_0.5",
+      "category": "gap",
+      "thesis": "過去1年比のギャップ分位が50%以上だけ",
+      "full": {
+        "trades": 1973,
+        "total_yen": 1885604,
+        "avg_yen": 955.7,
+        "winrate": 55.8,
+        "maxdd_yen": -66886,
+        "pf": 1.856,
+        "mar": 28.19
+      },
+      "train_2011_2020": {
+        "trades": 1267,
+        "total_yen": 524058,
+        "avg_yen": 413.6,
+        "winrate": 53.8,
+        "maxdd_yen": -58728,
+        "pf": 1.461,
+        "mar": 8.92
+      },
+      "test_2021_2026": {
+        "trades": 706,
+        "total_yen": 1361546,
+        "avg_yen": 1928.5,
+        "winrate": 59.5,
+        "maxdd_yen": -66886,
+        "pf": 2.276,
+        "mar": 20.36
+      },
+      "rolling_1y": {
+        "n": 1722,
+        "profit_pct": 99.8,
+        "worst_total_yen": -7790,
+        "worst_dd_yen": -66886
+      },
+      "rolling_3y": {
+        "n": 1218,
+        "profit_pct": 100.0,
+        "worst_total_yen": 191733,
+        "worst_dd_yen": -66886
+      }
+    },
+    {
+      "name": "vol20_pr_lt_0.8",
+      "category": "volatility",
+      "thesis": "日経20日実現ボラ分位80%未満",
+      "full": {
+        "trades": 2716,
+        "total_yen": 887766,
+        "avg_yen": 326.9,
+        "winrate": 51.5,
+        "maxdd_yen": -84026,
+        "pf": 1.365,
+        "mar": 10.57
+      },
+      "train_2011_2020": {
+        "trades": 1841,
+        "total_yen": 171020,
+        "avg_yen": 92.9,
+        "winrate": 49.9,
+        "maxdd_yen": -84026,
+        "pf": 1.128,
+        "mar": 2.04
+      },
+      "test_2021_2026": {
+        "trades": 875,
+        "total_yen": 716746,
+        "avg_yen": 819.1,
+        "winrate": 54.9,
+        "maxdd_yen": -36068,
+        "pf": 1.653,
+        "mar": 19.87
+      },
+      "rolling_1y": {
+        "n": 2465,
+        "profit_pct": 75.5,
+        "worst_total_yen": -68950,
+        "worst_dd_yen": -71455
+      },
+      "rolling_3y": {
+        "n": 1961,
+        "profit_pct": 91.7,
+        "worst_total_yen": -17480,
+        "worst_dd_yen": -84026
+      }
+    },
+    {
+      "name": "vix_close_ge_25",
+      "category": "VIX",
+      "thesis": "VIX 25以上",
+      "full": {
+        "trades": 477,
+        "total_yen": 758692,
+        "avg_yen": 1590.5,
+        "winrate": 58.9,
+        "maxdd_yen": -30352,
+        "pf": 2.549,
+        "mar": 25.0
+      },
+      "train_2011_2020": {
+        "trades": 288,
+        "total_yen": 274583,
+        "avg_yen": 953.4,
+        "winrate": 58.7,
+        "maxdd_yen": -30352,
+        "pf": 2.033,
+        "mar": 9.05
+      },
+      "test_2021_2026": {
+        "trades": 189,
+        "total_yen": 484109,
+        "avg_yen": 2561.4,
+        "winrate": 59.3,
+        "maxdd_yen": -24501,
+        "pf": 3.162,
+        "mar": 19.76
+      },
+      "rolling_1y": {
+        "n": 226,
+        "profit_pct": 100.0,
+        "worst_total_yen": 200763,
+        "worst_dd_yen": -30352
+      },
+      "rolling_3y": null
+    },
+    {
+      "name": "vix_pr_ge_0.8",
+      "category": "VIX",
+      "thesis": "VIX過去1年分位80%以上",
+      "full": {
+        "trades": 683,
+        "total_yen": 879176,
+        "avg_yen": 1287.2,
+        "winrate": 57.0,
+        "maxdd_yen": -40505,
+        "pf": 1.931,
+        "mar": 21.71
+      },
+      "train_2011_2020": {
+        "trades": 439,
+        "total_yen": 288299,
+        "avg_yen": 656.7,
+        "winrate": 56.9,
+        "maxdd_yen": -40505,
+        "pf": 1.575,
+        "mar": 7.12
+      },
+      "test_2021_2026": {
+        "trades": 244,
+        "total_yen": 590877,
+        "avg_yen": 2421.6,
+        "winrate": 57.0,
+        "maxdd_yen": -32071,
+        "pf": 2.335,
+        "mar": 18.42
+      },
+      "rolling_1y": {
+        "n": 432,
+        "profit_pct": 100.0,
+        "worst_total_yen": 104335,
+        "worst_dd_yen": -40505
+      },
+      "rolling_3y": null
+    },
+    {
+      "name": "trend_contrarian_ma20",
+      "category": "trend",
+      "thesis": "S1方向がMA20トレンドと逆",
+      "full": {
+        "trades": 1889,
+        "total_yen": 963099,
+        "avg_yen": 509.8,
+        "winrate": 53.7,
+        "maxdd_yen": -40669,
+        "pf": 1.527,
+        "mar": 23.68
+      },
+      "train_2011_2020": {
+        "trades": 1229,
+        "total_yen": 254005,
+        "avg_yen": 206.7,
+        "winrate": 52.4,
+        "maxdd_yen": -40669,
+        "pf": 1.268,
+        "mar": 6.25
+      },
+      "test_2021_2026": {
+        "trades": 660,
+        "total_yen": 709094,
+        "avg_yen": 1074.4,
+        "winrate": 56.1,
+        "maxdd_yen": -39488,
+        "pf": 1.806,
+        "mar": 17.96
+      },
+      "rolling_1y": {
+        "n": 1638,
+        "profit_pct": 97.0,
+        "worst_total_yen": -15843,
+        "worst_dd_yen": -40669
+      },
+      "rolling_3y": {
+        "n": 1134,
+        "profit_pct": 100.0,
+        "worst_total_yen": 43564,
+        "worst_dd_yen": -40669
+      }
+    },
+    {
+      "name": "prev_day_reversed_own_gap",
+      "category": "overnight_intraday",
+      "thesis": "前日にovernightをザラ場で反転した後だけ",
+      "full": {
+        "trades": 1810,
+        "total_yen": 997454,
+        "avg_yen": 551.1,
+        "winrate": 52.7,
+        "maxdd_yen": -39544,
+        "pf": 1.575,
+        "mar": 25.22
+      },
+      "train_2011_2020": {
+        "trades": 1205,
+        "total_yen": 299857,
+        "avg_yen": 248.8,
+        "winrate": 51.3,
+        "maxdd_yen": -37898,
+        "pf": 1.315,
+        "mar": 7.91
+      },
+      "test_2021_2026": {
+        "trades": 605,
+        "total_yen": 697597,
+        "avg_yen": 1153.1,
+        "winrate": 55.4,
+        "maxdd_yen": -39544,
+        "pf": 1.89,
+        "mar": 17.64
+      },
+      "rolling_1y": {
+        "n": 1559,
+        "profit_pct": 98.5,
+        "worst_total_yen": -33746,
+        "worst_dd_yen": -39544
+      },
+      "rolling_3y": {
+        "n": 1055,
+        "profit_pct": 100.0,
+        "worst_total_yen": 133448,
+        "worst_dd_yen": -39544
+      }
+    },
+    {
+      "name": "skip_Wed",
+      "category": "weekday",
+      "thesis": "Wedを除外",
+      "full": {
+        "trades": 2993,
+        "total_yen": 1503086,
+        "avg_yen": 502.2,
+        "winrate": 52.0,
+        "maxdd_yen": -67978,
+        "pf": 1.473,
+        "mar": 22.11
+      },
+      "train_2011_2020": {
+        "trades": 1946,
+        "total_yen": 385948,
+        "avg_yen": 198.3,
+        "winrate": 51.0,
+        "maxdd_yen": -67978,
+        "pf": 1.243,
+        "mar": 5.68
+      },
+      "test_2021_2026": {
+        "trades": 1047,
+        "total_yen": 1117138,
+        "avg_yen": 1067.0,
+        "winrate": 54.0,
+        "maxdd_yen": -63394,
+        "pf": 1.704,
+        "mar": 17.62
+      },
+      "rolling_1y": {
+        "n": 2742,
+        "profit_pct": 85.3,
+        "worst_total_yen": -51918,
+        "worst_dd_yen": -63394
+      },
+      "rolling_3y": {
+        "n": 2238,
+        "profit_pct": 100.0,
+        "worst_total_yen": 6045,
+        "worst_dd_yen": -67978
+      }
+    },
+    {
+      "name": "skip_Thu",
+      "category": "weekday",
+      "thesis": "Thuを除外",
+      "full": {
+        "trades": 2994,
+        "total_yen": 1361794,
+        "avg_yen": 454.8,
+        "winrate": 51.0,
+        "maxdd_yen": -108218,
+        "pf": 1.427,
+        "mar": 12.58
+      },
+      "train_2011_2020": {
+        "trades": 1947,
+        "total_yen": 285213,
+        "avg_yen": 146.5,
+        "winrate": 49.4,
+        "maxdd_yen": -108218,
+        "pf": 1.176,
+        "mar": 2.64
+      },
+      "test_2021_2026": {
+        "trades": 1047,
+        "total_yen": 1076581,
+        "avg_yen": 1028.3,
+        "winrate": 54.0,
+        "maxdd_yen": -63551,
+        "pf": 1.685,
+        "mar": 16.94
+      },
+      "rolling_1y": {
+        "n": 2743,
+        "profit_pct": 80.3,
+        "worst_total_yen": -85970,
+        "worst_dd_yen": -91218
+      },
+      "rolling_3y": {
+        "n": 2239,
+        "profit_pct": 96.9,
+        "worst_total_yen": -13578,
+        "worst_dd_yen": -108218
+      }
+    },
+    {
+      "name": "ny_same_only",
+      "category": "NY",
+      "thesis": "夕場方向とNY方向が同じ=2枚日だけ",
+      "full": {
+        "trades": 2681,
+        "total_yen": 1480684,
+        "avg_yen": 552.3,
+        "winrate": 50.9,
+        "maxdd_yen": -87318,
+        "pf": 1.444,
+        "mar": 16.96
+      },
+      "train_2011_2020": {
+        "trades": 1780,
+        "total_yen": 359389,
+        "avg_yen": 201.9,
+        "winrate": 49.8,
+        "maxdd_yen": -87318,
+        "pf": 1.209,
+        "mar": 4.12
+      },
+      "test_2021_2026": {
+        "trades": 901,
+        "total_yen": 1121295,
+        "avg_yen": 1244.5,
+        "winrate": 53.2,
+        "maxdd_yen": -66509,
+        "pf": 1.694,
+        "mar": 16.86
+      },
+      "rolling_1y": {
+        "n": 2430,
+        "profit_pct": 91.0,
+        "worst_total_yen": -69455,
+        "worst_dd_yen": -74190
+      },
+      "rolling_3y": {
+        "n": 1926,
+        "profit_pct": 100.0,
+        "worst_total_yen": 36062,
+        "worst_dd_yen": -87318
+      }
+    },
+    {
+      "name": "skip_prev_big_abs_cc_500",
+      "category": "prev_candle",
+      "thesis": "前日終値ベース大変動±500円を除外",
+      "full": {
+        "trades": 3381,
+        "total_yen": 1090501,
+        "avg_yen": 322.5,
+        "winrate": 51.5,
+        "maxdd_yen": -122405,
+        "pf": 1.33,
+        "mar": 8.91
+      },
+      "train_2011_2020": {
+        "trades": 2356,
+        "total_yen": 366699,
+        "avg_yen": 155.6,
+        "winrate": 50.6,
+        "maxdd_yen": -122405,
+        "pf": 1.197,
+        "mar": 3.0
+      },
+      "test_2021_2026": {
+        "trades": 1025,
+        "total_yen": 723802,
+        "avg_yen": 706.1,
+        "winrate": 53.5,
+        "maxdd_yen": -44324,
+        "pf": 1.501,
+        "mar": 16.33
+      },
+      "rolling_1y": {
+        "n": 3130,
+        "profit_pct": 81.2,
+        "worst_total_yen": -89893,
+        "worst_dd_yen": -92871
+      },
+      "rolling_3y": {
+        "n": 2626,
+        "profit_pct": 100.0,
+        "worst_total_yen": 3306,
+        "worst_dd_yen": -122405
+      }
+    },
+    {
+      "name": "trend_contrarian_ma60",
+      "category": "trend",
+      "thesis": "S1方向がMA60トレンドと逆",
+      "full": {
+        "trades": 1879,
+        "total_yen": 927604,
+        "avg_yen": 493.7,
+        "winrate": 52.9,
+        "maxdd_yen": -43186,
+        "pf": 1.5,
+        "mar": 21.48
+      },
+      "train_2011_2020": {
+        "trades": 1219,
+        "total_yen": 227803,
+        "avg_yen": 186.9,
+        "winrate": 51.1,
+        "maxdd_yen": -42741,
+        "pf": 1.236,
+        "mar": 5.33
+      },
+      "test_2021_2026": {
+        "trades": 660,
+        "total_yen": 699801,
+        "avg_yen": 1060.3,
+        "winrate": 56.4,
+        "maxdd_yen": -43186,
+        "pf": 1.787,
+        "mar": 16.2
+      },
+      "rolling_1y": {
+        "n": 1628,
+        "profit_pct": 97.0,
+        "worst_total_yen": -20740,
+        "worst_dd_yen": -43186
+      },
+      "rolling_3y": {
+        "n": 1124,
+        "profit_pct": 100.0,
+        "worst_total_yen": 50224,
+        "worst_dd_yen": -43186
+      }
+    },
+    {
+      "name": "skip_Fri",
+      "category": "weekday",
+      "thesis": "Friを除外",
+      "full": {
+        "trades": 2995,
+        "total_yen": 1516365,
+        "avg_yen": 506.3,
+        "winrate": 52.7,
+        "maxdd_yen": -67393,
+        "pf": 1.482,
+        "mar": 22.5
+      },
+      "train_2011_2020": {
+        "trades": 1948,
+        "total_yen": 454801,
+        "avg_yen": 233.5,
+        "winrate": 52.1,
+        "maxdd_yen": -48066,
+        "pf": 1.294,
+        "mar": 9.46
+      },
+      "test_2021_2026": {
+        "trades": 1047,
+        "total_yen": 1061564,
+        "avg_yen": 1013.9,
+        "winrate": 53.7,
+        "maxdd_yen": -67393,
+        "pf": 1.664,
+        "mar": 15.75
+      },
+      "rolling_1y": {
+        "n": 2744,
+        "profit_pct": 91.9,
+        "worst_total_yen": -42384,
+        "worst_dd_yen": -67393
+      },
+      "rolling_3y": {
+        "n": 2240,
+        "profit_pct": 100.0,
+        "worst_total_yen": 58466,
+        "worst_dd_yen": -67393
+      }
+    },
+    {
+      "name": "prev_intraday_same_as_today_gap",
+      "category": "overnight_intraday",
+      "thesis": "前日ザラ場方向と今日ギャップ方向が同じ",
+      "full": {
+        "trades": 1913,
+        "total_yen": 817038,
+        "avg_yen": 427.1,
+        "winrate": 50.0,
+        "maxdd_yen": -93412,
+        "pf": 1.384,
+        "mar": 8.75
+      },
+      "train_2011_2020": {
+        "trades": 1274,
+        "total_yen": 114232,
+        "avg_yen": 89.7,
+        "winrate": 48.4,
+        "maxdd_yen": -93412,
+        "pf": 1.098,
+        "mar": 1.22
+      },
+      "test_2021_2026": {
+        "trades": 639,
+        "total_yen": 702806,
+        "avg_yen": 1099.9,
+        "winrate": 53.2,
+        "maxdd_yen": -44791,
+        "pf": 1.729,
+        "mar": 15.69
+      },
+      "rolling_1y": {
+        "n": 1662,
+        "profit_pct": 71.2,
+        "worst_total_yen": -83588,
+        "worst_dd_yen": -93412
+      },
+      "rolling_3y": {
+        "n": 1158,
+        "profit_pct": 76.6,
+        "worst_total_yen": -67586,
+        "worst_dd_yen": -93412
+      }
+    },
+    {
+      "name": "vix_close_lt_25",
+      "category": "VIX",
+      "thesis": "VIX 25未満",
+      "full": {
+        "trades": 3285,
+        "total_yen": 1063535,
+        "avg_yen": 323.8,
+        "winrate": 50.9,
+        "maxdd_yen": -101144,
+        "pf": 1.305,
+        "mar": 10.52
+      },
+      "train_2011_2020": {
+        "trades": 2159,
+        "total_yen": 171317,
+        "avg_yen": 79.4,
+        "winrate": 49.7,
+        "maxdd_yen": -101144,
+        "pf": 1.098,
+        "mar": 1.69
+      },
+      "test_2021_2026": {
+        "trades": 1126,
+        "total_yen": 892218,
+        "avg_yen": 792.4,
+        "winrate": 53.1,
+        "maxdd_yen": -57457,
+        "pf": 1.51,
+        "mar": 15.53
+      },
+      "rolling_1y": {
+        "n": 3034,
+        "profit_pct": 76.8,
+        "worst_total_yen": -71030,
+        "worst_dd_yen": -73016
+      },
+      "rolling_3y": {
+        "n": 2530,
+        "profit_pct": 95.6,
+        "worst_total_yen": -28162,
+        "worst_dd_yen": -101144
+      }
+    },
+    {
+      "name": "trend_contrarian_ma200",
+      "category": "trend",
+      "thesis": "S1方向がMA200トレンドと逆",
+      "full": {
+        "trades": 1843,
+        "total_yen": 904279,
+        "avg_yen": 490.7,
+        "winrate": 53.0,
+        "maxdd_yen": -59792,
+        "pf": 1.485,
+        "mar": 15.12
+      },
+      "train_2011_2020": {
+        "trades": 1206,
+        "total_yen": 277161,
+        "avg_yen": 229.8,
+        "winrate": 52.1,
+        "maxdd_yen": -59792,
+        "pf": 1.279,
+        "mar": 4.64
+      },
+      "test_2021_2026": {
+        "trades": 637,
+        "total_yen": 627118,
+        "avg_yen": 984.5,
+        "winrate": 54.6,
+        "maxdd_yen": -43186,
+        "pf": 1.721,
+        "mar": 14.52
+      },
+      "rolling_1y": {
+        "n": 1592,
+        "profit_pct": 95.4,
+        "worst_total_yen": -31462,
+        "worst_dd_yen": -59792
+      },
+      "rolling_3y": {
+        "n": 1088,
+        "profit_pct": 100.0,
+        "worst_total_yen": 39705,
+        "worst_dd_yen": -59792
+      }
+    }
+  ],
+  "best_by_category": {
+    "baseline": [
+      {
+        "name": "baseline_S1",
+        "category": "baseline",
+        "thesis": "全営業日S1",
+        "full": {
+          "trades": 3762,
+          "total_yen": 1822227,
+          "avg_yen": 484.4,
+          "winrate": 51.9,
+          "maxdd_yen": -99583,
+          "pf": 1.458,
+          "mar": 18.3
+        },
+        "train_2011_2020": {
+          "trades": 2447,
+          "total_yen": 445900,
+          "avg_yen": 182.2,
+          "winrate": 50.7,
+          "maxdd_yen": -99583,
+          "pf": 1.222,
+          "mar": 4.48
+        },
+        "test_2021_2026": {
+          "trades": 1315,
+          "total_yen": 1376327,
+          "avg_yen": 1046.6,
+          "winrate": 54.0,
+          "maxdd_yen": -57457,
+          "pf": 1.697,
+          "mar": 23.95
+        },
+        "rolling_1y": {
+          "n": 3511,
+          "profit_pct": 83.7,
+          "worst_total_yen": -68950,
+          "worst_dd_yen": -71455
+        },
+        "rolling_3y": {
+          "n": 3007,
+          "profit_pct": 100.0,
+          "worst_total_yen": 3837,
+          "worst_dd_yen": -99583
+        }
+      }
+    ],
+    "gap": [
+      {
+        "name": "gap_pr_ge_0.8",
+        "category": "gap",
+        "thesis": "過去1年比のギャップ分位が80%以上だけ",
+        "full": {
+          "trades": 845,
+          "total_yen": 1740471,
+          "avg_yen": 2059.7,
+          "winrate": 63.4,
+          "maxdd_yen": -22315,
+          "pf": 3.073,
+          "mar": 77.99
+        },
+        "train_2011_2020": {
+          "trades": 530,
+          "total_yen": 577938,
+          "avg_yen": 1090.4,
+          "winrate": 62.0,
+          "maxdd_yen": -22315,
+          "pf": 2.358,
+          "mar": 25.9
+        },
+        "test_2021_2026": {
+          "trades": 315,
+          "total_yen": 1162533,
+          "avg_yen": 3690.6,
+          "winrate": 65.7,
+          "maxdd_yen": -18925,
+          "pf": 3.808,
+          "mar": 61.43
+        },
+        "rolling_1y": {
+          "n": 594,
+          "profit_pct": 100.0,
+          "worst_total_yen": 196270,
+          "worst_dd_yen": -22315
+        },
+        "rolling_3y": {
+          "n": 90,
+          "profit_pct": 100.0,
+          "worst_total_yen": 1071264,
+          "worst_dd_yen": -22315
+        }
+      },
+      {
+        "name": "gap_pr_ge_0.9",
+        "category": "gap",
+        "thesis": "過去1年比のギャップ分位が90%以上だけ",
+        "full": {
+          "trades": 460,
+          "total_yen": 1465650,
+          "avg_yen": 3186.2,
+          "winrate": 68.8,
+          "maxdd_yen": -18925,
+          "pf": 4.54,
+          "mar": 77.45
+        },
+        "train_2011_2020": {
+          "trades": 279,
+          "total_yen": 419281,
+          "avg_yen": 1502.8,
+          "winrate": 64.7,
+          "maxdd_yen": -17743,
+          "pf": 2.741,
+          "mar": 23.63
+        },
+        "test_2021_2026": {
+          "trades": 181,
+          "total_yen": 1046368,
+          "avg_yen": 5781.0,
+          "winrate": 75.1,
+          "maxdd_yen": -18925,
+          "pf": 7.042,
+          "mar": 55.29
+        },
+        "rolling_1y": {
+          "n": 209,
+          "profit_pct": 100.0,
+          "worst_total_yen": 296940,
+          "worst_dd_yen": -18925
+        },
+        "rolling_3y": null
+      },
+      {
+        "name": "gap_pr_ge_0.7",
+        "category": "gap",
+        "thesis": "過去1年比のギャップ分位が70%以上だけ",
+        "full": {
+          "trades": 1210,
+          "total_yen": 1853535,
+          "avg_yen": 1531.8,
+          "winrate": 60.0,
+          "maxdd_yen": -28756,
+          "pf": 2.439,
+          "mar": 64.46
+        },
+        "train_2011_2020": {
+          "trades": 753,
+          "total_yen": 567938,
+          "avg_yen": 754.2,
+          "winrate": 58.0,
+          "maxdd_yen": -23001,
+          "pf": 1.886,
+          "mar": 24.69
+        },
+        "test_2021_2026": {
+          "trades": 457,
+          "total_yen": 1285597,
+          "avg_yen": 2813.1,
+          "winrate": 63.2,
+          "maxdd_yen": -28756,
+          "pf": 2.989,
+          "mar": 44.71
+        },
+        "rolling_1y": {
+          "n": 959,
+          "profit_pct": 100.0,
+          "worst_total_yen": 94182,
+          "worst_dd_yen": -28756
+        },
+        "rolling_3y": {
+          "n": 455,
+          "profit_pct": 100.0,
+          "worst_total_yen": 553049,
+          "worst_dd_yen": -28756
+        }
+      },
+      {
+        "name": "gap_pr_ge_0.5",
+        "category": "gap",
+        "thesis": "過去1年比のギャップ分位が50%以上だけ",
+        "full": {
+          "trades": 1973,
+          "total_yen": 1885604,
+          "avg_yen": 955.7,
+          "winrate": 55.8,
+          "maxdd_yen": -66886,
+          "pf": 1.856,
+          "mar": 28.19
+        },
+        "train_2011_2020": {
+          "trades": 1267,
+          "total_yen": 524058,
+          "avg_yen": 413.6,
+          "winrate": 53.8,
+          "maxdd_yen": -58728,
+          "pf": 1.461,
+          "mar": 8.92
+        },
+        "test_2021_2026": {
+          "trades": 706,
+          "total_yen": 1361546,
+          "avg_yen": 1928.5,
+          "winrate": 59.5,
+          "maxdd_yen": -66886,
+          "pf": 2.276,
+          "mar": 20.36
+        },
+        "rolling_1y": {
+          "n": 1722,
+          "profit_pct": 99.8,
+          "worst_total_yen": -7790,
+          "worst_dd_yen": -66886
+        },
+        "rolling_3y": {
+          "n": 1218,
+          "profit_pct": 100.0,
+          "worst_total_yen": 191733,
+          "worst_dd_yen": -66886
+        }
+      }
+    ],
+    "gap_band": [
+      {
+        "name": "gap_pr_band_0.9_1.0",
+        "category": "gap_band",
+        "thesis": "ギャップ分位 0.9-1.0",
+        "full": {
+          "trades": 460,
+          "total_yen": 1465650,
+          "avg_yen": 3186.2,
+          "winrate": 68.8,
+          "maxdd_yen": -18925,
+          "pf": 4.54,
+          "mar": 77.45
+        },
+        "train_2011_2020": {
+          "trades": 279,
+          "total_yen": 419281,
+          "avg_yen": 1502.8,
+          "winrate": 64.7,
+          "maxdd_yen": -17743,
+          "pf": 2.741,
+          "mar": 23.63
+        },
+        "test_2021_2026": {
+          "trades": 181,
+          "total_yen": 1046368,
+          "avg_yen": 5781.0,
+          "winrate": 75.1,
+          "maxdd_yen": -18925,
+          "pf": 7.042,
+          "mar": 55.29
+        },
+        "rolling_1y": {
+          "n": 209,
+          "profit_pct": 100.0,
+          "worst_total_yen": 296940,
+          "worst_dd_yen": -18925
+        },
+        "rolling_3y": null
+      },
+      {
+        "name": "gap_pr_band_0.7_0.8",
+        "category": "gap_band",
+        "thesis": "ギャップ分位 0.7-0.8",
+        "full": {
+          "trades": 365,
+          "total_yen": 113064,
+          "avg_yen": 309.8,
+          "winrate": 52.1,
+          "maxdd_yen": -60938,
+          "pf": 1.252,
+          "mar": 1.86
+        },
+        "train_2011_2020": {
+          "trades": 223,
+          "total_yen": -10000,
+          "avg_yen": -44.8,
+          "winrate": 48.4,
+          "maxdd_yen": -60938,
+          "pf": 0.954,
+          "mar": -0.16
+        },
+        "test_2021_2026": {
+          "trades": 142,
+          "total_yen": 123064,
+          "avg_yen": 866.6,
+          "winrate": 57.7,
+          "maxdd_yen": -36762,
+          "pf": 1.529,
+          "mar": 3.35
+        },
+        "rolling_1y": {
+          "n": 114,
+          "profit_pct": 100.0,
+          "worst_total_yen": 33091,
+          "worst_dd_yen": -60938
+        },
+        "rolling_3y": null
+      },
+      {
+        "name": "gap_pr_band_0.8_0.9",
+        "category": "gap_band",
+        "thesis": "ギャップ分位 0.8-0.9",
+        "full": {
+          "trades": 385,
+          "total_yen": 274821,
+          "avg_yen": 713.8,
+          "winrate": 56.9,
+          "maxdd_yen": -38518,
+          "pf": 1.646,
+          "mar": 7.13
+        },
+        "train_2011_2020": {
+          "trades": 251,
+          "total_yen": 158656,
+          "avg_yen": 632.1,
+          "winrate": 59.0,
+          "maxdd_yen": -28789,
+          "pf": 1.858,
+          "mar": 5.51
+        },
+        "test_2021_2026": {
+          "trades": 134,
+          "total_yen": 116165,
+          "avg_yen": 866.9,
+          "winrate": 53.0,
+          "maxdd_yen": -38518,
+          "pf": 1.482,
+          "mar": 3.02
+        },
+        "rolling_1y": {
+          "n": 134,
+          "profit_pct": 100.0,
+          "worst_total_yen": 110927,
+          "worst_dd_yen": -38518
+        },
+        "rolling_3y": null
+      },
+      {
+        "name": "gap_pr_band_0.5_0.7",
+        "category": "gap_band",
+        "thesis": "ギャップ分位 0.5-0.7",
+        "full": {
+          "trades": 763,
+          "total_yen": 32069,
+          "avg_yen": 42.0,
+          "winrate": 49.3,
+          "maxdd_yen": -125909,
+          "pf": 1.035,
+          "mar": 0.25
+        },
+        "train_2011_2020": {
+          "trades": 514,
+          "total_yen": -43880,
+          "avg_yen": -85.4,
+          "winrate": 47.7,
+          "maxdd_yen": -125909,
+          "pf": 0.911,
+          "mar": -0.35
+        },
+        "test_2021_2026": {
+          "trades": 249,
+          "total_yen": 75949,
+          "avg_yen": 305.0,
+          "winrate": 52.6,
+          "maxdd_yen": -57800,
+          "pf": 1.181,
+          "mar": 1.31
+        },
+        "rolling_1y": {
+          "n": 512,
+          "profit_pct": 48.2,
+          "worst_total_yen": -114993,
+          "worst_dd_yen": -119105
+        },
+        "rolling_3y": {
+          "n": 8,
+          "profit_pct": 100.0,
+          "worst_total_yen": 2348,
+          "worst_dd_yen": -125909
+        }
+      },
+      {
+        "name": "gap_pr_band_0.2_0.5",
+        "category": "gap_band",
+        "thesis": "ギャップ分位 0.2-0.5",
+        "full": {
+          "trades": 1067,
+          "total_yen": 60258,
+          "avg_yen": 56.5,
+          "winrate": 48.6,
+          "maxdd_yen": -108399,
+          "pf": 1.057,
+          "mar": 0.56
+        },
+        "train_2011_2020": {
+          "trades": 700,
+          "total_yen": 7069,
+          "avg_yen": 10.1,
+          "winrate": 48.4,
+          "maxdd_yen": -74341,
+          "pf": 1.014,
+          "mar": 0.1
+        },
+        "test_2021_2026": {
+          "trades": 367,
+          "total_yen": 53189,
+          "avg_yen": 144.9,
+          "winrate": 49.0,
+          "maxdd_yen": -108399,
+          "pf": 1.094,
+          "mar": 0.49
+        },
+        "rolling_1y": {
+          "n": 816,
+          "profit_pct": 34.8,
+          "worst_total_yen": -73698,
+          "worst_dd_yen": -108399
+        },
+        "rolling_3y": {
+          "n": 312,
+          "profit_pct": 9.9,
+          "worst_total_yen": -86872,
+          "worst_dd_yen": -108399
+        }
+      }
+    ],
+    "gap_abs": [
+      {
+        "name": "abs_gap_ge_500",
+        "category": "gap_abs",
+        "thesis": "絶対ギャップ500円以上だけ",
+        "full": {
+          "trades": 85,
+          "total_yen": 819355,
+          "avg_yen": 9639.5,
+          "winrate": 76.5,
+          "maxdd_yen": -18925,
+          "pf": 9.101,
+          "mar": 43.3
+        },
+        "train_2011_2020": {
+          "trades": 1,
+          "total_yen": -4018,
+          "avg_yen": -4018.0,
+          "winrate": 0.0,
+          "maxdd_yen": -4018,
+          "pf": 0.0,
+          "mar": -1.0
+        },
+        "test_2021_2026": {
+          "trades": 84,
+          "total_yen": 823373,
+          "avg_yen": 9802.1,
+          "winrate": 77.4,
+          "maxdd_yen": -18925,
+          "pf": 9.478,
+          "mar": 43.51
+        },
+        "rolling_1y": null,
+        "rolling_3y": null
+      },
+      {
+        "name": "abs_gap_ge_300",
+        "category": "gap_abs",
+        "thesis": "絶対ギャップ300円以上だけ",
+        "full": {
+          "trades": 427,
+          "total_yen": 1497397,
+          "avg_yen": 3506.8,
+          "winrate": 67.4,
+          "maxdd_yen": -37497,
+          "pf": 3.586,
+          "mar": 39.93
+        },
+        "train_2011_2020": {
+          "trades": 97,
+          "total_yen": 306731,
+          "avg_yen": 3162.2,
+          "winrate": 74.2,
+          "maxdd_yen": -11385,
+          "pf": 4.929,
+          "mar": 26.94
+        },
+        "test_2021_2026": {
+          "trades": 330,
+          "total_yen": 1190667,
+          "avg_yen": 3608.1,
+          "winrate": 65.5,
+          "maxdd_yen": -37497,
+          "pf": 3.376,
+          "mar": 31.75
+        },
+        "rolling_1y": {
+          "n": 176,
+          "profit_pct": 100.0,
+          "worst_total_yen": 606592,
+          "worst_dd_yen": -37497
+        },
+        "rolling_3y": null
+      },
+      {
+        "name": "abs_gap_ge_100",
+        "category": "gap_abs",
+        "thesis": "絶対ギャップ100円以上だけ",
+        "full": {
+          "trades": 1917,
+          "total_yen": 1907221,
+          "avg_yen": 994.9,
+          "winrate": 55.7,
+          "maxdd_yen": -55923,
+          "pf": 1.792,
+          "mar": 34.1
+        },
+        "train_2011_2020": {
+          "trades": 994,
+          "total_yen": 518767,
+          "avg_yen": 521.9,
+          "winrate": 54.8,
+          "maxdd_yen": -46732,
+          "pf": 1.542,
+          "mar": 11.1
+        },
+        "test_2021_2026": {
+          "trades": 923,
+          "total_yen": 1388454,
+          "avg_yen": 1504.3,
+          "winrate": 56.8,
+          "maxdd_yen": -55923,
+          "pf": 1.958,
+          "mar": 24.83
+        },
+        "rolling_1y": {
+          "n": 1666,
+          "profit_pct": 99.6,
+          "worst_total_yen": -6678,
+          "worst_dd_yen": -55923
+        },
+        "rolling_3y": {
+          "n": 1162,
+          "profit_pct": 100.0,
+          "worst_total_yen": 304827,
+          "worst_dd_yen": -55923
+        }
+      },
+      {
+        "name": "abs_gap_ge_200",
+        "category": "gap_abs",
+        "thesis": "絶対ギャップ200円以上だけ",
+        "full": {
+          "trades": 915,
+          "total_yen": 1805308,
+          "avg_yen": 1973.0,
+          "winrate": 61.7,
+          "maxdd_yen": -64409,
+          "pf": 2.498,
+          "mar": 28.03
+        },
+        "train_2011_2020": {
+          "trades": 325,
+          "total_yen": 491385,
+          "avg_yen": 1512.0,
+          "winrate": 63.9,
+          "maxdd_yen": -17743,
+          "pf": 2.692,
+          "mar": 27.69
+        },
+        "test_2021_2026": {
+          "trades": 590,
+          "total_yen": 1313924,
+          "avg_yen": 2227.0,
+          "winrate": 60.5,
+          "maxdd_yen": -64409,
+          "pf": 2.436,
+          "mar": 20.4
+        },
+        "rolling_1y": {
+          "n": 664,
+          "profit_pct": 100.0,
+          "worst_total_yen": 253343,
+          "worst_dd_yen": -64409
+        },
+        "rolling_3y": {
+          "n": 160,
+          "profit_pct": 100.0,
+          "worst_total_yen": 1092818,
+          "worst_dd_yen": -64409
+        }
+      }
+    ],
+    "NY": [
+      {
+        "name": "ny_same_only",
+        "category": "NY",
+        "thesis": "夕場方向とNY方向が同じ=2枚日だけ",
+        "full": {
+          "trades": 2681,
+          "total_yen": 1480684,
+          "avg_yen": 552.3,
+          "winrate": 50.9,
+          "maxdd_yen": -87318,
+          "pf": 1.444,
+          "mar": 16.96
+        },
+        "train_2011_2020": {
+          "trades": 1780,
+          "total_yen": 359389,
+          "avg_yen": 201.9,
+          "winrate": 49.8,
+          "maxdd_yen": -87318,
+          "pf": 1.209,
+          "mar": 4.12
+        },
+        "test_2021_2026": {
+          "trades": 901,
+          "total_yen": 1121295,
+          "avg_yen": 1244.5,
+          "winrate": 53.2,
+          "maxdd_yen": -66509,
+          "pf": 1.694,
+          "mar": 16.86
+        },
+        "rolling_1y": {
+          "n": 2430,
+          "profit_pct": 91.0,
+          "worst_total_yen": -69455,
+          "worst_dd_yen": -74190
+        },
+        "rolling_3y": {
+          "n": 1926,
+          "profit_pct": 100.0,
+          "worst_total_yen": 36062,
+          "worst_dd_yen": -87318
+        }
+      },
+      {
+        "name": "ny_up_only",
+        "category": "NY",
+        "thesis": "NY陽線後だけ",
+        "full": {
+          "trades": 2031,
+          "total_yen": 928549,
+          "avg_yen": 457.2,
+          "winrate": 51.7,
+          "maxdd_yen": -96561,
+          "pf": 1.433,
+          "mar": 9.62
+        },
+        "train_2011_2020": {
+          "trades": 1335,
+          "total_yen": 191477,
+          "avg_yen": 143.4,
+          "winrate": 49.9,
+          "maxdd_yen": -96561,
+          "pf": 1.179,
+          "mar": 1.98
+        },
+        "test_2021_2026": {
+          "trades": 696,
+          "total_yen": 737072,
+          "avg_yen": 1059.0,
+          "winrate": 55.2,
+          "maxdd_yen": -58314,
+          "pf": 1.686,
+          "mar": 12.64
+        },
+        "rolling_1y": {
+          "n": 1780,
+          "profit_pct": 86.6,
+          "worst_total_yen": -89803,
+          "worst_dd_yen": -96561
+        },
+        "rolling_3y": {
+          "n": 1276,
+          "profit_pct": 100.0,
+          "worst_total_yen": 23170,
+          "worst_dd_yen": -96561
+        }
+      },
+      {
+        "name": "ny_opposite_only",
+        "category": "NY",
+        "thesis": "夕場方向とNY方向が逆=1枚日だけ",
+        "full": {
+          "trades": 1081,
+          "total_yen": 341543,
+          "avg_yen": 316.0,
+          "winrate": 54.2,
+          "maxdd_yen": -31594,
+          "pf": 1.529,
+          "mar": 10.81
+        },
+        "train_2011_2020": {
+          "trades": 667,
+          "total_yen": 86511,
+          "avg_yen": 129.7,
+          "winrate": 53.2,
+          "maxdd_yen": -31594,
+          "pf": 1.3,
+          "mar": 2.74
+        },
+        "test_2021_2026": {
+          "trades": 414,
+          "total_yen": 255032,
+          "avg_yen": 616.0,
+          "winrate": 55.8,
+          "maxdd_yen": -20842,
+          "pf": 1.712,
+          "mar": 12.24
+        },
+        "rolling_1y": {
+          "n": 830,
+          "profit_pct": 98.0,
+          "worst_total_yen": -6002,
+          "worst_dd_yen": -31594
+        },
+        "rolling_3y": {
+          "n": 326,
+          "profit_pct": 100.0,
+          "worst_total_yen": 103083,
+          "worst_dd_yen": -31594
+        }
+      },
+      {
+        "name": "ny_down_only",
+        "category": "NY",
+        "thesis": "NY陰線後だけ",
+        "full": {
+          "trades": 1730,
+          "total_yen": 891773,
+          "avg_yen": 515.5,
+          "winrate": 52.1,
+          "maxdd_yen": -73411,
+          "pf": 1.486,
+          "mar": 12.15
+        },
+        "train_2011_2020": {
+          "trades": 1111,
+          "total_yen": 252518,
+          "avg_yen": 227.3,
+          "winrate": 51.7,
+          "maxdd_yen": -52021,
+          "pf": 1.27,
+          "mar": 4.85
+        },
+        "test_2021_2026": {
+          "trades": 619,
+          "total_yen": 639255,
+          "avg_yen": 1032.7,
+          "winrate": 52.7,
+          "maxdd_yen": -73411,
+          "pf": 1.71,
+          "mar": 8.71
+        },
+        "rolling_1y": {
+          "n": 1479,
+          "profit_pct": 84.1,
+          "worst_total_yen": -41539,
+          "worst_dd_yen": -73411
+        },
+        "rolling_3y": {
+          "n": 975,
+          "profit_pct": 100.0,
+          "worst_total_yen": 42576,
+          "worst_dd_yen": -73411
+        }
+      }
+    ],
+    "trend": [
+      {
+        "name": "trend_contrarian_ma20",
+        "category": "trend",
+        "thesis": "S1方向がMA20トレンドと逆",
+        "full": {
+          "trades": 1889,
+          "total_yen": 963099,
+          "avg_yen": 509.8,
+          "winrate": 53.7,
+          "maxdd_yen": -40669,
+          "pf": 1.527,
+          "mar": 23.68
+        },
+        "train_2011_2020": {
+          "trades": 1229,
+          "total_yen": 254005,
+          "avg_yen": 206.7,
+          "winrate": 52.4,
+          "maxdd_yen": -40669,
+          "pf": 1.268,
+          "mar": 6.25
+        },
+        "test_2021_2026": {
+          "trades": 660,
+          "total_yen": 709094,
+          "avg_yen": 1074.4,
+          "winrate": 56.1,
+          "maxdd_yen": -39488,
+          "pf": 1.806,
+          "mar": 17.96
+        },
+        "rolling_1y": {
+          "n": 1638,
+          "profit_pct": 97.0,
+          "worst_total_yen": -15843,
+          "worst_dd_yen": -40669
+        },
+        "rolling_3y": {
+          "n": 1134,
+          "profit_pct": 100.0,
+          "worst_total_yen": 43564,
+          "worst_dd_yen": -40669
+        }
+      },
+      {
+        "name": "trend_contrarian_ma60",
+        "category": "trend",
+        "thesis": "S1方向がMA60トレンドと逆",
+        "full": {
+          "trades": 1879,
+          "total_yen": 927604,
+          "avg_yen": 493.7,
+          "winrate": 52.9,
+          "maxdd_yen": -43186,
+          "pf": 1.5,
+          "mar": 21.48
+        },
+        "train_2011_2020": {
+          "trades": 1219,
+          "total_yen": 227803,
+          "avg_yen": 186.9,
+          "winrate": 51.1,
+          "maxdd_yen": -42741,
+          "pf": 1.236,
+          "mar": 5.33
+        },
+        "test_2021_2026": {
+          "trades": 660,
+          "total_yen": 699801,
+          "avg_yen": 1060.3,
+          "winrate": 56.4,
+          "maxdd_yen": -43186,
+          "pf": 1.787,
+          "mar": 16.2
+        },
+        "rolling_1y": {
+          "n": 1628,
+          "profit_pct": 97.0,
+          "worst_total_yen": -20740,
+          "worst_dd_yen": -43186
+        },
+        "rolling_3y": {
+          "n": 1124,
+          "profit_pct": 100.0,
+          "worst_total_yen": 50224,
+          "worst_dd_yen": -43186
+        }
+      },
+      {
+        "name": "trend_contrarian_ma200",
+        "category": "trend",
+        "thesis": "S1方向がMA200トレンドと逆",
+        "full": {
+          "trades": 1843,
+          "total_yen": 904279,
+          "avg_yen": 490.7,
+          "winrate": 53.0,
+          "maxdd_yen": -59792,
+          "pf": 1.485,
+          "mar": 15.12
+        },
+        "train_2011_2020": {
+          "trades": 1206,
+          "total_yen": 277161,
+          "avg_yen": 229.8,
+          "winrate": 52.1,
+          "maxdd_yen": -59792,
+          "pf": 1.279,
+          "mar": 4.64
+        },
+        "test_2021_2026": {
+          "trades": 637,
+          "total_yen": 627118,
+          "avg_yen": 984.5,
+          "winrate": 54.6,
+          "maxdd_yen": -43186,
+          "pf": 1.721,
+          "mar": 14.52
+        },
+        "rolling_1y": {
+          "n": 1592,
+          "profit_pct": 95.4,
+          "worst_total_yen": -31462,
+          "worst_dd_yen": -59792
+        },
+        "rolling_3y": {
+          "n": 1088,
+          "profit_pct": 100.0,
+          "worst_total_yen": 39705,
+          "worst_dd_yen": -59792
+        }
+      },
+      {
+        "name": "trend_aligned_ma200",
+        "category": "trend",
+        "thesis": "S1方向がMA200トレンドと一致",
+        "full": {
+          "trades": 1919,
+          "total_yen": 917948,
+          "avg_yen": 478.3,
+          "winrate": 50.8,
+          "maxdd_yen": -80436,
+          "pf": 1.433,
+          "mar": 11.41
+        },
+        "train_2011_2020": {
+          "trades": 1241,
+          "total_yen": 168739,
+          "avg_yen": 136.0,
+          "winrate": 49.4,
+          "maxdd_yen": -80436,
+          "pf": 1.166,
+          "mar": 2.1
+        },
+        "test_2021_2026": {
+          "trades": 678,
+          "total_yen": 749209,
+          "avg_yen": 1105.0,
+          "winrate": 53.4,
+          "maxdd_yen": -75974,
+          "pf": 1.678,
+          "mar": 9.86
+        },
+        "rolling_1y": {
+          "n": 1668,
+          "profit_pct": 77.6,
+          "worst_total_yen": -58731,
+          "worst_dd_yen": -75974
+        },
+        "rolling_3y": {
+          "n": 1164,
+          "profit_pct": 100.0,
+          "worst_total_yen": 17294,
+          "worst_dd_yen": -80436
+        }
+      },
+      {
+        "name": "trend_aligned_ma60",
+        "category": "trend",
+        "thesis": "S1方向がMA60トレンドと一致",
+        "full": {
+          "trades": 1883,
+          "total_yen": 894623,
+          "avg_yen": 475.1,
+          "winrate": 50.8,
+          "maxdd_yen": -75213,
+          "pf": 1.421,
+          "mar": 11.89
+        },
+        "train_2011_2020": {
+          "trades": 1228,
+          "total_yen": 218097,
+          "avg_yen": 177.6,
+          "winrate": 50.4,
+          "maxdd_yen": -70582,
+          "pf": 1.21,
+          "mar": 3.09
+        },
+        "test_2021_2026": {
+          "trades": 655,
+          "total_yen": 676526,
+          "avg_yen": 1032.9,
+          "winrate": 51.6,
+          "maxdd_yen": -75213,
+          "pf": 1.624,
+          "mar": 8.99
+        },
+        "rolling_1y": {
+          "n": 1632,
+          "profit_pct": 82.0,
+          "worst_total_yen": -55137,
+          "worst_dd_yen": -75213
+        },
+        "rolling_3y": {
+          "n": 1128,
+          "profit_pct": 100.0,
+          "worst_total_yen": 13814,
+          "worst_dd_yen": -75213
+        }
+      }
+    ],
+    "weekday": [
+      {
+        "name": "skip_Tue",
+        "category": "weekday",
+        "thesis": "Tueを除外",
+        "full": {
+          "trades": 2996,
+          "total_yen": 1518324,
+          "avg_yen": 506.8,
+          "winrate": 52.7,
+          "maxdd_yen": -74345,
+          "pf": 1.484,
+          "mar": 20.42
+        },
+        "train_2011_2020": {
+          "trades": 1949,
+          "total_yen": 347735,
+          "avg_yen": 178.4,
+          "winrate": 51.5,
+          "maxdd_yen": -74345,
+          "pf": 1.221,
+          "mar": 4.68
+        },
+        "test_2021_2026": {
+          "trades": 1047,
+          "total_yen": 1170588,
+          "avg_yen": 1118.0,
+          "winrate": 54.7,
+          "maxdd_yen": -48939,
+          "pf": 1.748,
+          "mar": 23.92
+        },
+        "rolling_1y": {
+          "n": 2745,
+          "profit_pct": 88.3,
+          "worst_total_yen": -52208,
+          "worst_dd_yen": -63119
+        },
+        "rolling_3y": {
+          "n": 2241,
+          "profit_pct": 100.0,
+          "worst_total_yen": 20826,
+          "worst_dd_yen": -74345
+        }
+      },
+      {
+        "name": "skip_Mon",
+        "category": "weekday",
+        "thesis": "Monを除外",
+        "full": {
+          "trades": 3070,
+          "total_yen": 1389340,
+          "avg_yen": 452.6,
+          "winrate": 51.0,
+          "maxdd_yen": -115237,
+          "pf": 1.425,
+          "mar": 12.06
+        },
+        "train_2011_2020": {
+          "trades": 1998,
+          "total_yen": 309905,
+          "avg_yen": 155.1,
+          "winrate": 49.6,
+          "maxdd_yen": -115237,
+          "pf": 1.183,
+          "mar": 2.69
+        },
+        "test_2021_2026": {
+          "trades": 1072,
+          "total_yen": 1079435,
+          "avg_yen": 1006.9,
+          "winrate": 53.6,
+          "maxdd_yen": -52709,
+          "pf": 1.685,
+          "mar": 20.48
+        },
+        "rolling_1y": {
+          "n": 2819,
+          "profit_pct": 81.6,
+          "worst_total_yen": -82488,
+          "worst_dd_yen": -86590
+        },
+        "rolling_3y": {
+          "n": 2315,
+          "profit_pct": 100.0,
+          "worst_total_yen": 541,
+          "worst_dd_yen": -115237
+        }
+      },
+      {
+        "name": "skip_Wed",
+        "category": "weekday",
+        "thesis": "Wedを除外",
+        "full": {
+          "trades": 2993,
+          "total_yen": 1503086,
+          "avg_yen": 502.2,
+          "winrate": 52.0,
+          "maxdd_yen": -67978,
+          "pf": 1.473,
+          "mar": 22.11
+        },
+        "train_2011_2020": {
+          "trades": 1946,
+          "total_yen": 385948,
+          "avg_yen": 198.3,
+          "winrate": 51.0,
+          "maxdd_yen": -67978,
+          "pf": 1.243,
+          "mar": 5.68
+        },
+        "test_2021_2026": {
+          "trades": 1047,
+          "total_yen": 1117138,
+          "avg_yen": 1067.0,
+          "winrate": 54.0,
+          "maxdd_yen": -63394,
+          "pf": 1.704,
+          "mar": 17.62
+        },
+        "rolling_1y": {
+          "n": 2742,
+          "profit_pct": 85.3,
+          "worst_total_yen": -51918,
+          "worst_dd_yen": -63394
+        },
+        "rolling_3y": {
+          "n": 2238,
+          "profit_pct": 100.0,
+          "worst_total_yen": 6045,
+          "worst_dd_yen": -67978
+        }
+      },
+      {
+        "name": "skip_Thu",
+        "category": "weekday",
+        "thesis": "Thuを除外",
+        "full": {
+          "trades": 2994,
+          "total_yen": 1361794,
+          "avg_yen": 454.8,
+          "winrate": 51.0,
+          "maxdd_yen": -108218,
+          "pf": 1.427,
+          "mar": 12.58
+        },
+        "train_2011_2020": {
+          "trades": 1947,
+          "total_yen": 285213,
+          "avg_yen": 146.5,
+          "winrate": 49.4,
+          "maxdd_yen": -108218,
+          "pf": 1.176,
+          "mar": 2.64
+        },
+        "test_2021_2026": {
+          "trades": 1047,
+          "total_yen": 1076581,
+          "avg_yen": 1028.3,
+          "winrate": 54.0,
+          "maxdd_yen": -63551,
+          "pf": 1.685,
+          "mar": 16.94
+        },
+        "rolling_1y": {
+          "n": 2743,
+          "profit_pct": 80.3,
+          "worst_total_yen": -85970,
+          "worst_dd_yen": -91218
+        },
+        "rolling_3y": {
+          "n": 2239,
+          "profit_pct": 96.9,
+          "worst_total_yen": -13578,
+          "worst_dd_yen": -108218
+        }
+      },
+      {
+        "name": "skip_Fri",
+        "category": "weekday",
+        "thesis": "Friを除外",
+        "full": {
+          "trades": 2995,
+          "total_yen": 1516365,
+          "avg_yen": 506.3,
+          "winrate": 52.7,
+          "maxdd_yen": -67393,
+          "pf": 1.482,
+          "mar": 22.5
+        },
+        "train_2011_2020": {
+          "trades": 1948,
+          "total_yen": 454801,
+          "avg_yen": 233.5,
+          "winrate": 52.1,
+          "maxdd_yen": -48066,
+          "pf": 1.294,
+          "mar": 9.46
+        },
+        "test_2021_2026": {
+          "trades": 1047,
+          "total_yen": 1061564,
+          "avg_yen": 1013.9,
+          "winrate": 53.7,
+          "maxdd_yen": -67393,
+          "pf": 1.664,
+          "mar": 15.75
+        },
+        "rolling_1y": {
+          "n": 2744,
+          "profit_pct": 91.9,
+          "worst_total_yen": -42384,
+          "worst_dd_yen": -67393
+        },
+        "rolling_3y": {
+          "n": 2240,
+          "profit_pct": 100.0,
+          "worst_total_yen": 58466,
+          "worst_dd_yen": -67393
+        }
+      }
+    ],
+    "overnight_intraday": [
+      {
+        "name": "prev_day_reversed_own_gap",
+        "category": "overnight_intraday",
+        "thesis": "前日にovernightをザラ場で反転した後だけ",
+        "full": {
+          "trades": 1810,
+          "total_yen": 997454,
+          "avg_yen": 551.1,
+          "winrate": 52.7,
+          "maxdd_yen": -39544,
+          "pf": 1.575,
+          "mar": 25.22
+        },
+        "train_2011_2020": {
+          "trades": 1205,
+          "total_yen": 299857,
+          "avg_yen": 248.8,
+          "winrate": 51.3,
+          "maxdd_yen": -37898,
+          "pf": 1.315,
+          "mar": 7.91
+        },
+        "test_2021_2026": {
+          "trades": 605,
+          "total_yen": 697597,
+          "avg_yen": 1153.1,
+          "winrate": 55.4,
+          "maxdd_yen": -39544,
+          "pf": 1.89,
+          "mar": 17.64
+        },
+        "rolling_1y": {
+          "n": 1559,
+          "profit_pct": 98.5,
+          "worst_total_yen": -33746,
+          "worst_dd_yen": -39544
+        },
+        "rolling_3y": {
+          "n": 1055,
+          "profit_pct": 100.0,
+          "worst_total_yen": 133448,
+          "worst_dd_yen": -39544
+        }
+      },
+      {
+        "name": "prev_intraday_same_as_today_gap",
+        "category": "overnight_intraday",
+        "thesis": "前日ザラ場方向と今日ギャップ方向が同じ",
+        "full": {
+          "trades": 1913,
+          "total_yen": 817038,
+          "avg_yen": 427.1,
+          "winrate": 50.0,
+          "maxdd_yen": -93412,
+          "pf": 1.384,
+          "mar": 8.75
+        },
+        "train_2011_2020": {
+          "trades": 1274,
+          "total_yen": 114232,
+          "avg_yen": 89.7,
+          "winrate": 48.4,
+          "maxdd_yen": -93412,
+          "pf": 1.098,
+          "mar": 1.22
+        },
+        "test_2021_2026": {
+          "trades": 639,
+          "total_yen": 702806,
+          "avg_yen": 1099.9,
+          "winrate": 53.2,
+          "maxdd_yen": -44791,
+          "pf": 1.729,
+          "mar": 15.69
+        },
+        "rolling_1y": {
+          "n": 1662,
+          "profit_pct": 71.2,
+          "worst_total_yen": -83588,
+          "worst_dd_yen": -93412
+        },
+        "rolling_3y": {
+          "n": 1158,
+          "profit_pct": 76.6,
+          "worst_total_yen": -67586,
+          "worst_dd_yen": -93412
+        }
+      },
+      {
+        "name": "prev_intraday_opposite_today_gap",
+        "category": "overnight_intraday",
+        "thesis": "前日ザラ場方向と今日ギャップ方向が逆",
+        "full": {
+          "trades": 1848,
+          "total_yen": 1004313,
+          "avg_yen": 543.5,
+          "winrate": 53.8,
+          "maxdd_yen": -62220,
+          "pf": 1.542,
+          "mar": 16.14
+        },
+        "train_2011_2020": {
+          "trades": 1172,
+          "total_yen": 330792,
+          "avg_yen": 282.2,
+          "winrate": 53.3,
+          "maxdd_yen": -39174,
+          "pf": 1.393,
+          "mar": 8.44
+        },
+        "test_2021_2026": {
+          "trades": 676,
+          "total_yen": 673521,
+          "avg_yen": 996.3,
+          "winrate": 54.7,
+          "maxdd_yen": -62220,
+          "pf": 1.667,
+          "mar": 10.82
+        },
+        "rolling_1y": {
+          "n": 1597,
+          "profit_pct": 98.8,
+          "worst_total_yen": -13376,
+          "worst_dd_yen": -62220
+        },
+        "rolling_3y": {
+          "n": 1093,
+          "profit_pct": 100.0,
+          "worst_total_yen": 112891,
+          "worst_dd_yen": -62220
+        }
+      },
+      {
+        "name": "prev_day_followed_own_gap",
+        "category": "overnight_intraday",
+        "thesis": "前日にovernightをザラ場で順行した後だけ",
+        "full": {
+          "trades": 1951,
+          "total_yen": 823897,
+          "avg_yen": 422.3,
+          "winrate": 51.1,
+          "maxdd_yen": -101028,
+          "pf": 1.367,
+          "mar": 8.16
+        },
+        "train_2011_2020": {
+          "trades": 1241,
+          "total_yen": 145168,
+          "avg_yen": 117.0,
+          "winrate": 50.1,
+          "maxdd_yen": -101028,
+          "pf": 1.137,
+          "mar": 1.44
+        },
+        "test_2021_2026": {
+          "trades": 710,
+          "total_yen": 678730,
+          "avg_yen": 956.0,
+          "winrate": 52.8,
+          "maxdd_yen": -65203,
+          "pf": 1.57,
+          "mar": 10.41
+        },
+        "rolling_1y": {
+          "n": 1700,
+          "profit_pct": 71.3,
+          "worst_total_yen": -77064,
+          "worst_dd_yen": -88331
+        },
+        "rolling_3y": {
+          "n": 1196,
+          "profit_pct": 76.3,
+          "worst_total_yen": -81130,
+          "worst_dd_yen": -101028
+        }
+      }
+    ],
+    "prev_candle": [
+      {
+        "name": "skip_prev_big_abs_cc_500",
+        "category": "prev_candle",
+        "thesis": "前日終値ベース大変動±500円を除外",
+        "full": {
+          "trades": 3381,
+          "total_yen": 1090501,
+          "avg_yen": 322.5,
+          "winrate": 51.5,
+          "maxdd_yen": -122405,
+          "pf": 1.33,
+          "mar": 8.91
+        },
+        "train_2011_2020": {
+          "trades": 2356,
+          "total_yen": 366699,
+          "avg_yen": 155.6,
+          "winrate": 50.6,
+          "maxdd_yen": -122405,
+          "pf": 1.197,
+          "mar": 3.0
+        },
+        "test_2021_2026": {
+          "trades": 1025,
+          "total_yen": 723802,
+          "avg_yen": 706.1,
+          "winrate": 53.5,
+          "maxdd_yen": -44324,
+          "pf": 1.501,
+          "mar": 16.33
+        },
+        "rolling_1y": {
+          "n": 3130,
+          "profit_pct": 81.2,
+          "worst_total_yen": -89893,
+          "worst_dd_yen": -92871
+        },
+        "rolling_3y": {
+          "n": 2626,
+          "profit_pct": 100.0,
+          "worst_total_yen": 3306,
+          "worst_dd_yen": -122405
+        }
+      },
+      {
+        "name": "skip_prev_big_abs_intraday_300",
+        "category": "prev_candle",
+        "thesis": "前日大陽/大陰線を除外",
+        "full": {
+          "trades": 3282,
+          "total_yen": 939292,
+          "avg_yen": 286.2,
+          "winrate": 51.4,
+          "maxdd_yen": -109653,
+          "pf": 1.297,
+          "mar": 8.57
+        },
+        "train_2011_2020": {
+          "trades": 2306,
+          "total_yen": 313944,
+          "avg_yen": 136.1,
+          "winrate": 50.6,
+          "maxdd_yen": -109653,
+          "pf": 1.174,
+          "mar": 2.86
+        },
+        "test_2021_2026": {
+          "trades": 976,
+          "total_yen": 625349,
+          "avg_yen": 640.7,
+          "winrate": 53.3,
+          "maxdd_yen": -45534,
+          "pf": 1.46,
+          "mar": 13.73
+        },
+        "rolling_1y": {
+          "n": 3031,
+          "profit_pct": 81.3,
+          "worst_total_yen": -82649,
+          "worst_dd_yen": -85528
+        },
+        "rolling_3y": {
+          "n": 2527,
+          "profit_pct": 98.8,
+          "worst_total_yen": -11647,
+          "worst_dd_yen": -109653
+        }
+      },
+      {
+        "name": "prev_big_down_intraday_300",
+        "category": "prev_candle",
+        "thesis": "前日大陰線(ザラ場-300円以下)",
+        "full": {
+          "trades": 248,
+          "total_yen": 578948,
+          "avg_yen": 2334.5,
+          "winrate": 58.1,
+          "maxdd_yen": -40384,
+          "pf": 2.353,
+          "mar": 14.34
+        },
+        "train_2011_2020": {
+          "trades": 84,
+          "total_yen": 95859,
+          "avg_yen": 1141.2,
+          "winrate": 52.4,
+          "maxdd_yen": -32103,
+          "pf": 1.71,
+          "mar": 2.99
+        },
+        "test_2021_2026": {
+          "trades": 164,
+          "total_yen": 483088,
+          "avg_yen": 2945.7,
+          "winrate": 61.0,
+          "maxdd_yen": -40384,
+          "pf": 2.65,
+          "mar": 11.96
+        },
+        "rolling_1y": null,
+        "rolling_3y": null
+      },
+      {
+        "name": "prev_big_up_intraday_300",
+        "category": "prev_candle",
+        "thesis": "前日大陽線(ザラ場+300円以上)",
+        "full": {
+          "trades": 232,
+          "total_yen": 303987,
+          "avg_yen": 1310.3,
+          "winrate": 52.2,
+          "maxdd_yen": -52512,
+          "pf": 1.774,
+          "mar": 5.79
+        },
+        "train_2011_2020": {
+          "trades": 57,
+          "total_yen": 36097,
+          "avg_yen": 633.3,
+          "winrate": 54.4,
+          "maxdd_yen": -14044,
+          "pf": 1.51,
+          "mar": 2.57
+        },
+        "test_2021_2026": {
+          "trades": 175,
+          "total_yen": 267890,
+          "avg_yen": 1530.8,
+          "winrate": 51.4,
+          "maxdd_yen": -52512,
+          "pf": 1.832,
+          "mar": 5.1
+        },
+        "rolling_1y": null,
+        "rolling_3y": null
+      }
+    ],
+    "VIX": [
+      {
+        "name": "vix_close_ge_25",
+        "category": "VIX",
+        "thesis": "VIX 25以上",
+        "full": {
+          "trades": 477,
+          "total_yen": 758692,
+          "avg_yen": 1590.5,
+          "winrate": 58.9,
+          "maxdd_yen": -30352,
+          "pf": 2.549,
+          "mar": 25.0
+        },
+        "train_2011_2020": {
+          "trades": 288,
+          "total_yen": 274583,
+          "avg_yen": 953.4,
+          "winrate": 58.7,
+          "maxdd_yen": -30352,
+          "pf": 2.033,
+          "mar": 9.05
+        },
+        "test_2021_2026": {
+          "trades": 189,
+          "total_yen": 484109,
+          "avg_yen": 2561.4,
+          "winrate": 59.3,
+          "maxdd_yen": -24501,
+          "pf": 3.162,
+          "mar": 19.76
+        },
+        "rolling_1y": {
+          "n": 226,
+          "profit_pct": 100.0,
+          "worst_total_yen": 200763,
+          "worst_dd_yen": -30352
+        },
+        "rolling_3y": null
+      },
+      {
+        "name": "vix_pr_ge_0.8",
+        "category": "VIX",
+        "thesis": "VIX過去1年分位80%以上",
+        "full": {
+          "trades": 683,
+          "total_yen": 879176,
+          "avg_yen": 1287.2,
+          "winrate": 57.0,
+          "maxdd_yen": -40505,
+          "pf": 1.931,
+          "mar": 21.71
+        },
+        "train_2011_2020": {
+          "trades": 439,
+          "total_yen": 288299,
+          "avg_yen": 656.7,
+          "winrate": 56.9,
+          "maxdd_yen": -40505,
+          "pf": 1.575,
+          "mar": 7.12
+        },
+        "test_2021_2026": {
+          "trades": 244,
+          "total_yen": 590877,
+          "avg_yen": 2421.6,
+          "winrate": 57.0,
+          "maxdd_yen": -32071,
+          "pf": 2.335,
+          "mar": 18.42
+        },
+        "rolling_1y": {
+          "n": 432,
+          "profit_pct": 100.0,
+          "worst_total_yen": 104335,
+          "worst_dd_yen": -40505
+        },
+        "rolling_3y": null
+      },
+      {
+        "name": "vix_close_lt_25",
+        "category": "VIX",
+        "thesis": "VIX 25未満",
+        "full": {
+          "trades": 3285,
+          "total_yen": 1063535,
+          "avg_yen": 323.8,
+          "winrate": 50.9,
+          "maxdd_yen": -101144,
+          "pf": 1.305,
+          "mar": 10.52
+        },
+        "train_2011_2020": {
+          "trades": 2159,
+          "total_yen": 171317,
+          "avg_yen": 79.4,
+          "winrate": 49.7,
+          "maxdd_yen": -101144,
+          "pf": 1.098,
+          "mar": 1.69
+        },
+        "test_2021_2026": {
+          "trades": 1126,
+          "total_yen": 892218,
+          "avg_yen": 792.4,
+          "winrate": 53.1,
+          "maxdd_yen": -57457,
+          "pf": 1.51,
+          "mar": 15.53
+        },
+        "rolling_1y": {
+          "n": 3034,
+          "profit_pct": 76.8,
+          "worst_total_yen": -71030,
+          "worst_dd_yen": -73016
+        },
+        "rolling_3y": {
+          "n": 2530,
+          "profit_pct": 95.6,
+          "worst_total_yen": -28162,
+          "worst_dd_yen": -101144
+        }
+      },
+      {
+        "name": "vix_pr_lt_0.8",
+        "category": "VIX",
+        "thesis": "VIX過去1年分位80%未満",
+        "full": {
+          "trades": 3079,
+          "total_yen": 943051,
+          "avg_yen": 306.3,
+          "winrate": 50.7,
+          "maxdd_yen": -89434,
+          "pf": 1.311,
+          "mar": 10.54
+        },
+        "train_2011_2020": {
+          "trades": 2008,
+          "total_yen": 157602,
+          "avg_yen": 78.5,
+          "winrate": 49.4,
+          "maxdd_yen": -89434,
+          "pf": 1.105,
+          "mar": 1.76
+        },
+        "test_2021_2026": {
+          "trades": 1071,
+          "total_yen": 785450,
+          "avg_yen": 733.4,
+          "winrate": 53.3,
+          "maxdd_yen": -57457,
+          "pf": 1.513,
+          "mar": 13.67
+        },
+        "rolling_1y": {
+          "n": 2828,
+          "profit_pct": 78.8,
+          "worst_total_yen": -71469,
+          "worst_dd_yen": -74317
+        },
+        "rolling_3y": {
+          "n": 2324,
+          "profit_pct": 78.1,
+          "worst_total_yen": -56644,
+          "worst_dd_yen": -89434
+        }
+      }
+    ],
+    "volatility": [
+      {
+        "name": "vol20_pr_lt_0.8",
+        "category": "volatility",
+        "thesis": "日経20日実現ボラ分位80%未満",
+        "full": {
+          "trades": 2716,
+          "total_yen": 887766,
+          "avg_yen": 326.9,
+          "winrate": 51.5,
+          "maxdd_yen": -84026,
+          "pf": 1.365,
+          "mar": 10.57
+        },
+        "train_2011_2020": {
+          "trades": 1841,
+          "total_yen": 171020,
+          "avg_yen": 92.9,
+          "winrate": 49.9,
+          "maxdd_yen": -84026,
+          "pf": 1.128,
+          "mar": 2.04
+        },
+        "test_2021_2026": {
+          "trades": 875,
+          "total_yen": 716746,
+          "avg_yen": 819.1,
+          "winrate": 54.9,
+          "maxdd_yen": -36068,
+          "pf": 1.653,
+          "mar": 19.87
+        },
+        "rolling_1y": {
+          "n": 2465,
+          "profit_pct": 75.5,
+          "worst_total_yen": -68950,
+          "worst_dd_yen": -71455
+        },
+        "rolling_3y": {
+          "n": 1961,
+          "profit_pct": 91.7,
+          "worst_total_yen": -17480,
+          "worst_dd_yen": -84026
+        }
+      },
+      {
+        "name": "vol20_pr_ge_0.8",
+        "category": "volatility",
+        "thesis": "日経20日実現ボラ分位80%以上",
+        "full": {
+          "trades": 1046,
+          "total_yen": 934461,
+          "avg_yen": 893.4,
+          "winrate": 52.8,
+          "maxdd_yen": -72354,
+          "pf": 1.602,
+          "mar": 12.92
+        },
+        "train_2011_2020": {
+          "trades": 606,
+          "total_yen": 274880,
+          "avg_yen": 453.6,
+          "winrate": 53.1,
+          "maxdd_yen": -31733,
+          "pf": 1.407,
+          "mar": 8.66
+        },
+        "test_2021_2026": {
+          "trades": 440,
+          "total_yen": 659581,
+          "avg_yen": 1499.0,
+          "winrate": 52.3,
+          "maxdd_yen": -72354,
+          "pf": 1.753,
+          "mar": 9.12
+        },
+        "rolling_1y": {
+          "n": 795,
+          "profit_pct": 99.5,
+          "worst_total_yen": -6136,
+          "worst_dd_yen": -72354
+        },
+        "rolling_3y": {
+          "n": 291,
+          "profit_pct": 100.0,
+          "worst_total_yen": 232606,
+          "worst_dd_yen": -72354
+        }
+      }
+    ],
+    "loss_streak": [
+      {
+        "name": "skip_after_2_losses",
+        "category": "loss_streak",
+        "thesis": "2連敗後だけ停止",
+        "full": {
+          "trades": 2906,
+          "total_yen": 1368830,
+          "avg_yen": 471.0,
+          "winrate": 51.7,
+          "maxdd_yen": -108260,
+          "pf": 1.431,
+          "mar": 12.64
+        },
+        "train_2011_2020": {
+          "trades": 1861,
+          "total_yen": 333549,
+          "avg_yen": 179.2,
+          "winrate": 51.1,
+          "maxdd_yen": -108260,
+          "pf": 1.216,
+          "mar": 3.08
+        },
+        "test_2021_2026": {
+          "trades": 1045,
+          "total_yen": 1035281,
+          "avg_yen": 990.7,
+          "winrate": 52.7,
+          "maxdd_yen": -76392,
+          "pf": 1.634,
+          "mar": 13.55
+        },
+        "rolling_1y": {
+          "n": 2655,
+          "profit_pct": 77.0,
+          "worst_total_yen": -78423,
+          "worst_dd_yen": -84515
+        },
+        "rolling_3y": {
+          "n": 2151,
+          "profit_pct": 99.6,
+          "worst_total_yen": -3819,
+          "worst_dd_yen": -108260
+        }
+      },
+      {
+        "name": "only_after_2_losses",
+        "category": "loss_streak",
+        "thesis": "2連敗後だけ取引",
+        "full": {
+          "trades": 856,
+          "total_yen": 453397,
+          "avg_yen": 529.7,
+          "winrate": 52.5,
+          "maxdd_yen": -41885,
+          "pf": 1.565,
+          "mar": 10.82
+        },
+        "train_2011_2020": {
+          "trades": 586,
+          "total_yen": 112352,
+          "avg_yen": 191.7,
+          "winrate": 49.5,
+          "maxdd_yen": -30951,
+          "pf": 1.243,
+          "mar": 3.63
+        },
+        "test_2021_2026": {
+          "trades": 270,
+          "total_yen": 341046,
+          "avg_yen": 1263.1,
+          "winrate": 58.9,
+          "maxdd_yen": -27471,
+          "pf": 2.003,
+          "mar": 12.41
+        },
+        "rolling_1y": {
+          "n": 605,
+          "profit_pct": 100.0,
+          "worst_total_yen": 18024,
+          "worst_dd_yen": -41885
+        },
+        "rolling_3y": {
+          "n": 101,
+          "profit_pct": 100.0,
+          "worst_total_yen": 208088,
+          "worst_dd_yen": -41885
+        }
+      },
+      {
+        "name": "skip_after_1_loss",
+        "category": "loss_streak",
+        "thesis": "前日S1負けなら停止",
+        "full": {
+          "trades": 1952,
+          "total_yen": 824773,
+          "avg_yen": 422.5,
+          "winrate": 51.1,
+          "maxdd_yen": -100152,
+          "pf": 1.367,
+          "mar": 8.24
+        },
+        "train_2011_2020": {
+          "trades": 1242,
+          "total_yen": 146043,
+          "avg_yen": 117.6,
+          "winrate": 50.2,
+          "maxdd_yen": -100152,
+          "pf": 1.138,
+          "mar": 1.46
+        },
+        "test_2021_2026": {
+          "trades": 710,
+          "total_yen": 678730,
+          "avg_yen": 956.0,
+          "winrate": 52.8,
+          "maxdd_yen": -65203,
+          "pf": 1.57,
+          "mar": 10.41
+        },
+        "rolling_1y": {
+          "n": 1701,
+          "profit_pct": 71.9,
+          "worst_total_yen": -76793,
+          "worst_dd_yen": -87455
+        },
+        "rolling_3y": {
+          "n": 1197,
+          "profit_pct": 76.6,
+          "worst_total_yen": -80951,
+          "worst_dd_yen": -100152
+        }
+      }
+    ],
+    "combo": [
+      {
+        "name": "gap08_and_ny_same",
+        "category": "combo",
+        "thesis": "gap>=80%かつNY同方向",
+        "full": {
+          "trades": 748,
+          "total_yen": 1594584,
+          "avg_yen": 2131.8,
+          "winrate": 62.8,
+          "maxdd_yen": -22315,
+          "pf": 3.054,
+          "mar": 71.46
+        },
+        "train_2011_2020": {
+          "trades": 473,
+          "total_yen": 525933,
+          "avg_yen": 1111.9,
+          "winrate": 60.8,
+          "maxdd_yen": -22315,
+          "pf": 2.311,
+          "mar": 23.57
+        },
+        "test_2021_2026": {
+          "trades": 275,
+          "total_yen": 1068652,
+          "avg_yen": 3886.0,
+          "winrate": 66.2,
+          "maxdd_yen": -19068,
+          "pf": 3.848,
+          "mar": 56.05
+        },
+        "rolling_1y": {
+          "n": 497,
+          "profit_pct": 100.0,
+          "worst_total_yen": 193768,
+          "worst_dd_yen": -22315
+        },
+        "rolling_3y": null
+      },
+      {
+        "name": "gap08_and_vol20_lt80",
+        "category": "combo",
+        "thesis": "gap>=80%かつ日経20日ボラ80%未満",
+        "full": {
+          "trades": 475,
+          "total_yen": 763658,
+          "avg_yen": 1607.7,
+          "winrate": 63.5,
+          "maxdd_yen": -16026,
+          "pf": 3.236,
+          "mar": 47.65
+        },
+        "train_2011_2020": {
+          "trades": 306,
+          "total_yen": 267495,
+          "avg_yen": 874.2,
+          "winrate": 62.3,
+          "maxdd_yen": -12114,
+          "pf": 2.541,
+          "mar": 22.08
+        },
+        "test_2021_2026": {
+          "trades": 169,
+          "total_yen": 496162,
+          "avg_yen": 2935.9,
+          "winrate": 65.7,
+          "maxdd_yen": -16026,
+          "pf": 3.953,
+          "mar": 30.96
+        },
+        "rolling_1y": {
+          "n": 224,
+          "profit_pct": 100.0,
+          "worst_total_yen": 238166,
+          "worst_dd_yen": -16026
+        },
+        "rolling_3y": null
+      },
+      {
+        "name": "gap08_and_vix_lt25",
+        "category": "combo",
+        "thesis": "gap>=80%かつVIX<25",
+        "full": {
+          "trades": 676,
+          "total_yen": 1081320,
+          "avg_yen": 1599.6,
+          "winrate": 62.5,
+          "maxdd_yen": -30869,
+          "pf": 2.608,
+          "mar": 35.03
+        },
+        "train_2011_2020": {
+          "trades": 430,
+          "total_yen": 360239,
+          "avg_yen": 837.8,
+          "winrate": 61.8,
+          "maxdd_yen": -22315,
+          "pf": 2.106,
+          "mar": 16.14
+        },
+        "test_2021_2026": {
+          "trades": 246,
+          "total_yen": 721081,
+          "avg_yen": 2931.2,
+          "winrate": 63.8,
+          "maxdd_yen": -30869,
+          "pf": 3.08,
+          "mar": 23.36
+        },
+        "rolling_1y": {
+          "n": 425,
+          "profit_pct": 100.0,
+          "worst_total_yen": 164759,
+          "worst_dd_yen": -30869
+        },
+        "rolling_3y": null
+      },
+      {
+        "name": "gap08_and_trend_ma20",
+        "category": "combo",
+        "thesis": "gap>=80%かつMA20順方向",
+        "full": {
+          "trades": 437,
+          "total_yen": 916468,
+          "avg_yen": 2097.2,
+          "winrate": 60.8,
+          "maxdd_yen": -29839,
+          "pf": 3.04,
+          "mar": 30.71
+        },
+        "train_2011_2020": {
+          "trades": 281,
+          "total_yen": 267321,
+          "avg_yen": 951.3,
+          "winrate": 58.9,
+          "maxdd_yen": -18876,
+          "pf": 2.137,
+          "mar": 14.16
+        },
+        "test_2021_2026": {
+          "trades": 156,
+          "total_yen": 649147,
+          "avg_yen": 4161.2,
+          "winrate": 64.1,
+          "maxdd_yen": -29839,
+          "pf": 4.032,
+          "mar": 21.76
+        },
+        "rolling_1y": {
+          "n": 186,
+          "profit_pct": 100.0,
+          "worst_total_yen": 203178,
+          "worst_dd_yen": -29839
+        },
+        "rolling_3y": null
+      },
+      {
+        "name": "gap08_and_prev_big_not",
+        "category": "combo",
+        "thesis": "gap>=80%かつ前日大線なし",
+        "full": {
+          "trades": 678,
+          "total_yen": 947386,
+          "avg_yen": 1397.3,
+          "winrate": 63.2,
+          "maxdd_yen": -38210,
+          "pf": 2.581,
+          "mar": 24.79
+        },
+        "train_2011_2020": {
+          "trades": 461,
+          "total_yen": 420324,
+          "avg_yen": 911.8,
+          "winrate": 62.6,
+          "maxdd_yen": -20933,
+          "pf": 2.353,
+          "mar": 20.08
+        },
+        "test_2021_2026": {
+          "trades": 217,
+          "total_yen": 527061,
+          "avg_yen": 2428.9,
+          "winrate": 64.5,
+          "maxdd_yen": -38210,
+          "pf": 2.828,
+          "mar": 13.79
+        },
+        "rolling_1y": {
+          "n": 427,
+          "profit_pct": 100.0,
+          "worst_total_yen": 186152,
+          "worst_dd_yen": -38210
+        },
+        "rolling_3y": null
+      }
+    ]
+  }
+}
