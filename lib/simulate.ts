@@ -1,6 +1,7 @@
 // バックテスト/シミュレーション
 import type { Bar } from "./yahoo";
 import { generateSignal, findPrevNYBar, type Signal } from "./strategy";
+import { evaluatePolicy, type StrategyPolicyId } from "./policy";
 
 export type Trade = Signal & {
   pieces: number; // 実際の建玉枚数 = basePieces × piecesLogic
@@ -29,7 +30,8 @@ export function simulate(
   startDate: string,
   contractSize: number, // 1pt当たり円
   basePieces: number,
-  initialCapital: number
+  initialCapital: number,
+  policyId: StrategyPolicyId = "s1_all"
 ): SimResult {
   const trades: Trade[] = [];
   let cumPt = 0;
@@ -44,6 +46,8 @@ export function simulate(
     const nyPrev = findPrevNYBar(djiBars, today.date);
     const sig = generateSignal(today, prev, nyPrev);
     if (!sig || sig.direction === "skip" || sig.pnlPt == null) continue;
+    const policy = evaluatePolicy(n225Bars, i, sig, policyId);
+    if (!policy.allowed) continue;
 
     const pieces = basePieces * sig.piecesLogic;
     const pnlPt = sig.yubeSign * pieces * (sig.range ?? 0);

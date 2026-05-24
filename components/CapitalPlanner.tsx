@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import type { Bar } from "@/lib/yahoo";
 import { simulate } from "@/lib/simulate";
+import type { StrategyPolicyId } from "@/lib/policy";
 
 type ContractKey = "micro" | "mini" | "large";
 
@@ -31,10 +32,12 @@ export function CapitalPlanner({
   n225,
   dji,
   selectedCapital,
+  policyId,
 }: {
   n225: Bar[];
   dji: Bar[];
   selectedCapital: number;
+  policyId: StrategyPolicyId;
 }) {
   const [riskPct, setRiskPct] = useState(20);
 
@@ -46,7 +49,7 @@ export function CapitalPlanner({
     const years = Math.max((lastMs - firstMs) / (365.25 * 24 * 60 * 60 * 1000), 1);
 
     return CONTRACTS.map((contract) => {
-      const sim = simulate(n225, dji, "2020-01-01", contract.size, 1, 1_000_000);
+      const sim = simulate(n225, dji, "2020-01-01", contract.size, 1, 1_000_000, policyId);
       const maxDDYen = Math.abs(sim.maxDDyen);
       return {
         ...contract,
@@ -57,7 +60,7 @@ export function CapitalPlanner({
         trades: sim.trades.length,
       };
     });
-  }, [n225, dji]);
+  }, [n225, dji, policyId]);
 
   const capitalRows = useMemo(() => {
     const baseCapitals = [50_000, 100_000, 300_000, 500_000, 1_000_000, 3_000_000, 5_000_000, 10_000_000];

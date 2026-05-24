@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import type { Signal } from "@/lib/strategy";
 import type { Bar } from "@/lib/yahoo";
 import { simulate } from "@/lib/simulate";
+import type { StrategyPolicyId } from "@/lib/policy";
 
 type PaperPosition = {
   id: string;
@@ -48,6 +49,8 @@ export function PaperDemo({
   contractLabel,
   contractSize,
   initialCapital,
+  policyId,
+  policyLabel,
 }: {
   n225: Bar[];
   dji: Bar[];
@@ -56,6 +59,8 @@ export function PaperDemo({
   contractLabel: string;
   contractSize: number;
   initialCapital: number;
+  policyId: StrategyPolicyId;
+  policyLabel: string;
 }) {
   const [state, setState] = useState<PaperState>({ initialCapital, positions: [] });
   const [manualExitPrice, setManualExitPrice] = useState("");
@@ -93,7 +98,7 @@ export function PaperDemo({
   const account = state.initialCapital + realizedPnl;
 
   const sizing = useMemo(() => {
-    const simOne = simulate(n225, dji, "2020-01-01", contractSize, 1, 1_000_000);
+    const simOne = simulate(n225, dji, "2020-01-01", contractSize, 1, 1_000_000, policyId);
     const maxDDPerBase = Math.abs(simOne.maxDDyen);
     const maxSingleDayLoss = Math.abs(Math.min(0, ...simOne.trades.map((t) => t.pnlYen)));
     const ddBudgetYen = Math.max(0, account) * (ddBudgetPct / 100);
@@ -111,7 +116,7 @@ export function PaperDemo({
       recommendedDDYen: maxDDPerBase * safeBasePieces,
       manualBasePieces: basePieces,
     };
-  }, [n225, dji, contractSize, account, ddBudgetPct, safetyBuffer, basePieces]);
+  }, [n225, dji, contractSize, account, ddBudgetPct, safetyBuffer, basePieces, policyId]);
 
   const autoBasePieces = sizing.recommendedBasePieces > 0 ? sizing.recommendedBasePieces : basePieces;
   const suggestedPieces = signal && signal.direction !== "skip" ? signal.piecesLogic * autoBasePieces : 0;
@@ -193,7 +198,7 @@ export function PaperDemo({
             <div className="text-[10px] uppercase tracking-widest text-[var(--gold)]">資本金から自動で枚数計算</div>
             <div className="mt-1 text-sm font-bold text-[var(--text)]">
               推奨: 基本 {sizing.recommendedBasePieces}枚 / 今日 {suggestedPieces}枚
-              <span className="ml-2 text-xs font-normal text-[var(--text-muted)]">（{contractLabel}）</span>
+              <span className="ml-2 text-xs font-normal text-[var(--text-muted)]">（{contractLabel} / {policyLabel}）</span>
             </div>
             <p className="mt-1 text-xs leading-relaxed text-[var(--text-muted)]">
               これは1日で負けた金額ではなく、利益ピークから谷までの累積最大落ち込み。ロジックはこれで合ってる: 「1枚の累積最大DD × 枚数」が軍資金を越えなければ、その過去DDには耐えられる。

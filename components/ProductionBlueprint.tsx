@@ -1,5 +1,7 @@
 "use client";
 
+import { ConnectionChecklist } from "./ConnectionChecklist";
+
 export function ProductionBlueprint() {
   const steps = [
     {
@@ -24,6 +26,14 @@ export function ProductionBlueprint() {
     },
   ];
 
+  const checklist = [
+    { label: "IBKR口座 / Paper Tradingが有効", status: "unknown" as const, note: "口座開設後に確認。まずはPAPERのみで発注テスト。" },
+    { label: "IB GatewayをXserver VPSに常駐", status: "unknown" as const, note: "TWS API接続先。Vercelから直接発注しない。" },
+    { label: "環境変数をVPSだけに保存", status: "unknown" as const, note: "IBKR_HOST / IBKR_PORT / IBKR_CLIENT_ID / TF_LIVE_ENABLED=false。秘密情報はGit/Vercelに置かない。" },
+    { label: "PAPERで寄り建て・引け決済の往復成功", status: "unknown" as const, note: "約定ID、建玉照会、二重発注防止まで確認。" },
+    { label: "LIVE発注ONは手動承認後", status: "ng" as const, note: "API発行直後はLIVE OFF。マイクロ1枚から。" },
+  ];
+
   return (
     <section className="rounded-xl border border-[var(--border)] bg-[var(--bg-card)] p-5">
       <div className="mb-4">
@@ -42,6 +52,27 @@ export function ProductionBlueprint() {
 
       <div className="mb-4 rounded-lg border border-[var(--red)]/40 bg-[var(--red)]/10 p-3 text-xs leading-relaxed text-[var(--red)]">
         🔒 LIVE発注は現在OFF。業者API・APIキー・証拠金・手数料込みPL・安全停止条件が揃うまで、このダッシュボードから本番発注はできない設計。
+      </div>
+
+      <div className="mb-4 grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <ConnectionChecklist items={checklist} />
+        <div className="rounded-xl border border-[var(--border)] bg-[var(--bg-elevated)] p-5">
+          <h3 className="text-sm font-semibold uppercase tracking-widest text-[var(--text-muted)]">API発行後に入力するもの</h3>
+          <p className="mt-2 text-xs leading-relaxed text-[var(--text-muted)]">
+            APIキーやログイン情報はこの画面/ Git / Vercelには保存しない。Xserver VPSの.envだけに入れる。
+          </p>
+          <pre className="mt-3 overflow-x-auto rounded-lg border border-[var(--border)] bg-black/20 p-3 text-[11px] leading-5 text-[var(--text-muted)]">{`IBKR_HOST=127.0.0.1
+IBKR_PORT=4002        # Paper Gateway想定
+IBKR_CLIENT_ID=101
+TF_BROKER=ibkr
+TF_MODE=paper
+TF_LIVE_ENABLED=false # 本番承認までtrue禁止
+TF_MAX_BASE_PIECES=1
+TF_POLICY=gap_pr_80`}</pre>
+          <div className="mt-3 text-[11px] leading-relaxed text-[var(--gold)]">
+            API発行後の流れ: ① VPSに.env設定 → ② IB Gateway起動 → ③ 接続テスト → ④ PAPER発注 → ⑤ 1〜2週間ログ確認 → ⑥ 承認後にLIVEをマイクロ1枚だけON。
+          </div>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">

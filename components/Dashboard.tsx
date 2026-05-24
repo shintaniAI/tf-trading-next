@@ -22,6 +22,8 @@ import { CapitalPlanner } from "./CapitalPlanner";
 import { PaperDemo } from "./PaperDemo";
 import { ProductionBlueprint } from "./ProductionBlueprint";
 import { BeginnerGuide } from "./BeginnerGuide";
+import { StrategyPolicyPanel } from "./StrategyPolicyPanel";
+import { STRATEGY_POLICIES, evaluatePolicy, getPolicy, type StrategyPolicyId } from "@/lib/policy";
 
 type ContractKey = "micro" | "mini" | "large";
 const CONTRACTS: Record<ContractKey, { label: string; size: number }> = {
@@ -52,6 +54,7 @@ export function Dashboard({ n225, dji }: { n225: Bar[]; dji: Bar[] }) {
   const [pieces, setPieces] = useState(1);
   const [capital, setCapital] = useState(DEFAULT_CAPITAL["mini"]);
   const [goalCapital, setGoalCapital] = useState(DEFAULT_CAPITAL["mini"] * 10);
+  const [policyId, setPolicyId] = useState<StrategyPolicyId>("gap_pr_80");
   const [now, setNow] = useState<Date | null>(null);
 
   useEffect(() => {
@@ -71,9 +74,13 @@ export function Dashboard({ n225, dji }: { n225: Bar[]; dji: Bar[] }) {
   };
 
   const sim = useMemo(
-    () => simulate(n225, dji, startDate, CONTRACTS[contract].size, pieces, capital),
-    [n225, dji, startDate, contract, pieces, capital]
+    () => simulate(n225, dji, startDate, CONTRACTS[contract].size, pieces, capital, policyId),
+    [n225, dji, startDate, contract, pieces, capital, policyId]
   );
+
+  const policy = getPolicy(policyId);
+  const policyToday = evaluatePolicy(n225, n225.length - 1, sigToday, policyId);
+  const sigTodayForPolicy = policyToday.allowed ? sigToday : null;
 
   const metrics = useMemo(
     () => computeMetrics(sim.trades, capital),
@@ -107,7 +114,14 @@ export function Dashboard({ n225, dji }: { n225: Bar[]; dji: Bar[] }) {
 
       {/* HERO + リアルタイム */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6">
-        <HeroToday signal={sigToday} basePieces={pieces} contractSize={CONTRACTS[contract].size} />
+        <HeroToday
+          signal={sigToday}
+          basePieces={pieces}
+          contractSize={CONTRACTS[contract].size}
+          policyLabel={policy.shortLabel}
+          policyReason={policyToday.reason}
+          tradeAllowed={policyToday.allowed}
+        />
         <IntradayChart />
       </div>
 
@@ -147,7 +161,7 @@ export function Dashboard({ n225, dji }: { n225: Bar[]; dji: Bar[] }) {
           </div>
 
           {/* 設定 */}
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
+          <div className="grid grid-cols-2 md:grid-cols-6 gap-3">
             <Field label="開始日">
               <div className="space-y-1">
                 <input
@@ -178,6 +192,17 @@ export function Dashboard({ n225, dji }: { n225: Bar[]; dji: Bar[] }) {
                 className="bg-[var(--bg-elevated)] border border-[var(--border)] rounded-md px-3 py-2 text-sm w-full focus:outline-none focus:border-[var(--blue)]"
               />
             </Field>
+            <Field label="ロジック">
+              <select
+                value={policyId}
+                onChange={(e) => setPolicyId(e.target.value as StrategyPolicyId)}
+                className="bg-[var(--bg-elevated)] border border-[var(--border)] rounded-md px-3 py-2 text-sm w-full focus:outline-none focus:border-[var(--blue)]"
+              >
+                {STRATEGY_POLICIES.map((p) => (
+                  <option key={p.id} value={p.id}>{p.shortLabel}</option>
+                ))}
+              </select>
+            </Field>
             <Field label="投資金（初期）">
               <input
                 type="number" min={10000} step={10000} value={capital}
@@ -196,17 +221,30 @@ export function Dashboard({ n225, dji }: { n225: Bar[]; dji: Bar[] }) {
         </div>
       </div>
 
+      <StrategyPolicyPanel
+        n225={n225}
+        dji={dji}
+        startDate={startDate}
+        contractSize={CONTRACTS[contract].size}
+        basePieces={pieces}
+        capital={capital}
+        selectedPolicy={policyId}
+        onSelect={setPolicyId}
+      />
+
       <div className="mb-6 space-y-4">
-        {activeSection === "history" && <CapitalPlanner n225={n225} dji={dji} selectedCapital={capital} />}
+        {activeSection === "history" && <CapitalPlanner n225={n225} dji={dji} selectedCapital={capital} policyId={policyId} />}
         {activeSection === "demo" && (
           <PaperDemo
             n225={n225}
             dji={dji}
-            signal={sigToday}
+            signal={sigTodayForPolicy}
             basePieces={pieces}
             contractLabel={CONTRACTS[contract].label}
             contractSize={CONTRACTS[contract].size}
             initialCapital={capital}
+            policyId={policyId}
+            policyLabel={policy.label}
           />
         )}
         {activeSection === "live" && <ProductionBlueprint />}

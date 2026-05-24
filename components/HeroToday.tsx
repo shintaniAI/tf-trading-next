@@ -11,18 +11,25 @@ export function HeroToday({
   signal,
   basePieces,
   contractSize,
+  policyLabel,
+  policyReason,
+  tradeAllowed = true,
 }: {
   signal: Signal | null;
   basePieces: number;
   contractSize: number;
+  policyLabel?: string;
+  policyReason?: string;
+  tradeAllowed?: boolean;
 }) {
-  if (!signal || signal.direction === "skip") {
+  if (!signal || !tradeAllowed || signal.direction === "skip") {
     return (
       <div className="rounded-2xl border border-[var(--border)] bg-[var(--bg-card)] p-8">
         <div className="text-xs uppercase tracking-widest text-[var(--text-muted)]">
-          📅 {signal ? fmtJP(signal.date) : "--"}
+          📅 {signal ? fmtJP(signal.date) : "--"} {policyLabel ? ` / ${policyLabel}` : ""}
         </div>
         <div className="mt-2 text-5xl font-bold text-[var(--text-muted)]">休 ノートレード</div>
+        {policyReason && <div className="mt-3 text-sm text-[var(--gold)]">{policyReason}</div>}
       </div>
     );
   }
@@ -66,7 +73,7 @@ export function HeroToday({
       <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-6 items-center">
         <div>
           <div className="text-xs uppercase tracking-widest text-[var(--text-muted)]">
-            📅 {fmtJP(signal.date)} の指示
+            📅 {fmtJP(signal.date)} の指示 {policyLabel ? ` / ${policyLabel}` : ""}
           </div>
           <div className={`mt-2 text-7xl font-extrabold leading-none ${colorMain}`}>
             {arrow} {signal.direction} {pieces}枚
@@ -81,6 +88,7 @@ export function HeroToday({
             寄り {signal.open.toLocaleString()} → 引け{" "}
             {signal.close != null ? signal.close.toLocaleString() : "—"}
           </div>
+          {policyReason && <div className="mt-2 text-xs text-[var(--gold)]">{policyReason}</div>}
         </div>
         {pnlBlock}
       </div>
